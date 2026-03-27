@@ -96,19 +96,29 @@ func (r *HobbyRepo) List(ctx context.Context, f ListFilter) ([]domain.Hobby, err
 	if err != nil {
 		return nil, fmt.Errorf("list hobbies: %w", err)
 	}
-	defer rows.Close()
 
+	// Collect rows first, then close — avoids holding the connection while
+	// loading dimensions/aliases (which need their own queries).
 	var hobbies []domain.Hobby
 	for rows.Next() {
 		var h domain.Hobby
 		if err := rows.Scan(&h.ID, &h.Slug, &h.Name, &h.ShortDesc, &h.LongDesc, &h.DifficultySummary, &h.StarterPath, &h.Popularity); err != nil {
+			rows.Close()
 			return nil, err
 		}
-		h.Dimensions, _ = r.getDimensions(ctx, h.ID)
-		h.Aliases, _ = r.getAliases(ctx, h.ID)
 		hobbies = append(hobbies, h)
 	}
-	return hobbies, rows.Err()
+	if err := rows.Err(); err != nil {
+		rows.Close()
+		return nil, err
+	}
+	rows.Close()
+
+	for i := range hobbies {
+		hobbies[i].Dimensions, _ = r.getDimensions(ctx, hobbies[i].ID)
+		hobbies[i].Aliases, _ = r.getAliases(ctx, hobbies[i].ID)
+	}
+	return hobbies, nil
 }
 
 func (r *HobbyRepo) SearchFTS(ctx context.Context, query string, limit int) ([]ScoredID, error) {

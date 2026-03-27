@@ -99,7 +99,7 @@ func loadConcepts(tx *sql.Tx, dir string) error {
 	if err := readJSON(filepath.Join(dir, "concepts.json"), &concepts); err != nil {
 		return err
 	}
-	stmt, err := tx.Prepare(`INSERT OR REPLACE INTO nodes (id, node_type, slug, name, description) VALUES (?, ?, ?, ?, ?)`)
+	stmt, err := tx.Prepare(`INSERT OR IGNORE INTO nodes (id, node_type, slug, name, description) VALUES (?, ?, ?, ?, ?)`)
 	if err != nil {
 		return err
 	}
@@ -173,12 +173,30 @@ func loadEdges(tx *sql.Tx, dir string) error {
 	if err := readJSON(filepath.Join(dir, "edges.json"), &edges); err != nil {
 		return err
 	}
-	stmt, err := tx.Prepare(`INSERT OR REPLACE INTO edges (id, from_node_id, to_node_id, edge_type, weight, metadata_json) VALUES (?, ?, ?, ?, ?, ?)`)
+
+	// Build set of inserted node IDs to skip edges referencing non-existent nodes
+	// (seed data has duplicate concept slugs; the second ID is never inserted)
+	nodeIDs := make(map[string]bool)
+	rows, err := tx.Query("SELECT id FROM nodes")
+	if err != nil {
+		return fmt.Errorf("query node ids: %w", err)
+	}
+	for rows.Next() {
+		var id string
+		rows.Scan(&id)
+		nodeIDs[id] = true
+	}
+	rows.Close()
+
+	stmt, err := tx.Prepare(`INSERT OR IGNORE INTO edges (id, from_node_id, to_node_id, edge_type, weight, metadata_json) VALUES (?, ?, ?, ?, ?, ?)`)
 	if err != nil {
 		return err
 	}
 	defer stmt.Close()
 	for _, e := range edges {
+		if !nodeIDs[e.FromNodeID] || !nodeIDs[e.ToNodeID] {
+			continue
+		}
 		metaJSON, _ := json.Marshal(e.Metadata)
 		if _, err := stmt.Exec(e.ID, e.FromNodeID, e.ToNodeID, e.EdgeType, e.Weight, string(metaJSON)); err != nil {
 			return fmt.Errorf("insert edge %s: %w", e.ID, err)
