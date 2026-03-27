@@ -74,3 +74,11 @@ func (r *MemoryRepo) GetSignals(ctx context.Context, sessionID string) ([]domain
 	}
 	return signals, rows.Err()
 }
+
+func (r *MemoryRepo) SaveFeedback(ctx context.Context, hobbyID, action string) error {
+	id := uuid.New().String()
+	_, err := r.db.ExecContext(ctx,
+		"INSERT INTO user_feedback (id, hobby_id, action) VALUES (?, ?, ?)",
+		id, hobbyID, action)
+	return err
+}

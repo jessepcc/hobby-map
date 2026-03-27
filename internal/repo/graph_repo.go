@@ -3,6 +3,7 @@ package repo
 import (
 	"context"
 	"database/sql"
+	"sort"
 
 	"hobby-map/internal/domain"
 )
@@ -145,14 +146,9 @@ func (r *GraphRepo) ExpandToHobbies(ctx context.Context, seedNodeIDs []string, m
 	for id, score := range hobbyScores {
 		results = append(results, ScoredID{ID: id, Score: score})
 	}
-	// Sort descending
-	for i := 0; i < len(results); i++ {
-		for j := i + 1; j < len(results); j++ {
-			if results[j].Score > results[i].Score {
-				results[i], results[j] = results[j], results[i]
-			}
-		}
-	}
+	sort.Slice(results, func(i, j int) bool {
+		return results[i].Score > results[j].Score
+	})
 	if len(results) > limit {
 		results = results[:limit]
 	}

@@ -70,15 +70,17 @@ func (h *Handlers) Recommend(w http.ResponseWriter, r *http.Request) {
 		filter.Limit = 20
 	}
 	if req.Filters != nil {
-		if v, ok := req.Filters["startup_cost_max"]; ok {
-			filter.StartupCostMax = &v
+		mapFilter := func(key string, target **float64) {
+			if v, ok := req.Filters[key]; ok {
+				*target = &v
+			}
 		}
-		if v, ok := req.Filters["physical_demand_max"]; ok {
-			filter.PhysicalDemandMax = &v
-		}
-		if v, ok := req.Filters["space_required_max"]; ok {
-			filter.SpaceRequiredMax = &v
-		}
+		mapFilter("startup_cost_max", &filter.StartupCostMax)
+		mapFilter("ongoing_cost_max", &filter.OngoingCostMax)
+		mapFilter("time_per_session_max", &filter.TimePerSessionMax)
+		mapFilter("physical_demand_max", &filter.PhysicalDemandMax)
+		mapFilter("space_required_max", &filter.SpaceRequiredMax)
+		mapFilter("social_dependency_max", &filter.SocialDependencyMax)
 	}
 
 	results, err := h.deps.Retrieval.Recommend(r.Context(), signals, filter)
@@ -130,6 +132,9 @@ func (h *Handlers) handleFeedback(w http.ResponseWriter, r *http.Request, action
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil || req.HobbyID == "" {
 		writeJSON(w, http.StatusBadRequest, map[string]string{"error": "hobbyId required"})
 		return
+	}
+	if h.deps.MemRepo != nil {
+		h.deps.MemRepo.SaveFeedback(r.Context(), req.HobbyID, action)
 	}
 	writeJSON(w, http.StatusOK, map[string]string{"status": "ok", "action": action})
 }

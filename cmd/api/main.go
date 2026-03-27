@@ -67,16 +67,26 @@ func populateNodeFTS(db *sql.DB) {
 	var concepts []row
 	rows, err := db.Query("SELECT id, name, description FROM nodes WHERE node_type != 'hobby'")
 	if err != nil {
+		log.Printf("WARNING: failed to query concepts for FTS: %v", err)
 		return
 	}
 	for rows.Next() {
 		var r row
-		rows.Scan(&r.id, &r.name, &r.desc)
+		if err := rows.Scan(&r.id, &r.name, &r.desc); err != nil {
+			log.Printf("WARNING: failed to scan concept row: %v", err)
+			continue
+		}
 		concepts = append(concepts, r)
 	}
 	rows.Close()
 
+	inserted := 0
 	for _, c := range concepts {
-		db.Exec("INSERT OR REPLACE INTO node_fts (node_id, name, description) VALUES (?, ?, ?)", c.id, c.name, c.desc)
+		if _, err := db.Exec("INSERT OR REPLACE INTO node_fts (node_id, name, description) VALUES (?, ?, ?)", c.id, c.name, c.desc); err != nil {
+			log.Printf("WARNING: failed to insert node_fts for %s: %v", c.id, err)
+		} else {
+			inserted++
+		}
 	}
+	fmt.Printf("Populated node_fts with %d concepts.\n", inserted)
 }

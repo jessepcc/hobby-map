@@ -54,6 +54,11 @@ func (s *RetrievalService) Recommend(ctx context.Context, signals []domain.Memor
 			continue
 		}
 
+		// Apply dimension filters to candidates
+		if !passesDimFilter(hobby, filter) {
+			continue
+		}
+
 		c := domain.CandidateScore{
 			HobbyID:   m.ID,
 			HobbyName: hobby.Name,
@@ -178,4 +183,27 @@ func generateCaution(hobby *domain.Hobby) string {
 		return "Needs regular practice to progress"
 	}
 	return "Results take time — be patient"
+}
+
+func passesDimFilter(h *domain.Hobby, f repo.ListFilter) bool {
+	d := h.Dimensions
+	if f.StartupCostMax != nil && d["startup_cost"] > *f.StartupCostMax {
+		return false
+	}
+	if f.OngoingCostMax != nil && d["ongoing_cost"] > *f.OngoingCostMax {
+		return false
+	}
+	if f.TimePerSessionMax != nil && d["time_per_session"] > *f.TimePerSessionMax {
+		return false
+	}
+	if f.PhysicalDemandMax != nil && d["physical_demand"] > *f.PhysicalDemandMax {
+		return false
+	}
+	if f.SpaceRequiredMax != nil && d["space_required"] > *f.SpaceRequiredMax {
+		return false
+	}
+	if f.SocialDependencyMax != nil && d["social_dependency"] > *f.SocialDependencyMax {
+		return false
+	}
+	return true
 }
