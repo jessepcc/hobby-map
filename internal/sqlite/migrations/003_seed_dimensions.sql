@@ -1,0 +1,16 @@
+INSERT OR IGNORE INTO dimensions (id, key, label, description) VALUES
+('d_startup_cost', 'startup_cost', 'Startup cost', 'One-time cost to begin the hobby'),
+('d_ongoing_cost', 'ongoing_cost', 'Ongoing cost', 'Recurring monthly/annual expenses'),
+('d_time_per_session', 'time_per_session', 'Time per session', 'Typical time investment per session'),
+('d_consistency_required', 'consistency_required', 'Consistency required', 'How regularly you need to practice'),
+('d_physical_demand', 'physical_demand', 'Physical demand', 'Level of physical exertion required'),
+('d_space_required', 'space_required', 'Space required', 'Physical space needed to practice'),
+('d_social_dependency', 'social_dependency', 'Social dependency', 'How much the hobby depends on other people'),
+('d_learning_curve', 'learning_curve', 'Learning curve', 'Difficulty of reaching competence'),
+('d_first_win_difficulty', 'first_win_difficulty', 'First win difficulty', 'How long until first satisfying result'),
+('d_age_longevity', 'age_longevity', 'Age longevity', 'How long you can practice this into old age'),
+('d_gear_dependency', 'gear_dependency', 'Gear dependency', 'Dependence on specialized equipment'),
+('d_portability', 'portability', 'Portability', 'Ease of practicing in different locations'),
+('d_injury_risk', 'injury_risk', 'Injury risk', 'Risk of physical injury'),
+('d_creative_expression', 'creative_expression', 'Creative expression', 'Opportunity for creative output'),
+('d_historical_cultural_depth', 'historical_cultural_depth', 'Historical/cultural depth', 'Connection to history and culture');
