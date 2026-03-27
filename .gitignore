@@ -1,0 +1,5 @@
+hobby-map.db
+.env
+tmp/
+hobbies.js
+node_modules/
