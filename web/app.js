@@ -1,11 +1,15 @@
-// State
+// ── State ──
 const state = {
   hobbies: [],
   compareIds: new Set(),
   charts: {},
+  visibleCount: 15,
+  lastMemory: null,
+  lastSignals: null,
+  lastResults: null,
 };
 
-// API
+// ── API ──
 async function api(path, opts) {
   const res = await fetch('/api' + path, opts);
   if (!res.ok) {
@@ -20,19 +24,20 @@ const compareHobbies = (ids) => api('/compare', { method: 'POST', headers: { 'Co
 const extractMemory = (text) => api('/memory/extract', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text, source: 'manual_paste' }) });
 const recommend = (signals, filters, limit) => api('/recommend', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ signals, filters: filters || {}, limit: limit || 20 }) });
 
-// Router
+// ── Router ──
 function route() {
   const hash = location.hash || '#/';
   const path = hash.slice(1);
-  document.querySelectorAll('.nav-links a').forEach(a => {
-    a.classList.toggle('active', a.getAttribute('href') === hash);
-  });
+  const exploreLink = document.getElementById('nav-explore');
+  const aboutLink = document.getElementById('nav-about');
+  if (exploreLink) exploreLink.classList.toggle('active', path === '/explore');
+  if (aboutLink) aboutLink.classList.toggle('active', path === '/about');
   destroyCharts();
-  if (path === '/' || path === '') renderHome();
-  else if (path === '/explore') renderExplore();
+  if (path === '/explore') renderExplore();
+  else if (path === '/results') renderResults();
+  else if (path.startsWith('/hobby/')) renderDetail(path.split('/hobby/')[1]);
   else if (path === '/compare') renderCompare();
-  else if (path === '/match') renderMatch();
-  else renderHome();
+  else renderLanding();
 }
 window.addEventListener('hashchange', route);
 window.addEventListener('load', route);
@@ -42,107 +47,344 @@ function destroyCharts() {
   state.charts = {};
 }
 
-// Safe text escaping
-function esc(s) {
-  if (!s) return '';
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
-// Safe DOM helpers — used instead of innerHTML for user-controlled content
-function setText(el, text) {
-  if (typeof el === 'string') el = document.getElementById(el);
-  if (el) el.textContent = text;
-}
-
-function createEl(tag, attrs, children) {
-  const el = document.createElement(tag);
+// ── DOM ──
+function el(tag, attrs, children) {
+  const node = document.createElement(tag);
   if (attrs) Object.entries(attrs).forEach(([k, v]) => {
-    if (k === 'className') el.className = v;
-    else if (k === 'textContent') el.textContent = v;
-    else if (k.startsWith('on')) el.addEventListener(k.slice(2).toLowerCase(), v);
-    else el.setAttribute(k, v);
+    if (k === 'cls') node.className = v;
+    else if (k.startsWith('on')) node.addEventListener(k.slice(2).toLowerCase(), v);
+    else node.setAttribute(k, v);
   });
-  if (children) {
-    if (typeof children === 'string') el.textContent = children;
-    else if (Array.isArray(children)) children.forEach(c => { if (c) el.appendChild(c); });
-    else el.appendChild(children);
+  if (children != null) {
+    if (typeof children === 'string') node.textContent = children;
+    else if (Array.isArray(children)) children.forEach(c => { if (c) node.appendChild(typeof c === 'string' ? document.createTextNode(c) : c); });
+    else node.appendChild(typeof children === 'string' ? document.createTextNode(children) : children);
   }
-  return el;
+  return node;
 }
 
-// Render: Home
-function renderHome() {
+// ════════════ LANDING ════════════
+const MEMORY_PROMPT = [
+  'I am moving to another service and need to export my data. Just write every memory you',
+  'have about me, as well as any context you have inferred about me from past',
+  'conversations. From everything on a single very long text, or even multiple ones if it',
+  'makes more easily, as follows/output, if available -- memory content',
+  '',
+  'Then also try to cover all of the following -- previous AI-wide memories about yourself:',
+  '',
+  ' - Instructions I have given you about how to consume ideas, content, style,',
+  '   always on, or trend to fit',
+  ' - Personal details, name, location, job, family, interests',
+  ' - Favorite genres, entertainment, and relaxing tenure',
+  ' - Skills, languages, and frameworks I work with',
+  ' - Preferences and requirements I have made to your behaviors',
+  ' - Any other useful context for improving recommendations',
+  '',
+  'Do not apologize. Be thorough. Try not to miss anything. Write the long block,',
+  'then fix the last sections left to try and fill.',
+].join('\n');
+
+function renderLanding() {
   const app = document.getElementById('app');
   app.replaceChildren();
-  const div = createEl('div', { className: 'home' });
-  const h1 = createEl('h1');
-  h1.append('Find Your Next ', createEl('span', {}, 'Hobby'));
-  div.appendChild(h1);
-  div.appendChild(createEl('p', {}, 'Discover hobbies that match your interests, lifestyle, and goals.'));
-  const cta = createEl('div', { className: 'cta-row' });
-  const matchBtn = createEl('a', { href: '#/match', className: 'btn btn-primary' }, 'Paste Your Memory');
-  const browseBtn = createEl('a', { href: '#/explore', className: 'btn' }, 'Browse Hobbies');
-  cta.append(matchBtn, browseBtn);
-  div.appendChild(cta);
-  app.appendChild(div);
+
+  // Hero
+  const hero = el('div', { cls: 'hero' });
+  hero.appendChild(el('span', { cls: 'hero-deco' }, '+'));
+  hero.appendChild(el('h1', null, 'Find your thing.'));
+  hero.appendChild(el('p', { cls: 'subtitle' }, 'Paste a memory. We\u2019ll find hobbies that fit your life.'));
+
+  const inputCard = el('div', { cls: 'input-card' });
+  const textarea = el('textarea', {
+    id: 'memory-input',
+    placeholder: 'I used to spend weekends building model trains with my grandfather\u2026',
+    rows: '5',
+  });
+  inputCard.appendChild(textarea);
+  hero.appendChild(inputCard);
+
+  const ctaBtn = el('button', { cls: 'cta-btn', id: 'match-btn', onClick: runMatch }, 'Discover hobbies');
+  hero.appendChild(ctaBtn);
+  hero.appendChild(el('div', { id: 'input-helper-slot' }));
+
+  const landing = el('div', { cls: 'landing' });
+  landing.appendChild(hero);
+
+  // Memory Guide
+  const guide = el('div', { cls: 'memory-guide' });
+  const guideCard = el('div', { cls: 'guide-card' });
+
+  const headingRow = el('div', { cls: 'guide-heading' });
+  headingRow.appendChild(el('span', { cls: 'guide-heading-label' }, 'HOW TO GET YOUR MEMORY'));
+  guideCard.appendChild(headingRow);
+
+  guideCard.appendChild(el('p', { cls: 'guide-desc' }, 'Copy and paste the provided prompt into a chat with any AI provider. It is written specifically to help you get all of your context in one chat.'));
+
+  const promptBlock = el('div', { cls: 'prompt-block' });
+  promptBlock.textContent = MEMORY_PROMPT;
+  guideCard.appendChild(promptBlock);
+
+  const copyBtn = el('button', { cls: 'copy-btn', onClick: () => {
+    navigator.clipboard.writeText(MEMORY_PROMPT).then(() => {
+      copyBtn.textContent = '\u2713 Copied!';
+      setTimeout(() => { copyBtn.textContent = '\u2709 Copy prompt'; }, 2000);
+    });
+  }});
+  copyBtn.textContent = '\u2709 Copy prompt';
+  guideCard.appendChild(copyBtn);
+
+  guideCard.appendChild(el('span', { cls: 'guide-ref' }, 'Learn more at claude.com/import-memory'));
+  guide.appendChild(guideCard);
+  landing.appendChild(guide);
+
+  // Footer
+  const footer = el('div', { cls: 'footer-bar' });
+  footer.appendChild(el('span', null, 'No surveys'));
+  footer.appendChild(el('span', { cls: 'footer-dot' }, '\u00b7'));
+  footer.appendChild(el('span', null, 'AI-powered matching'));
+  footer.appendChild(el('span', { cls: 'footer-dot' }, '\u00b7'));
+  footer.appendChild(el('span', null, 'Instant results'));
+  landing.appendChild(footer);
+
+  app.appendChild(landing);
 }
 
-// Render: Explore
+async function runMatch() {
+  const textarea = document.getElementById('memory-input');
+  const text = textarea?.value?.trim();
+  if (!text) {
+    textarea.closest('.input-card').classList.add('shake');
+    setTimeout(() => textarea.closest('.input-card').classList.remove('shake'), 500);
+    const slot = document.getElementById('input-helper-slot');
+    if (slot && !slot.hasChildNodes()) {
+      slot.appendChild(el('div', { cls: 'input-helper' }, 'Write a few sentences about yourself \u2014 try the prompt below for ideas.'));
+    }
+    textarea.focus();
+    return;
+  }
+
+  const btn = document.getElementById('match-btn');
+  btn.disabled = true;
+  btn.replaceChildren(el('span', { cls: 'spinner' }), ' Reading\u2026');
+
+  try {
+    const extracted = await extractMemory(text);
+    const signals = extracted.signals;
+    state.lastMemory = text;
+    state.lastSignals = signals;
+
+    const domainSignals = signals.map(s => ({
+      signalType: s.type, text: s.text,
+      normalizedValue: s.normalizedValue, weight: s.weight, confidence: s.weight,
+    }));
+    const rec = await recommend(domainSignals, {}, 10);
+    state.lastResults = rec.results || [];
+    location.hash = '#/results';
+  } catch (err) {
+    const slot = document.getElementById('input-helper-slot');
+    if (slot) {
+      slot.replaceChildren(el('div', { cls: 'input-helper' },
+        err.message === 'Failed to fetch' ? 'Couldn\u2019t reach the server.' : 'Something didn\u2019t work. Try again.'));
+    }
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Discover hobbies';
+  }
+}
+
+// ════════════ RESULTS ════════════
+function renderResults() {
+  const app = document.getElementById('app');
+  app.replaceChildren();
+
+  if (!state.lastResults) { location.hash = '#/'; return; }
+
+  const page = el('div', { cls: 'results-page' });
+
+  // Back link
+  page.appendChild(el('button', { cls: 'back-link', onClick: () => { location.hash = '#/'; }}, [
+    el('span', null, '\u2190'),
+    el('span', null, 'Try different memory'),
+  ]));
+
+  // Memory Section
+  const memSection = el('div', { cls: 'memory-section' });
+
+  const memHeader = el('div', { cls: 'memory-header' });
+  const memLabel = el('div', { cls: 'memory-label' });
+  memLabel.appendChild(el('span', { cls: 'memory-label-plus' }, '+'));
+  memLabel.appendChild(el('span', { cls: 'memory-label-text' }, 'YOUR MEMORY'));
+  memHeader.appendChild(memLabel);
+  memHeader.appendChild(el('div', { cls: 'memory-header-spacer' }));
+  memHeader.appendChild(el('button', { cls: 'edit-link', onClick: () => { location.hash = '#/'; }}, [
+    el('span', null, '\u270e'),
+    el('span', null, 'Edit memory'),
+  ]));
+  memSection.appendChild(memHeader);
+
+  const memCard = el('div', { cls: 'memory-card' });
+  memCard.appendChild(el('p', null, state.lastMemory));
+  memSection.appendChild(memCard);
+
+  // Signals
+  if (state.lastSignals?.length) {
+    const sigSection = el('div', { cls: 'signals-section' });
+    const grouped = {};
+    const typeLabels = { interest: 'INTERESTS', lifestyle_constraint: 'LIFESTYLE', experience: 'EXPERIENCE' };
+    state.lastSignals.forEach(s => {
+      const key = s.type || 'other';
+      if (!grouped[key]) grouped[key] = [];
+      grouped[key].push(s);
+    });
+    let first = true;
+    Object.entries(grouped).forEach(([type, sigs]) => {
+      if (!first) sigSection.appendChild(el('div', { cls: 'signal-sep' }));
+      first = false;
+      const group = el('div', { cls: 'signal-group' });
+      group.appendChild(el('span', { cls: 'signal-group-label' }, typeLabels[type] || type.toUpperCase()));
+      const pills = el('div', { cls: 'signal-pills' });
+      sigs.forEach(s => pills.appendChild(el('span', { cls: 'signal-pill' }, s.text)));
+      group.appendChild(pills);
+      sigSection.appendChild(group);
+    });
+    memSection.appendChild(sigSection);
+  }
+  page.appendChild(memSection);
+
+  // Results Header
+  const rHeader = el('div', { cls: 'results-header' });
+  rHeader.appendChild(el('h2', null, 'Your matches'));
+  rHeader.appendChild(el('span', { cls: 'results-subtitle' }, 'Based on your interests and lifestyle'));
+  rHeader.appendChild(el('div', { cls: 'results-header-spacer' }));
+  rHeader.appendChild(el('span', { cls: 'results-count' }, state.lastResults.length + ' results'));
+  page.appendChild(rHeader);
+
+  if (!state.lastResults.length) {
+    page.appendChild(el('div', { cls: 'empty' }, [
+      el('p', null, 'No strong matches \u2014 but that\u2019s useful info.'),
+      el('p', null, 'Try adding more about what you enjoy, your schedule, or what you\u2019re looking for.'),
+    ]));
+    app.appendChild(page);
+    return;
+  }
+
+  // Cards Grid
+  const grid = el('div', { cls: 'cards-grid' });
+  state.lastResults.forEach((r, i) => {
+    const card = el('div', { cls: 'result-card', style: 'animation-delay:' + (i * 0.04) + 's', onClick: () => {
+      location.hash = '#/hobby/' + (r.hobbyId || r.rank);
+    }});
+
+    const header = el('div', { cls: 'card-header' });
+    const content = el('div', { cls: 'card-content' });
+    content.appendChild(el('h3', null, r.hobbyName));
+    const desc = (r.reasons || []).join('. ') || r.caution || '';
+    if (desc) content.appendChild(el('p', { cls: 'card-desc' }, desc));
+    header.appendChild(content);
+
+    const radarWrap = el('div', { cls: 'card-radar' });
+    radarWrap.appendChild(el('canvas', { id: 'result-radar-' + i }));
+    header.appendChild(radarWrap);
+    card.appendChild(header);
+
+    // Chips
+    const chips = el('div', { cls: 'card-chips' });
+    const matchChip = el('span', { cls: 'chip chip-yellow' }, (r.score * 100).toFixed(0) + '% match');
+    chips.appendChild(matchChip);
+    if (r.reasons) {
+      r.reasons.slice(0, 2).forEach(reason => {
+        const words = reason.split(' ').slice(0, 3).join(' ');
+        chips.appendChild(el('span', { cls: 'chip chip-yellow' }, words));
+      });
+    }
+    if (r.caution) chips.appendChild(el('span', { cls: 'chip chip-muted' }, r.caution));
+    card.appendChild(chips);
+
+    // Footer
+    const footer = el('div', { cls: 'card-footer' });
+    footer.appendChild(el('button', { cls: 'card-explore-link', onClick: (e) => {
+      e.stopPropagation();
+      location.hash = '#/hobby/' + (r.hobbyId || r.rank);
+    }}, 'Explore this hobby \u2192'));
+    card.appendChild(footer);
+
+    grid.appendChild(card);
+  });
+  page.appendChild(grid);
+  app.appendChild(page);
+
+  // Render radars
+  state.lastResults.forEach((r, i) => {
+    if (r.radar) renderRadar('result-radar-' + i, r.radar, r.hobbyName);
+  });
+}
+
+// ════════════ EXPLORE ════════════
 async function renderExplore() {
   const app = document.getElementById('app');
   app.replaceChildren();
+  const page = el('div', { cls: 'page explore' });
 
-  const layout = createEl('div', { className: 'explore-layout' });
+  // Header
+  const header = el('div', { cls: 'explore-header' });
+  const headerLeft = el('div', { cls: 'explore-header-left' });
+  headerLeft.appendChild(el('h1', null, 'Explore by dimension'));
+  headerLeft.appendChild(el('p', null, 'Drag the axes to discover your ideal hobby. The catalogue reacts.'));
+  header.appendChild(headerLeft);
 
-  // Filter panel
-  const filterPanel = createEl('div', { className: 'filter-panel' });
-  filterPanel.appendChild(createEl('h3', {}, 'Filters'));
+  const headerRight = el('div', { cls: 'explore-header-right' });
+  const searchBar = el('div', { cls: 'search-bar' });
+  const searchInput = el('input', { type: 'text', id: 'search-input', placeholder: 'Search hobbies\u2026' });
+  searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
+  searchBar.appendChild(searchInput);
+  searchBar.appendChild(el('button', { cls: 'btn-primary', onClick: doSearch }, 'Explore'));
+  headerRight.appendChild(searchBar);
+  header.appendChild(headerRight);
+  page.appendChild(header);
 
-  const filterDefs = [
-    { id: 'cost', label: 'Startup Cost' },
-    { id: 'phys', label: 'Physical Demand' },
-    { id: 'time', label: 'Time Per Session' },
-    { id: 'space', label: 'Space Required' },
-    { id: 'social', label: 'Social Dependency' },
+  // Dimension Controls
+  const dimDefs = [
+    { id: 'cost', label: 'Commitment', desc: 'Time and consistency' },
+    { id: 'phys', label: 'Cost', desc: 'Annual + ongoing + tool' },
+    { id: 'time', label: 'Body', desc: 'Physical demands + injury risk' },
+    { id: 'space', label: 'Environment', desc: 'Reasonable + space(s)' },
+    { id: 'social', label: 'Social', desc: 'Solo or collaborative focus' },
+    { id: 'depth', label: 'Depth', desc: 'Room for mastery' },
   ];
-  filterDefs.forEach(fd => {
-    const group = createEl('div', { className: 'filter-group' });
-    const label = createEl('label');
-    label.append(fd.label + ' ', createEl('span', { id: 'f-' + fd.id + '-val' }, 'any'));
-    group.appendChild(label);
-    const range = createEl('input', { type: 'range', id: 'f-' + fd.id, min: '0', max: '1', step: '0.1', value: '1' });
+  const dims = el('div', { cls: 'dim-controls' });
+  dimDefs.forEach(dd => {
+    const ctrl = el('div', { cls: 'dim-control', id: 'dim-ctrl-' + dd.id });
+    ctrl.appendChild(el('div', { cls: 'dim-control-value', id: 'dim-val-' + dd.id }, '50'));
+    ctrl.appendChild(el('div', { cls: 'dim-control-label' }, dd.label));
+    ctrl.appendChild(el('div', { cls: 'dim-control-desc' }, dd.desc));
+    const range = el('input', { type: 'range', id: 'f-' + dd.id, min: '0', max: '1', step: '0.05', value: '0.5', 'aria-label': dd.label + ' filter' });
     range.addEventListener('input', () => {
       const v = parseFloat(range.value);
-      setText('f-' + fd.id + '-val', v >= 1 ? 'any' : v.toFixed(1));
+      const valEl = document.getElementById('dim-val-' + dd.id);
+      if (valEl) valEl.textContent = Math.round(v * 100);
+      const ctrlEl = document.getElementById('dim-ctrl-' + dd.id);
+      if (ctrlEl) ctrlEl.classList.toggle('active', v !== 0.5);
+      applyFilters();
     });
-    group.appendChild(range);
-    filterPanel.appendChild(group);
+    ctrl.appendChild(range);
+    dims.appendChild(ctrl);
   });
-  const applyBtn = createEl('button', { className: 'btn btn-sm', style: 'width:100%;margin-top:8px', onClick: () => applyFilters() }, 'Apply');
-  filterPanel.appendChild(applyBtn);
-  layout.appendChild(filterPanel);
+  page.appendChild(dims);
 
-  // Main area
-  const main = createEl('div');
-  const searchBar = createEl('div', { className: 'search-bar' });
-  const searchInput = createEl('input', { type: 'text', id: 'search-input', placeholder: 'Search hobbies...' });
-  searchInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(); });
-  const searchBtn = createEl('button', { className: 'btn btn-sm', onClick: doSearch }, 'Search');
-  searchBar.append(searchInput, searchBtn);
-  main.appendChild(searchBar);
-  const grid = createEl('div', { id: 'hobby-grid', className: 'card-grid' });
-  grid.appendChild(createEl('div', { className: 'loading-text' }, [createEl('span', { className: 'spinner' }), document.createTextNode(' Loading...')]));
-  main.appendChild(grid);
-  layout.appendChild(main);
-  app.appendChild(layout);
+  // Results
+  page.appendChild(el('div', { id: 'hobby-list' }, [
+    el('div', { cls: 'loading' }, [el('span', { cls: 'spinner' }), 'Loading\u2026'])
+  ]));
 
+  app.appendChild(page);
+  app.appendChild(el('div', { id: 'compare-bar-slot' }));
   loadHobbies();
 }
 
 async function loadHobbies(query) {
-  const grid = document.getElementById('hobby-grid');
-  if (!grid) return;
-  grid.replaceChildren(createEl('div', { className: 'loading-text' }, [createEl('span', { className: 'spinner' }), document.createTextNode(' Loading...')]));
+  const list = document.getElementById('hobby-list');
+  if (!list) return;
+  list.replaceChildren(el('div', { cls: 'loading' }, [el('span', { cls: 'spinner' }), 'Loading\u2026']));
   try {
     const params = new URLSearchParams();
     if (query) { params.set('q', query); }
@@ -156,9 +398,14 @@ async function loadHobbies(query) {
     params.set('limit', '50');
     const hobbies = await getHobbies(params.toString());
     state.hobbies = hobbies;
-    renderHobbyGrid(hobbies);
+    state.visibleCount = 15;
+    renderHobbyList(hobbies);
   } catch (err) {
-    grid.replaceChildren(createEl('div', { className: 'empty' }, 'Error: ' + err.message));
+    const isNetwork = err.message === 'Failed to fetch' || err.message.includes('NetworkError');
+    list.replaceChildren(el('div', { cls: 'empty' }, [
+      el('p', null, isNetwork ? 'Couldn\u2019t reach the server.' : 'Couldn\u2019t load hobbies.'),
+      el('button', { cls: 'btn-secondary', onClick: () => loadHobbies(query) }, 'Retry'),
+    ]));
   }
 }
 
@@ -173,337 +420,334 @@ function applyFilters() {
   loadHobbies();
 }
 
-function renderHobbyGrid(hobbies) {
-  const grid = document.getElementById('hobby-grid');
-  if (!grid) return;
-  grid.replaceChildren();
-  if (!hobbies.length) { grid.appendChild(createEl('div', { className: 'empty' }, 'No hobbies found')); return; }
+function renderHobbyList(hobbies) {
+  const list = document.getElementById('hobby-list');
+  if (!list) return;
+  destroyCharts();
+  list.replaceChildren();
 
-  hobbies.forEach(h => {
-    const card = createEl('div', { className: 'card' });
-    card.appendChild(createEl('h3', {}, h.name));
-    card.appendChild(createEl('div', { className: 'slug' }, h.slug));
-    card.appendChild(createEl('div', { className: 'desc' }, h.shortDesc));
-    const radarWrap = createEl('div', { className: 'radar-wrap' });
-    radarWrap.appendChild(createEl('canvas', { id: 'radar-' + h.id }));
-    card.appendChild(radarWrap);
-    const actions = createEl('div', { className: 'card-actions' });
-    actions.appendChild(createEl('button', { className: 'btn btn-sm', onClick: () => showDetail(h.id) }, 'Details'));
-    const cmpBtn = createEl('button', { className: 'btn btn-sm btn-ghost', onClick: () => { toggleCompare(h.id); cmpBtn.textContent = state.compareIds.has(h.id) ? 'Remove' : 'Compare'; } }, state.compareIds.has(h.id) ? 'Remove' : 'Compare');
-    actions.appendChild(cmpBtn);
-    card.appendChild(actions);
-    grid.appendChild(card);
+  if (!hobbies.length) {
+    list.appendChild(el('div', { cls: 'empty' }, [
+      el('p', null, 'No hobbies matched those filters.'),
+      el('p', null, 'Try widening the sliders or clearing your search.'),
+      el('button', { cls: 'btn-secondary', onClick: () => {
+        const si = document.getElementById('search-input');
+        if (si) si.value = '';
+        ['cost','phys','time','space','social','depth'].forEach(id => {
+          const slider = document.getElementById('f-' + id);
+          if (slider) { slider.value = '0.5'; }
+          const valEl = document.getElementById('dim-val-' + id);
+          if (valEl) valEl.textContent = '50';
+          const ctrlEl = document.getElementById('dim-ctrl-' + id);
+          if (ctrlEl) ctrlEl.classList.remove('active');
+        });
+        loadHobbies();
+      }}, 'Reset filters'),
+    ]));
+    return;
+  }
+
+  const resultsWrap = el('div', { cls: 'results-list' });
+
+  const rHeader = el('div', { cls: 'results-list-header' });
+  rHeader.appendChild(el('h2', null, 'Best matches for your criteria'));
+  resultsWrap.appendChild(rHeader);
+
+  const visible = hobbies.slice(0, state.visibleCount);
+  visible.forEach((h, i) => {
+    const row = el('div', { cls: 'hobby-row', style: 'animation-delay:' + (i * 0.02) + 's', onClick: () => {
+      location.hash = '#/hobby/' + h.id;
+    }});
+
+    // Rank
+    const rank = el('div', { cls: 'hobby-rank' });
+    rank.appendChild(el('span', null, String(i + 1)));
+    row.appendChild(rank);
+
+    // Image placeholder
+    const img = el('div', { cls: 'hobby-img' });
+    row.appendChild(img);
+
+    // Info
+    const info = el('div', { cls: 'hobby-info' });
+    info.appendChild(el('h3', null, h.name));
+    info.appendChild(el('div', { cls: 'hobby-desc' }, h.shortDesc));
+    const tags = el('div', { cls: 'hobby-tags' });
+    if (h.tags) {
+      h.tags.slice(0, 3).forEach(t => tags.appendChild(el('span', { cls: 'hobby-tag' }, t)));
+    }
+    info.appendChild(tags);
+    row.appendChild(info);
+
+    // Dimension bars
+    const dimsEl = el('div', { cls: 'hobby-dims' });
+    const dimLabels = ['Commit', 'Cost', 'Body', 'Social', 'Depth'];
+    const dimKeys = ['commitment', 'cost', 'body', 'social', 'depth'];
+    dimKeys.forEach((key, di) => {
+      const dimRow = el('div', { cls: 'hobby-dim-row' });
+      dimRow.appendChild(el('span', { cls: 'hobby-dim-label' }, dimLabels[di]));
+      const bar = el('div', { cls: 'hobby-dim-bar' });
+      const v = h.radar ? (h.radar[key] || 0) : 0;
+      bar.appendChild(el('div', { cls: 'hobby-dim-fill', style: 'width:' + (v * 100) + '%' }));
+      dimRow.appendChild(bar);
+      dimsEl.appendChild(dimRow);
+    });
+    row.appendChild(dimsEl);
+
+    // Arrow
+    const arrow = el('div', { cls: 'hobby-arrow' });
+    arrow.appendChild(el('span', null, '\u2192'));
+    row.appendChild(arrow);
+
+    resultsWrap.appendChild(row);
   });
-  hobbies.forEach(h => renderRadar('radar-' + h.id, h.radar, h.name, 140));
+
+  if (hobbies.length > state.visibleCount) {
+    const remaining = hobbies.length - state.visibleCount;
+    const more = el('div', { cls: 'show-more' });
+    more.appendChild(el('button', { cls: 'btn-text', onClick: () => { state.visibleCount += 15; renderHobbyList(hobbies); } }, 'Show ' + remaining + ' more hobbies \u2193'));
+    resultsWrap.appendChild(more);
+  }
+
+  list.appendChild(resultsWrap);
+  renderCompareBar();
 }
 
-// Render: Compare
+// ════════════ COMPARE ════════════
+function toggleCompare(id) {
+  if (state.compareIds.has(id)) state.compareIds.delete(id);
+  else if (state.compareIds.size < 4) state.compareIds.add(id);
+}
+
+function renderCompareBar() {
+  const slot = document.getElementById('compare-bar-slot');
+  if (!slot) return;
+  slot.replaceChildren();
+  if (state.compareIds.size < 1) return;
+
+  const bar = el('div', { cls: 'compare-bar' });
+  const count = el('span', { cls: 'count' });
+  count.append(el('span', null, String(state.compareIds.size)), ' selected');
+  bar.appendChild(count);
+
+  if (state.compareIds.size === 1) {
+    bar.appendChild(el('span', { cls: 'compare-hint' }, '\u2014 pick one more'));
+  }
+  if (state.compareIds.size >= 2) {
+    bar.appendChild(el('button', { cls: 'btn-primary', style: 'padding:7px 20px;font-size:13px', onClick: () => {
+      location.hash = '#/compare';
+    }}, 'Compare'));
+  }
+  bar.appendChild(el('button', { cls: 'btn-text', style: 'margin-left:4px', onClick: () => { state.compareIds.clear(); renderHobbyList(state.hobbies); } }, 'Clear'));
+  slot.appendChild(bar);
+}
+
+// ════════════ COMPARE PAGE ════════════
 async function renderCompare() {
   const app = document.getElementById('app');
   app.replaceChildren();
 
-  if (state.compareIds.size < 2) {
-    const wrapper = createEl('div', { className: 'empty', style: 'padding:60px 0' });
-    wrapper.appendChild(createEl('h2', {}, 'Compare Hobbies'));
-    wrapper.appendChild(createEl('p', {}, 'Select 2-4 hobbies from Explore to compare them side by side.'));
-    wrapper.appendChild(createEl('a', { href: '#/explore', className: 'btn', style: 'display:inline-block;margin-top:16px' }, 'Browse Hobbies'));
-    const searchDiv = createEl('div', { style: 'max-width:400px;margin:24px auto 0' });
-    const sb = createEl('div', { className: 'search-bar' });
-    const input = createEl('input', { type: 'text', placeholder: 'Or search to add...' });
-    input.addEventListener('keydown', e => { if (e.key === 'Enter') doCompareSearch(input); });
-    sb.append(input, createEl('button', { className: 'btn btn-sm', onClick: () => doCompareSearch(input) }, 'Search'));
-    searchDiv.appendChild(sb);
-    searchDiv.appendChild(createEl('div', { id: 'compare-search-results' }));
-    wrapper.appendChild(searchDiv);
-    app.appendChild(wrapper);
-    return;
-  }
+  const page = el('div', { cls: 'compare-page' });
+  page.appendChild(el('button', { cls: 'back-link', onClick: () => { location.hash = '#/explore'; }}, [
+    el('span', null, '\u2190'),
+    el('span', null, 'Back to explore'),
+  ]));
 
-  app.appendChild(createEl('div', { className: 'loading-text' }, [createEl('span', { className: 'spinner' }), document.createTextNode(' Loading comparison...')]));
   try {
     const ids = Array.from(state.compareIds);
+    if (ids.length < 2) { location.hash = '#/explore'; return; }
     const hobbies = await compareHobbies(ids);
-    app.replaceChildren();
-    const wrap = createEl('div', { style: 'padding:24px 0' });
-    wrap.appendChild(createEl('h2', {}, 'Comparing ' + hobbies.length + ' Hobbies'));
 
-    const overlay = createEl('div', { className: 'compare-overlay' });
-    const overlayRadar = createEl('div', { className: 'radar-wrap' });
-    overlayRadar.appendChild(createEl('canvas', { id: 'compare-overlay-radar' }));
-    overlay.appendChild(overlayRadar);
-    wrap.appendChild(overlay);
+    page.appendChild(el('h1', null, 'Comparing ' + hobbies.length + ' hobbies'));
+    page.appendChild(el('p', { cls: 'compare-subtitle' }, 'Side-by-side view of all dimensions'));
 
-    const grid = createEl('div', { className: 'compare-grid cols-' + hobbies.length });
-    hobbies.forEach(h => {
-      const cc = createEl('div', { className: 'compare-card' });
-      cc.appendChild(createEl('h3', {}, h.name));
-      const rw = createEl('div', { className: 'radar-wrap' });
-      rw.appendChild(createEl('canvas', { id: 'cmp-' + h.id }));
-      cc.appendChild(rw);
-      cc.appendChild(createEl('p', { style: 'font-size:13px;color:var(--text-dim)' }, h.shortDesc));
-      grid.appendChild(cc);
+    // Layout: radar + legend
+    const layout = el('div', { cls: 'compare-layout' });
+    const radarWrap = el('div', { cls: 'compare-radar-wrap' });
+    radarWrap.appendChild(el('canvas', { id: 'compare-overlay-radar' }));
+    layout.appendChild(radarWrap);
+
+    const colors = ['#FFD600', '#2d7d32', '#b8860b', '#555555'];
+    const legend = el('div', { cls: 'compare-legend' });
+    hobbies.forEach((h, i) => {
+      const item = el('div', { cls: 'compare-legend-item' });
+      item.appendChild(el('div', { cls: 'compare-legend-dot', style: 'background:' + colors[i] }));
+      const info = el('div');
+      info.appendChild(el('div', { cls: 'compare-legend-name' }, h.name));
+      info.appendChild(el('div', { cls: 'compare-legend-desc' }, h.shortDesc || ''));
+      item.appendChild(info);
+      legend.appendChild(item);
     });
-    wrap.appendChild(grid);
+    layout.appendChild(legend);
+    page.appendChild(layout);
 
-    // Dimension table
-    wrap.appendChild(buildDimTable(hobbies));
+    // Dim table
+    page.appendChild(buildDimTable(hobbies));
 
-    const clearWrap = createEl('div', { style: 'text-align:center;margin-top:24px' });
-    clearWrap.appendChild(createEl('button', { className: 'btn', onClick: () => { state.compareIds.clear(); location.hash = '#/compare'; } }, 'Clear All'));
-    wrap.appendChild(clearWrap);
-    app.appendChild(wrap);
+    app.appendChild(page);
 
-    const colors = ['rgba(99,102,241,0.7)', 'rgba(34,197,94,0.7)', 'rgba(245,158,11,0.7)', 'rgba(239,68,68,0.7)'];
-    renderRadarOverlay('compare-overlay-radar', hobbies.map((h, i) => ({ label: h.name, radar: h.radar, color: colors[i] })));
-    hobbies.forEach(h => renderRadar('cmp-' + h.id, h.radar, h.name, 200));
+    const colorsFull = colors.map(c => c + 'CC');
+    renderRadarOverlay('compare-overlay-radar', hobbies.map((h, i) => ({ label: h.name, radar: h.radar, color: colorsFull[i] })));
   } catch (err) {
-    app.replaceChildren(createEl('div', { className: 'empty' }, 'Error: ' + err.message));
+    page.appendChild(el('div', { cls: 'empty' }, [
+      el('p', null, 'Couldn\u2019t load the comparison.'),
+      el('button', { cls: 'btn-secondary', onClick: () => renderCompare() }, 'Retry'),
+    ]));
+    app.appendChild(page);
   }
 }
 
-async function doCompareSearch(input) {
-  const q = input?.value?.trim();
-  if (!q) return;
-  const resultsEl = document.getElementById('compare-search-results');
-  if (!resultsEl) return;
-  resultsEl.replaceChildren(createEl('div', { className: 'loading-text' }, [createEl('span', { className: 'spinner' })]));
+// ════════════ DETAIL ════════════
+async function renderDetail(id) {
+  const app = document.getElementById('app');
+  app.replaceChildren();
+
+  const page = el('div', { cls: 'detail-page' });
+
+  // Back link
+  const backTarget = state.lastResults ? '#/results' : '#/explore';
+  const backLabel = state.lastResults ? 'Back to results' : 'Back to explore';
+  page.appendChild(el('button', { cls: 'back-link', onClick: () => { location.hash = backTarget; }}, [
+    el('span', null, '\u2190'),
+    el('span', null, backLabel),
+  ]));
+
   try {
-    const hobbies = await getHobbies('q=' + encodeURIComponent(q) + '&limit=5');
-    resultsEl.replaceChildren();
-    hobbies.forEach(h => {
-      const row = createEl('div', { style: 'display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border)' });
-      row.appendChild(createEl('span', {}, h.name));
-      row.appendChild(createEl('button', { className: 'btn btn-sm', onClick: () => {
-        if (state.compareIds.size < 4) { state.compareIds.add(h.id); if (state.compareIds.size >= 2) renderCompare(); }
-      }}, 'Add'));
-      resultsEl.appendChild(row);
-    });
-  } catch (_) {
-    resultsEl.replaceChildren(createEl('div', { className: 'empty' }, 'No results'));
+    const h = await getHobby(id);
+
+    page.appendChild(el('h1', null, h.name));
+    if (h.aliases?.length) page.appendChild(el('div', { cls: 'detail-aliases' }, h.aliases.join(', ')));
+
+    const layout = el('div', { cls: 'detail-layout' });
+
+    // Left: text sections
+    const left = el('div', { cls: 'detail-left' });
+
+    if (h.longDesc || h.shortDesc) {
+      const section = el('div', { cls: 'detail-section' });
+      section.appendChild(el('h3', null, 'About'));
+      section.appendChild(el('p', null, h.longDesc || h.shortDesc));
+      left.appendChild(section);
+    }
+    if (h.difficultySummary) {
+      const section = el('div', { cls: 'detail-section' });
+      section.appendChild(el('h3', null, 'Difficulty'));
+      section.appendChild(el('p', null, h.difficultySummary));
+      left.appendChild(section);
+    }
+    if (h.starterPath) {
+      const section = el('div', { cls: 'detail-section' });
+      section.appendChild(el('h3', null, 'Getting started'));
+      section.appendChild(el('p', null, h.starterPath));
+      left.appendChild(section);
+    }
+    layout.appendChild(left);
+
+    // Right: radar + dims
+    const right = el('div', { cls: 'detail-right' });
+    const radarWrap = el('div', { cls: 'detail-radar-wrap' });
+    radarWrap.appendChild(el('canvas', { id: 'detail-radar' }));
+    right.appendChild(radarWrap);
+
+    // Dimension bars
+    if (h.dimensions) {
+      const dimsEl = el('div', { cls: 'detail-dims' });
+      const dimDefs = [
+        ['startup_cost', 'Startup cost'], ['ongoing_cost', 'Ongoing cost'],
+        ['time_per_session', 'Time/session'], ['consistency_required', 'Consistency'],
+        ['physical_demand', 'Physical'], ['space_required', 'Space'],
+        ['social_dependency', 'Social'], ['learning_curve', 'Learning curve'],
+        ['creative_expression', 'Creativity'],
+      ];
+      dimDefs.forEach(([key, label]) => {
+        const v = h.dimensions[key] || 0;
+        const row = el('div', { cls: 'detail-dim-row' });
+        row.appendChild(el('span', { cls: 'detail-dim-label' }, label));
+        const bar = el('div', { cls: 'detail-dim-bar' });
+        bar.appendChild(el('div', { cls: 'detail-dim-fill', style: 'width:' + (v * 100) + '%' }));
+        row.appendChild(bar);
+        row.appendChild(el('span', { cls: 'detail-dim-value' }, (v * 100).toFixed(0)));
+        dimsEl.appendChild(row);
+      });
+      right.appendChild(dimsEl);
+    }
+    layout.appendChild(right);
+    page.appendChild(layout);
+
+    app.appendChild(page);
+    if (h.radar) renderRadar('detail-radar', h.radar, h.name);
+  } catch (err) {
+    page.appendChild(el('div', { cls: 'empty' }, [
+      el('p', null, 'Couldn\u2019t load details.'),
+      el('button', { cls: 'btn-secondary', onClick: () => renderDetail(id) }, 'Retry'),
+    ]));
+    app.appendChild(page);
   }
 }
 
+// ════════════ SHARED ════════════
 function buildDimTable(hobbies) {
   const dims = ['startup_cost','ongoing_cost','time_per_session','consistency_required','physical_demand','space_required','social_dependency','learning_curve','creative_expression','age_longevity','injury_risk','portability','gear_dependency','first_win_difficulty','historical_cultural_depth'];
-  const labels = { startup_cost:'Startup Cost', ongoing_cost:'Ongoing Cost', time_per_session:'Time/Session', consistency_required:'Consistency', physical_demand:'Physical', space_required:'Space', social_dependency:'Social', learning_curve:'Learning Curve', creative_expression:'Creative', age_longevity:'Longevity', injury_risk:'Injury Risk', portability:'Portability', gear_dependency:'Gear', first_win_difficulty:'First Win', historical_cultural_depth:'Cultural Depth' };
-
-  const table = createEl('table', { className: 'dim-table' });
-  const thead = createEl('thead');
-  const headerRow = createEl('tr');
-  headerRow.appendChild(createEl('th', {}, 'Dimension'));
-  hobbies.forEach(h => headerRow.appendChild(createEl('th', {}, h.name)));
+  const labels = { startup_cost:'Startup cost', ongoing_cost:'Ongoing cost', time_per_session:'Time/session', consistency_required:'Regularity', physical_demand:'Physical', space_required:'Space', social_dependency:'Social', learning_curve:'Learning curve', creative_expression:'Creativity', age_longevity:'Longevity', injury_risk:'Injury risk', portability:'Portability', gear_dependency:'Gear', first_win_difficulty:'First win', historical_cultural_depth:'Culture' };
+  const table = el('table', { cls: 'dim-table' });
+  const thead = el('thead');
+  const headerRow = el('tr');
+  headerRow.appendChild(el('th', null, ''));
+  hobbies.forEach(h => headerRow.appendChild(el('th', null, h.name)));
   thead.appendChild(headerRow);
   table.appendChild(thead);
-
-  const tbody = createEl('tbody');
+  const tbody = el('tbody');
   dims.forEach(d => {
-    const tr = createEl('tr');
-    tr.appendChild(createEl('td', {}, labels[d] || d));
+    const tr = el('tr');
+    tr.appendChild(el('td', null, labels[d] || d));
     hobbies.forEach(h => {
       const v = (h.dimensions && h.dimensions[d]) || 0;
-      const td = createEl('td');
-      const barWrap = createEl('div', { style: 'display:flex;align-items:center;gap:8px' });
-      const bgBar = createEl('div', { style: 'flex:1;background:var(--surface2);border-radius:3px;height:6px' });
-      bgBar.appendChild(createEl('div', { className: 'dim-bar', style: 'width:' + (v * 100) + '%' }));
-      barWrap.appendChild(bgBar);
-      barWrap.appendChild(createEl('span', { style: 'font-size:12px;color:var(--text-dim)' }, (v * 100).toFixed(0)));
+      const td = el('td');
+      const barWrap = el('div', { style: 'display:flex;align-items:center;gap:6px' });
+      const bg = el('div', { style: 'flex:1;background:var(--y-pale);border-radius:2px;height:4px' });
+      bg.appendChild(el('div', { cls: 'dim-bar', style: 'width:' + (v * 100) + '%' }));
+      barWrap.appendChild(bg);
+      barWrap.appendChild(el('span', { style: 'font-family:Geist Mono,monospace;font-size:10px;color:var(--ink-3);min-width:18px' }, (v * 100).toFixed(0)));
       td.appendChild(barWrap);
       tr.appendChild(td);
     });
     tbody.appendChild(tr);
   });
   table.appendChild(tbody);
-  return table;
+  const wrap = el('div', { cls: 'dim-table-wrap' });
+  wrap.appendChild(table);
+  return wrap;
 }
 
-// Render: Match
-function renderMatch() {
-  const app = document.getElementById('app');
-  app.replaceChildren();
-  const section = createEl('div', { className: 'match-section' });
-  section.appendChild(createEl('h2', {}, 'Paste Your Memory'));
-  section.appendChild(createEl('p', { style: 'color:var(--text-dim);margin:8px 0 16px' }, "Tell us about your interests, lifestyle, and what you're looking for in a hobby."));
-  const textarea = createEl('textarea', { id: 'memory-input', placeholder: "Example: I've always been fascinated by Japanese history and culture. I want something disciplined, meaningful, that I can do long-term. I have limited space but don't mind some physical activity." });
-  section.appendChild(textarea);
-  const btnRow = createEl('div', { style: 'display:flex;gap:8px;margin-top:12px' });
-  const matchBtn = createEl('button', { className: 'btn btn-primary', id: 'match-btn', onClick: runMatch }, 'Find My Hobbies');
-  btnRow.appendChild(matchBtn);
-  section.appendChild(btnRow);
-  section.appendChild(createEl('div', { id: 'match-signals' }));
-  section.appendChild(createEl('div', { id: 'match-results' }));
-  app.appendChild(section);
-}
-
-async function runMatch() {
-  const textarea = document.getElementById('memory-input');
-  const text = textarea?.value?.trim();
-  if (!text) return;
-
-  const btn = document.getElementById('match-btn');
-  btn.disabled = true;
-  btn.replaceChildren(createEl('span', { className: 'spinner' }), document.createTextNode(' Analyzing...'));
-
-  const signalsEl = document.getElementById('match-signals');
-  const resultsEl = document.getElementById('match-results');
-  signalsEl.replaceChildren();
-  resultsEl.replaceChildren();
-
-  try {
-    // Step 1: Extract signals
-    const extracted = await extractMemory(text);
-    const signals = extracted.signals;
-
-    const panel = createEl('div', { className: 'signals-panel' });
-    panel.appendChild(createEl('h3', { style: 'font-size:14px;margin-bottom:8px' }, 'Extracted Signals'));
-    signals.forEach(s => {
-      const tagClass = s.type === 'interest' ? 'interest' : s.type === 'lifestyle_constraint' ? 'constraint' : 'experience';
-      const tag = createEl('span', { className: 'signal-tag ' + tagClass });
-      tag.appendChild(document.createTextNode(s.text + ' '));
-      tag.appendChild(createEl('span', { style: 'opacity:0.5' }, (s.weight * 100).toFixed(0) + '%'));
-      panel.appendChild(tag);
-    });
-    signalsEl.replaceChildren(panel);
-
-    // Step 2: Get recommendations
-    resultsEl.replaceChildren(createEl('div', { className: 'loading-text' }, [createEl('span', { className: 'spinner' }), document.createTextNode(' Finding matches...')]));
-    const domainSignals = signals.map(s => ({
-      signalType: s.type,
-      text: s.text,
-      normalizedValue: s.normalizedValue,
-      weight: s.weight,
-      confidence: s.weight,
-    }));
-    const rec = await recommend(domainSignals, {}, 20);
-
-    if (!rec.results || rec.results.length === 0) {
-      resultsEl.replaceChildren(createEl('div', { className: 'empty' }, 'No matches found. Try providing more details.'));
-      return;
-    }
-
-    resultsEl.replaceChildren();
-    resultsEl.appendChild(createEl('h3', { style: 'margin:16px 0 12px' }, 'Top Matches'));
-
-    rec.results.forEach(r => {
-      const card = createEl('div', { className: 'result-card' });
-
-      const info = createEl('div');
-      const titleRow = createEl('div', { style: 'display:flex;align-items:baseline;gap:12px' });
-      titleRow.appendChild(createEl('span', { className: 'rank' }, '#' + r.rank));
-      titleRow.appendChild(createEl('h3', {}, r.hobbyName));
-      info.appendChild(titleRow);
-      info.appendChild(createEl('div', { className: 'score' }, 'Score: ' + (r.score * 100).toFixed(1) + '%'));
-
-      const reasons = createEl('ul', { className: 'reasons' });
-      (r.reasons || []).forEach(reason => {
-        const li = createEl('li', {}, reason);
-        reasons.appendChild(li);
-      });
-      info.appendChild(reasons);
-
-      if (r.caution) {
-        info.appendChild(createEl('div', { className: 'caution' }, r.caution));
-      }
-      card.appendChild(info);
-
-      const radarWrap = createEl('div', { className: 'radar-wrap' });
-      radarWrap.appendChild(createEl('canvas', { id: 'match-radar-' + r.rank }));
-      card.appendChild(radarWrap);
-      resultsEl.appendChild(card);
-    });
-
-    rec.results.forEach(r => {
-      if (r.radar) renderRadar('match-radar-' + r.rank, r.radar, r.hobbyName, 160);
-    });
-  } catch (err) {
-    resultsEl.replaceChildren(createEl('div', { className: 'empty' }, 'Error: ' + err.message));
-  } finally {
-    btn.disabled = false;
-    btn.textContent = 'Find My Hobbies';
-  }
-}
-
-// Detail modal
-async function showDetail(id) {
-  try {
-    const h = await getHobby(id);
-    const overlay = createEl('div', { className: 'modal-overlay' });
-    overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
-
-    const modal = createEl('div', { className: 'modal' });
-    const closeBtn = createEl('button', { className: 'close-btn', onClick: () => overlay.remove() });
-    closeBtn.textContent = '\u00d7';
-    modal.appendChild(closeBtn);
-    modal.appendChild(createEl('h2', {}, h.name));
-
-    const slugLine = h.slug + (h.aliases?.length ? ' \u00b7 ' + h.aliases.join(', ') : '');
-    modal.appendChild(createEl('div', { className: 'slug', style: 'margin-bottom:12px' }, slugLine));
-
-    const radarWrap = createEl('div', { className: 'radar-wrap' });
-    radarWrap.appendChild(createEl('canvas', { id: 'detail-radar' }));
-    modal.appendChild(radarWrap);
-    modal.appendChild(createEl('p', { style: 'margin:12px 0' }, h.longDesc || h.shortDesc));
-
-    if (h.difficultySummary) {
-      const p = createEl('p', { style: 'font-size:13px;color:var(--text-dim);margin:8px 0' });
-      p.appendChild(createEl('strong', {}, 'Difficulty: '));
-      p.appendChild(document.createTextNode(h.difficultySummary));
-      modal.appendChild(p);
-    }
-    if (h.starterPath) {
-      const p = createEl('p', { style: 'font-size:13px;color:var(--text-dim);margin:8px 0' });
-      p.appendChild(createEl('strong', {}, 'Getting Started: '));
-      p.appendChild(document.createTextNode(h.starterPath));
-      modal.appendChild(p);
-    }
-
-    overlay.appendChild(modal);
-    document.body.appendChild(overlay);
-    renderRadar('detail-radar', h.radar, h.name, 240);
-  } catch (err) {
-    console.error('detail error:', err);
-  }
-}
-
-// Compare toggle
-function toggleCompare(id) {
-  if (state.compareIds.has(id)) state.compareIds.delete(id);
-  else if (state.compareIds.size < 4) state.compareIds.add(id);
-}
-
-// Radar chart rendering
+// ════════════ RADAR CHARTS ════════════
 const radarLabels = ['Commitment', 'Cost', 'Body', 'Environment', 'Social', 'Depth'];
 
-function renderRadar(canvasId, radar, label, size) {
+function renderRadar(canvasId, radar, label) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const chart = new Chart(ctx, {
+  const chart = new Chart(canvas.getContext('2d'), {
     type: 'radar',
     data: {
       labels: radarLabels,
       datasets: [{
         label: label,
         data: [radar.commitment, radar.cost, radar.body, radar.environment, radar.social, radar.depth],
-        backgroundColor: 'rgba(99, 102, 241, 0.15)',
-        borderColor: 'rgba(99, 102, 241, 0.8)',
-        borderWidth: 2,
-        pointRadius: 3,
-        pointBackgroundColor: 'rgba(99, 102, 241, 0.8)',
+        backgroundColor: 'rgba(255,214,0,0.08)',
+        borderColor: 'rgba(255,214,0,0.6)',
+        borderWidth: 1.5,
+        pointRadius: 2,
+        pointBackgroundColor: 'rgba(255,214,0,0.6)',
       }]
     },
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        r: {
-          beginAtZero: true,
-          max: 1,
-          ticks: { display: false, stepSize: 0.25 },
-          grid: { color: 'rgba(255,255,255,0.08)' },
-          pointLabels: { color: '#888', font: { size: 10 } },
-          angleLines: { color: 'rgba(255,255,255,0.08)' },
-        }
-      },
+      responsive: true, maintainAspectRatio: false,
+      scales: { r: {
+        beginAtZero: true, max: 1,
+        ticks: { display: false, stepSize: 0.25 },
+        grid: { color: 'rgba(0,0,0,0.05)' },
+        pointLabels: { color: '#aaa', font: { size: 9, family: 'Inter' } },
+        angleLines: { color: 'rgba(0,0,0,0.03)' },
+      }},
       plugins: { legend: { display: false } }
     }
   });
@@ -513,35 +757,29 @@ function renderRadar(canvasId, radar, label, size) {
 function renderRadarOverlay(canvasId, items) {
   const canvas = document.getElementById(canvasId);
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const chart = new Chart(ctx, {
+  const chart = new Chart(canvas.getContext('2d'), {
     type: 'radar',
     data: {
       labels: radarLabels,
       datasets: items.map(item => ({
         label: item.label,
         data: [item.radar.commitment, item.radar.cost, item.radar.body, item.radar.environment, item.radar.social, item.radar.depth],
-        backgroundColor: item.color.replace('0.7', '0.1'),
+        backgroundColor: item.color.slice(0, 7) + '0F',
         borderColor: item.color,
-        borderWidth: 2,
-        pointRadius: 3,
+        borderWidth: 1.5, pointRadius: 2,
         pointBackgroundColor: item.color,
       }))
     },
     options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        r: {
-          beginAtZero: true,
-          max: 1,
-          ticks: { display: false, stepSize: 0.25 },
-          grid: { color: 'rgba(255,255,255,0.08)' },
-          pointLabels: { color: '#888', font: { size: 11 } },
-          angleLines: { color: 'rgba(255,255,255,0.08)' },
-        }
-      },
-      plugins: { legend: { display: true, labels: { color: '#888', font: { size: 12 } } } }
+      responsive: true, maintainAspectRatio: false,
+      scales: { r: {
+        beginAtZero: true, max: 1,
+        ticks: { display: false, stepSize: 0.25 },
+        grid: { color: 'rgba(0,0,0,0.05)' },
+        pointLabels: { color: '#aaa', font: { size: 10, family: 'Inter' } },
+        angleLines: { color: 'rgba(0,0,0,0.03)' },
+      }},
+      plugins: { legend: { display: true, labels: { color: '#888', font: { size: 11, family: 'Inter' } } } }
     }
   });
   state.charts[canvasId] = chart;
