@@ -3,23 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hobby Map</title>
+  <title>HobbyMap</title>
+  <meta name="description" content="Discover hobbies that match your interests, lifestyle, and goals from 200+ activities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
 </head>
 <body>
-  <nav>
-    <div class="container">
-      <a href="#/" class="logo">Hobby<span>Map</span></a>
+  <header>
+    <nav>
+      <a href="#/" class="wordmark">hobby<span class="wordmark-plus">+</span>map</a>
       <div class="nav-links">
-        <a href="#/">Home</a>
-        <a href="#/explore">Explore</a>
-        <a href="#/compare">Compare</a>
-        <a href="#/match">Match</a>
+        <a href="#/explore" class="nav-link" id="nav-explore">Explore</a>
+        <a href="#/about" class="nav-link" id="nav-about">About</a>
       </div>
-    </div>
-  </nav>
-  <main class="container" id="app"></main>
+    </nav>
+  </header>
+  <main id="app"></main>
   <script src="/app.js"></script>
 </body>
 </html>
