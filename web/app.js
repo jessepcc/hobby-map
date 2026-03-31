@@ -9,6 +9,48 @@ const state = {
   lastResults: null,
 };
 
+// ── Explore Dimension Definitions ──
+const EXPLORE_DIMS = [
+  { id: 'cost', label: 'Commitment', lowPole: 'Casual', highPole: 'Dedicated',
+    phrases: ['Drop-in anytime', 'Light routine', 'Steady practice', 'Serious habit', 'Full dedication'],
+    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>' },
+  { id: 'phys', label: 'Cost', lowPole: 'Free', highPole: 'Premium',
+    phrases: ['Nearly free', 'Budget-friendly', 'Moderate spend', 'Real investment', 'Premium gear'],
+    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>' },
+  { id: 'time', label: 'Body', lowPole: 'Gentle', highPole: 'Intense',
+    phrases: ['Minimal effort', 'Light activity', 'Moderate exertion', 'Demanding', 'Full-body intense'],
+    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>' },
+  { id: 'space', label: 'Environment', lowPole: 'Anywhere', highPole: 'Dedicated space',
+    phrases: ['Do it anywhere', 'Small footprint', 'Some room needed', 'Specific venue', 'Fixed facility'],
+    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>' },
+  { id: 'social', label: 'Social', lowPole: 'Solo', highPole: 'Group',
+    phrases: ['Fully solo', 'Mostly alone', 'Flexible', 'With others', 'Team required'],
+    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="19" cy="7" r="3"/><path d="M21 21v-2a3 3 0 00-2-2.8"/></svg>' },
+  { id: 'depth', label: 'Depth', lowPole: 'Quick start', highPole: 'Deep mastery',
+    phrases: ['Pick up in a day', 'Short learning curve', 'Moderate depth', 'Years of growth', 'Lifelong pursuit'],
+    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>' },
+];
+
+function updateDimVisuals(dd, value) {
+  const phraseEl = document.getElementById('dim-phrase-' + dd.id);
+  if (phraseEl) {
+    const idx = Math.min(Math.floor(value * dd.phrases.length), dd.phrases.length - 1);
+    phraseEl.textContent = dd.phrases[idx];
+  }
+  const numFilled = Math.round(value * 5);
+  for (let i = 0; i < 5; i++) {
+    const block = document.getElementById('dim-block-' + dd.id + '-' + i);
+    if (block) block.classList.toggle('filled', i < numFilled);
+  }
+  const range = document.getElementById('f-' + dd.id);
+  if (range) {
+    const pct = value * 100;
+    range.style.background = 'linear-gradient(to right, var(--y) 0%, var(--y) ' + pct + '%, var(--rule) ' + pct + '%, var(--rule) 100%)';
+  }
+  const ctrlEl = document.getElementById('dim-ctrl-' + dd.id);
+  if (ctrlEl) ctrlEl.classList.toggle('active', value !== 0.5);
+}
+
 // ── API ──
 async function api(path, opts) {
   const res = await fetch('/api' + path, opts);
@@ -22,16 +64,14 @@ const getHobbies = (params = '') => api('/hobbies' + (params ? '?' + params : ''
 const getHobby = (id) => api('/hobbies/' + id);
 const compareHobbies = (ids) => api('/compare', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ids }) });
 const extractMemory = (text) => api('/memory/extract', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text, source: 'manual_paste' }) });
-const recommend = (signals, filters, limit) => api('/recommend', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ signals, filters: filters || {}, limit: limit || 20 }) });
+const recommend = (signals, filters, limit, vectorResults) => api('/recommend', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ signals, filters: filters || {}, limit: limit || 20, vectorResults: vectorResults || [] }) });
 
 // ── Router ──
 function route() {
   const hash = location.hash || '#/';
   const path = hash.slice(1);
   const exploreLink = document.getElementById('nav-explore');
-  const aboutLink = document.getElementById('nav-about');
   if (exploreLink) exploreLink.classList.toggle('active', path === '/explore');
-  if (aboutLink) aboutLink.classList.toggle('active', path === '/about');
   destroyCharts();
   if (path === '/explore') renderExplore();
   else if (path === '/results') renderResults();
@@ -92,12 +132,12 @@ function renderLanding() {
   const hero = el('div', { cls: 'hero' });
   hero.appendChild(el('span', { cls: 'hero-deco' }, '+'));
   hero.appendChild(el('h1', null, 'Find your thing.'));
-  hero.appendChild(el('p', { cls: 'subtitle' }, 'Paste a memory. We\u2019ll find hobbies that fit your life.'));
+  hero.appendChild(el('p', { cls: 'subtitle' }, 'Paste Memory. We\u2019ll find hobbies that fit your life.'));
 
   const inputCard = el('div', { cls: 'input-card' });
   const textarea = el('textarea', {
     id: 'memory-input',
-    placeholder: 'I used to spend weekends building model trains with my grandfather\u2026',
+    placeholder: 'Paste how AI sees you in memory...',
     rows: '5',
   });
   inputCard.appendChild(textarea);
@@ -124,16 +164,40 @@ function renderLanding() {
   promptBlock.textContent = MEMORY_PROMPT;
   guideCard.appendChild(promptBlock);
 
+  function makeCopyIcon() {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('width', '14'); svg.setAttribute('height', '14');
+    svg.setAttribute('viewBox', '0 0 24 24'); svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor'); svg.setAttribute('stroke-width', '2');
+    svg.setAttribute('stroke-linecap', 'round'); svg.setAttribute('stroke-linejoin', 'round');
+    svg.style.flexShrink = '0';
+    const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    rect.setAttribute('x', '9'); rect.setAttribute('y', '9');
+    rect.setAttribute('width', '13'); rect.setAttribute('height', '13'); rect.setAttribute('rx', '2');
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', 'M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1');
+    svg.appendChild(rect); svg.appendChild(path);
+    return svg;
+  }
+  function setCopyBtnDefault() {
+    copyBtn.textContent = '';
+    copyBtn.appendChild(makeCopyIcon());
+    copyBtn.appendChild(document.createTextNode(' Copy prompt'));
+  }
   const copyBtn = el('button', { cls: 'copy-btn', onClick: () => {
     navigator.clipboard.writeText(MEMORY_PROMPT).then(() => {
       copyBtn.textContent = '\u2713 Copied!';
-      setTimeout(() => { copyBtn.textContent = '\u2709 Copy prompt'; }, 2000);
+      setTimeout(setCopyBtnDefault, 2000);
     });
   }});
-  copyBtn.textContent = '\u2709 Copy prompt';
+  setCopyBtnDefault();
   guideCard.appendChild(copyBtn);
 
-  guideCard.appendChild(el('span', { cls: 'guide-ref' }, 'Learn more at claude.com/import-memory'));
+  const refLink = el('a', { cls: 'guide-ref' }, 'Learn more at claude.com/import-memory');
+  refLink.href = 'https://claude.com/import-memory';
+  refLink.target = '_blank';
+  refLink.rel = 'noopener noreferrer';
+  guideCard.appendChild(refLink);
   guide.appendChild(guideCard);
   landing.appendChild(guide);
 
@@ -177,7 +241,23 @@ async function runMatch() {
       signalType: s.type, text: s.text,
       normalizedValue: s.normalizedValue, weight: s.weight, confidence: s.weight,
     }));
-    const rec = await recommend(domainSignals, {}, 10);
+
+    // Vector search: embed interest/experience signals, find similar hobbies
+    let vectorResults = [];
+    if (window.embeddingModule && window.embeddingModule.isReady()) {
+      const searchTexts = signals
+        .filter(s => s.type === 'interest' || s.type === 'desired_experience' || s.type === 'experience')
+        .map(s => s.text);
+      if (searchTexts.length > 0) {
+        try {
+          vectorResults = await window.embeddingModule.searchByVector(searchTexts, 30);
+        } catch (e) {
+          console.warn('Vector search failed:', e);
+        }
+      }
+    }
+
+    const rec = await recommend(domainSignals, {}, 10, vectorResults);
     state.lastResults = rec.results || [];
     location.hash = '#/results';
   } catch (err) {
@@ -230,7 +310,7 @@ function renderResults() {
   if (state.lastSignals?.length) {
     const sigSection = el('div', { cls: 'signals-section' });
     const grouped = {};
-    const typeLabels = { interest: 'INTERESTS', lifestyle_constraint: 'LIFESTYLE', experience: 'EXPERIENCE' };
+    const typeLabels = { interest: 'INTERESTS', lifestyle_constraint: 'LIFESTYLE', experience: 'EXPERIENCE', desired_experience: 'DESIRED EXPERIENCE' };
     state.lastSignals.forEach(s => {
       const key = s.type || 'other';
       if (!grouped[key]) grouped[key] = [];
@@ -241,7 +321,8 @@ function renderResults() {
       if (!first) sigSection.appendChild(el('div', { cls: 'signal-sep' }));
       first = false;
       const group = el('div', { cls: 'signal-group' });
-      group.appendChild(el('span', { cls: 'signal-group-label' }, typeLabels[type] || type.toUpperCase()));
+      group.setAttribute('data-type', type);
+      group.appendChild(el('span', { cls: 'signal-group-label' }, typeLabels[type] || type.replace(/_/g, ' ').toUpperCase()));
       const pills = el('div', { cls: 'signal-pills' });
       sigs.forEach(s => pills.appendChild(el('span', { cls: 'signal-pill' }, s.text)));
       group.appendChild(pills);
@@ -278,8 +359,21 @@ function renderResults() {
     const header = el('div', { cls: 'card-header' });
     const content = el('div', { cls: 'card-content' });
     content.appendChild(el('h3', null, r.hobbyName));
-    const desc = (r.reasons || []).join('. ') || r.caution || '';
-    if (desc) content.appendChild(el('p', { cls: 'card-desc' }, desc));
+
+    // Separate tagged reasons (match/experience/goal) from descriptive text
+    const taggedReasons = [];
+    const descParts = [];
+    (r.reasons || []).forEach(reason => {
+      if (reason.startsWith('Matches your interest') || reason.startsWith('Relates to') || reason.startsWith('Fits your goal') || reason === 'Discovered via knowledge graph') {
+        taggedReasons.push(reason);
+      } else {
+        descParts.push(reason);
+      }
+    });
+
+    // Show descriptive text (short desc, difficulty) as card body — truncate to ~150 chars
+    const descText = descParts.join(' ').slice(0, 160);
+    if (descText) content.appendChild(el('p', { cls: 'card-desc' }, descText + (descParts.join(' ').length > 160 ? '…' : '')));
     header.appendChild(content);
 
     const radarWrap = el('div', { cls: 'card-radar' });
@@ -287,16 +381,15 @@ function renderResults() {
     header.appendChild(radarWrap);
     card.appendChild(header);
 
-    // Chips
+    // Chips — only show tagged match reasons
     const chips = el('div', { cls: 'card-chips' });
-    const matchChip = el('span', { cls: 'chip chip-yellow' }, (r.score * 100).toFixed(0) + '% match');
-    chips.appendChild(matchChip);
-    if (r.reasons) {
-      r.reasons.slice(0, 2).forEach(reason => {
-        const words = reason.split(' ').slice(0, 3).join(' ');
-        chips.appendChild(el('span', { cls: 'chip chip-yellow' }, words));
-      });
-    }
+    taggedReasons.slice(0, 3).forEach(reason => {
+      let chipCls = 'chip chip-info';
+      if (reason.startsWith('Matches your interest')) chipCls = 'chip chip-match';
+      else if (reason.startsWith('Relates to')) chipCls = 'chip chip-experience';
+      else if (reason.startsWith('Fits your goal')) chipCls = 'chip chip-goal';
+      chips.appendChild(el('span', { cls: chipCls }, reason));
+    });
     if (r.caution) chips.appendChild(el('span', { cls: 'chip chip-muted' }, r.caution));
     card.appendChild(chips);
 
@@ -343,30 +436,42 @@ async function renderExplore() {
   page.appendChild(header);
 
   // Dimension Controls
-  const dimDefs = [
-    { id: 'cost', label: 'Commitment', desc: 'Time and consistency' },
-    { id: 'phys', label: 'Cost', desc: 'Annual + ongoing + tool' },
-    { id: 'time', label: 'Body', desc: 'Physical demands + injury risk' },
-    { id: 'space', label: 'Environment', desc: 'Reasonable + space(s)' },
-    { id: 'social', label: 'Social', desc: 'Solo or collaborative focus' },
-    { id: 'depth', label: 'Depth', desc: 'Room for mastery' },
-  ];
   const dims = el('div', { cls: 'dim-controls' });
-  dimDefs.forEach(dd => {
+  EXPLORE_DIMS.forEach(dd => {
     const ctrl = el('div', { cls: 'dim-control', id: 'dim-ctrl-' + dd.id });
-    ctrl.appendChild(el('div', { cls: 'dim-control-value', id: 'dim-val-' + dd.id }, '50'));
-    ctrl.appendChild(el('div', { cls: 'dim-control-label' }, dd.label));
-    ctrl.appendChild(el('div', { cls: 'dim-control-desc' }, dd.desc));
+    const header = el('div', { cls: 'dim-control-header' });
+    const iconEl = el('span', { cls: 'dim-control-icon' });
+    const iconDoc = new DOMParser().parseFromString(dd.icon, 'text/html');
+    iconEl.appendChild(iconDoc.body.firstChild);
+    header.appendChild(iconEl);
+    header.appendChild(el('span', { cls: 'dim-control-label' }, dd.label));
+    ctrl.appendChild(header);
+    ctrl.appendChild(el('div', { cls: 'dim-control-phrase', id: 'dim-phrase-' + dd.id }, dd.phrases[2]));
+
+    const intensity = el('div', { cls: 'dim-intensity' });
+    for (let i = 0; i < 5; i++) {
+      intensity.appendChild(el('div', {
+        cls: 'dim-intensity-block' + (i < 3 ? ' filled' : ''),
+        id: 'dim-block-' + dd.id + '-' + i,
+      }));
+    }
+    ctrl.appendChild(intensity);
+
+    const sliderWrap = el('div', { cls: 'dim-slider-wrap' });
     const range = el('input', { type: 'range', id: 'f-' + dd.id, min: '0', max: '1', step: '0.05', value: '0.5', 'aria-label': dd.label + ' filter' });
+    range.style.background = 'linear-gradient(to right, var(--y) 0%, var(--y) 50%, var(--rule) 50%, var(--rule) 100%)';
     range.addEventListener('input', () => {
-      const v = parseFloat(range.value);
-      const valEl = document.getElementById('dim-val-' + dd.id);
-      if (valEl) valEl.textContent = Math.round(v * 100);
-      const ctrlEl = document.getElementById('dim-ctrl-' + dd.id);
-      if (ctrlEl) ctrlEl.classList.toggle('active', v !== 0.5);
+      updateDimVisuals(dd, parseFloat(range.value));
       applyFilters();
     });
-    ctrl.appendChild(range);
+    sliderWrap.appendChild(range);
+    ctrl.appendChild(sliderWrap);
+
+    const poles = el('div', { cls: 'dim-poles' });
+    poles.appendChild(el('span', { cls: 'dim-pole' }, dd.lowPole));
+    poles.appendChild(el('span', { cls: 'dim-pole' }, dd.highPole));
+    ctrl.appendChild(poles);
+
     dims.appendChild(ctrl);
   });
   page.appendChild(dims);
@@ -433,13 +538,10 @@ function renderHobbyList(hobbies) {
       el('button', { cls: 'btn-secondary', onClick: () => {
         const si = document.getElementById('search-input');
         if (si) si.value = '';
-        ['cost','phys','time','space','social','depth'].forEach(id => {
-          const slider = document.getElementById('f-' + id);
-          if (slider) { slider.value = '0.5'; }
-          const valEl = document.getElementById('dim-val-' + id);
-          if (valEl) valEl.textContent = '50';
-          const ctrlEl = document.getElementById('dim-ctrl-' + id);
-          if (ctrlEl) ctrlEl.classList.remove('active');
+        EXPLORE_DIMS.forEach(dd => {
+          const slider = document.getElementById('f-' + dd.id);
+          if (slider) slider.value = '0.5';
+          updateDimVisuals(dd, 0.5);
         });
         loadHobbies();
       }}, 'Reset filters'),
