@@ -32,6 +32,9 @@ func NewRouter(deps *app.Dependencies) http.Handler {
 		r.Post("/feedback/dismiss", h.DismissFeedback)
 	})
 
+	// Serve pre-computed embeddings
+	r.Handle("/seeds/*", http.StripPrefix("/seeds/", http.FileServer(http.Dir("seeds"))))
+
 	// Serve static frontend
 	fs := http.FileServer(http.Dir("web"))
 	r.Handle("/*", fs)
