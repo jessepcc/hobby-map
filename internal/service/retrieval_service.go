@@ -19,32 +19,65 @@ func NewRetrievalService(hobbies *repo.HobbyRepo, graph *repo.GraphRepo) *Retrie
 	return &RetrievalService{hobbies: hobbies, graph: graph}
 }
 
-func (s *RetrievalService) Recommend(ctx context.Context, signals []domain.MemorySignal, filter repo.ListFilter) ([]domain.CandidateScore, error) {
-	// Step 1: Build search query from signals
+func (s *RetrievalService) Recommend(ctx context.Context, signals []domain.MemorySignal, filter repo.ListFilter, vectorResults []repo.ScoredID) ([]domain.CandidateScore, error) {
+	// Step 1: Build search query from interest signals (skip verbose experience/constraint text)
 	var queryParts []string
 	for _, sig := range signals {
-		queryParts = append(queryParts, sig.Text)
+		if sig.SignalType == "interest" || sig.SignalType == "desired_experience" {
+			queryParts = append(queryParts, sig.Text)
+		}
 	}
-	query := strings.Join(queryParts, " OR ")
 
 	// Step 2: FTS search
-	ftsResults, err := s.hobbies.SearchFTS(ctx, query, 100)
+	ftsResults, err := s.hobbies.SearchFTSClauses(ctx, queryParts, 100)
 	if err != nil {
 		ftsResults = nil // Non-fatal: continue with other channels
 	}
 
 	// Step 3: Graph expansion — find concept nodes via FTS on node_fts, then expand
-	graphResults := s.expandViaGraph(ctx, signals)
+	// Only use interest signals for graph expansion to avoid noise from verbose text
+	var interestSignals []domain.MemorySignal
+	for _, sig := range signals {
+		if sig.SignalType == "interest" || sig.SignalType == "desired_experience" {
+			interestSignals = append(interestSignals, sig)
+		}
+	}
+	graphResults := s.expandViaGraph(ctx, interestSignals)
 
-	// Step 4: RRF merge (no vector channel for now)
-	merged := search.RRFMerge(ftsResults, graphResults, nil, 60)
+	// Step 4: RRF merge
+	merged := search.RRFMerge(ftsResults, graphResults, vectorResults, 20)
 
 	// Step 5: Score and rank top candidates
 	if filter.Limit == 0 {
 		filter.Limit = 20
 	}
+
+	// Ensure FTS direct matches are always included (they are the most relevant)
+	ftsIDs := make(map[string]bool)
+	for _, r := range ftsResults {
+		ftsIDs[r.ID] = true
+	}
+
 	if len(merged) > 100 {
-		merged = merged[:100]
+		// Keep all FTS matches, trim only graph-only results
+		var kept []repo.ScoredID
+		for _, m := range merged {
+			if ftsIDs[m.ID] || len(kept) < 100 {
+				kept = append(kept, m)
+			}
+		}
+		merged = kept
+	}
+
+	// Find max graph score for normalization
+	var maxGraphScore float64
+	for _, r := range graphResults {
+		if r.Score > maxGraphScore {
+			maxGraphScore = r.Score
+		}
+	}
+	if maxGraphScore == 0 {
+		maxGraphScore = 1
 	}
 
 	var candidates []domain.CandidateScore
@@ -64,9 +97,10 @@ func (s *RetrievalService) Recommend(ctx context.Context, signals []domain.Memor
 			HobbyName: hobby.Name,
 		}
 
-		// Normalize RRF score to [0,1] range for FTS and graph components
+		// Normalize scores to [0,1] range
 		c.FTSScore = ftsScore(m.ID, ftsResults)
-		c.GraphScore = graphScore(m.ID, graphResults)
+		c.GraphScore = graphScore(m.ID, graphResults) / maxGraphScore
+		c.VectorScore = vectorScoreForID(m.ID, vectorResults)
 		c.DimensionScore = search.ComputeDimensionScore(signals, hobby.Dimensions)
 		c.OutcomeScore = computeOutcomeScore(signals, hobby)
 		c.NoveltyScore = 0.5 // Default neutral novelty
@@ -111,7 +145,7 @@ func (s *RetrievalService) expandViaGraph(ctx context.Context, signals []domain.
 		return nil
 	}
 
-	results, err := s.graph.ExpandToHobbies(ctx, conceptIDs, 3, 100)
+	results, err := s.graph.ExpandToHobbies(ctx, conceptIDs, 2, 100)
 	if err != nil {
 		return nil
 	}
@@ -154,16 +188,76 @@ func computeOutcomeScore(signals []domain.MemorySignal, hobby *domain.Hobby) flo
 
 func generateReasons(signals []domain.MemorySignal, hobby *domain.Hobby) []string {
 	var reasons []string
+	hobbyLower := strings.ToLower(hobby.Name + " " + hobby.ShortDesc + " " + hobby.LongDesc)
+	aliasLower := ""
+	for _, a := range hobby.Aliases {
+		aliasLower += " " + strings.ToLower(a)
+	}
+	hobbyLower += aliasLower
+
+	// Check which interest signals actually relate to this hobby
 	for _, sig := range signals {
-		if sig.SignalType == "interest" && len(reasons) < 3 {
+		if len(reasons) >= 3 {
+			break
+		}
+		if sig.SignalType != "interest" {
+			continue
+		}
+		sigLower := strings.ToLower(sig.Text)
+		// Check if the signal text appears in the hobby's content
+		if strings.Contains(hobbyLower, sigLower) ||
+			strings.Contains(sigLower, strings.ToLower(hobby.Name)) {
 			reasons = append(reasons, "Matches your interest in "+sig.Text)
 		}
+	}
+
+	// Check experience signals for relevance
+	stopWords := map[string]bool{
+		"with": true, "that": true, "this": true, "from": true, "have": true,
+		"been": true, "also": true, "just": true, "like": true, "very": true,
+		"more": true, "some": true, "than": true, "them": true, "then": true,
+		"when": true, "what": true, "your": true, "about": true, "would": true,
+		"their": true, "which": true, "could": true, "other": true, "after": true,
+		"recently": true, "achieved": true, "interested": true, "following": true,
+		"program": true, "using": true, "including": true, "shoot": true,
+	}
+	for _, sig := range signals {
+		if len(reasons) >= 3 {
+			break
+		}
+		if sig.SignalType != "experience" {
+			continue
+		}
+		sigWords := strings.Fields(strings.ToLower(sig.Text))
+		for _, word := range sigWords {
+			if len(word) > 4 && !stopWords[word] && strings.Contains(hobbyLower, word) {
+				reasons = append(reasons, "Relates to your experience")
+				break
+			}
+		}
+	}
+
+	// Check desired_experience signals
+	for _, sig := range signals {
+		if len(reasons) >= 3 {
+			break
+		}
+		if sig.SignalType == "desired_experience" {
+			if strings.Contains(hobbyLower, strings.ToLower(sig.Text)) {
+				reasons = append(reasons, "Fits your goal: "+sig.Text)
+			}
+		}
+	}
+
+	// Fallback: use hobby-specific info
+	if len(reasons) == 0 {
+		reasons = append(reasons, hobby.ShortDesc)
 	}
 	if len(reasons) < 3 && hobby.DifficultySummary != "" {
 		reasons = append(reasons, hobby.DifficultySummary)
 	}
 	for len(reasons) < 3 {
-		reasons = append(reasons, "Aligns with your preferences")
+		reasons = append(reasons, "Discovered via knowledge graph")
 	}
 	return reasons[:3]
 }
@@ -183,6 +277,15 @@ func generateCaution(hobby *domain.Hobby) string {
 		return "Needs regular practice to progress"
 	}
 	return "Results take time — be patient"
+}
+
+func vectorScoreForID(id string, results []repo.ScoredID) float64 {
+	for _, r := range results {
+		if r.ID == id {
+			return r.Score
+		}
+	}
+	return 0
 }
 
 func passesDimFilter(h *domain.Hobby, f repo.ListFilter) bool {

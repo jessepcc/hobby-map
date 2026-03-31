@@ -60,7 +60,7 @@ func TestAcceptance_JapaneseHistoryFindsKendo(t *testing.T) {
 		{SignalType: "desired_experience", Text: "meaningful hobby", NormalizedValue: "meaningful_hobby", Weight: 0.71, Confidence: 0.7},
 	}
 
-	results, err := retrieval.Recommend(context.Background(), signals, repo.ListFilter{Limit: 20})
+	results, err := retrieval.Recommend(context.Background(), signals, repo.ListFilter{Limit: 20}, nil)
 	if err != nil {
 		t.Fatalf("Recommend: %v", err)
 	}
@@ -210,7 +210,7 @@ func TestAcceptance_RuleBasedExtractor(t *testing.T) {
 		t.Fatal("no signals extracted")
 	}
 
-	results, err := retrieval.Recommend(context.Background(), signals, repo.ListFilter{Limit: 20})
+	results, err := retrieval.Recommend(context.Background(), signals, repo.ListFilter{Limit: 20}, nil)
 	if err != nil {
 		t.Fatalf("Recommend: %v", err)
 	}

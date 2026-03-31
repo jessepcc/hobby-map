@@ -12,6 +12,7 @@ type recommendRequest struct {
 	MemorySessionID string                `json:"memorySessionId"`
 	Signals         []domain.MemorySignal `json:"signals"`
 	Filters         map[string]float64    `json:"filters"`
+	VectorResults   []vectorResult        `json:"vectorResults"`
 	Limit           int                   `json:"limit"`
 }
 
@@ -19,25 +20,18 @@ type recommendResponse struct {
 	Results []candidateResp `json:"results"`
 }
 
+type vectorResult struct {
+	ID    string  `json:"id"`
+	Score float64 `json:"score"`
+}
+
 type candidateResp struct {
 	HobbyID   string           `json:"hobbyId"`
 	HobbyName string           `json:"hobbyName"`
 	Rank      int              `json:"rank"`
-	Score     float64          `json:"score"`
 	Reasons   []string         `json:"reasons"`
 	Caution   string           `json:"caution"`
 	Radar     domain.RadarAxes `json:"radar"`
-	Scores    scoreBreakdown   `json:"scores"`
-}
-
-type scoreBreakdown struct {
-	Vector    float64 `json:"vector"`
-	FTS       float64 `json:"fts"`
-	Graph     float64 `json:"graph"`
-	Dimension float64 `json:"dimension"`
-	Outcome   float64 `json:"outcome"`
-	Novelty   float64 `json:"novelty"`
-	Barrier   float64 `json:"barrier"`
 }
 
 func (h *Handlers) Recommend(w http.ResponseWriter, r *http.Request) {
@@ -83,7 +77,11 @@ func (h *Handlers) Recommend(w http.ResponseWriter, r *http.Request) {
 		mapFilter("social_dependency_max", &filter.SocialDependencyMax)
 	}
 
-	results, err := h.deps.Retrieval.Recommend(r.Context(), signals, filter)
+	var vecResults []repo.ScoredID
+	for _, vr := range req.VectorResults {
+		vecResults = append(vecResults, repo.ScoredID{ID: vr.ID, Score: vr.Score})
+	}
+	results, err := h.deps.Retrieval.Recommend(r.Context(), signals, filter, vecResults)
 	if err != nil {
 		writeJSON(w, http.StatusInternalServerError, map[string]string{"error": err.Error()})
 		return
@@ -99,19 +97,9 @@ func (h *Handlers) Recommend(w http.ResponseWriter, r *http.Request) {
 			HobbyID:   c.HobbyID,
 			HobbyName: c.HobbyName,
 			Rank:      i + 1,
-			Score:     c.FinalScore,
 			Reasons:   c.Reasons,
 			Caution:   c.Caution,
 			Radar:     domain.ComputeRadar(hobby.Dimensions),
-			Scores: scoreBreakdown{
-				Vector:    c.VectorScore,
-				FTS:       c.FTSScore,
-				Graph:     c.GraphScore,
-				Dimension: c.DimensionScore,
-				Outcome:   c.OutcomeScore,
-				Novelty:   c.NoveltyScore,
-				Barrier:   c.BarrierPenalty,
-			},
 		})
 	}
 	writeJSON(w, http.StatusOK, resp)
