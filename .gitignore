@@ -1,5 +1,10 @@
 hobby-map.db
+hobby-map.db-shm
+hobby-map.db-wal
 .env
 tmp/
 hobbies.js
 node_modules/
+.DS_Store
+.claude/
+.impeccable.md
