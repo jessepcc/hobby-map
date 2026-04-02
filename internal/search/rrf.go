@@ -6,11 +6,11 @@ import (
 	"hobby-map/internal/repo"
 )
 
-// RRF weights per spec
+// RRF weights — FTS captures direct interest matches, graph provides discovery
 const (
 	WVector = 1.0
-	WFTS    = 0.8
-	WGraph  = 1.2
+	WFTS    = 2.0
+	WGraph  = 0.6
 )
 
 // RRFMerge merges candidate lists from FTS, graph, and vector channels using

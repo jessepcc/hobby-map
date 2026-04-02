@@ -2,15 +2,15 @@ package search
 
 import "hobby-map/internal/domain"
 
-// Score weights per spec
+// Score weights — FTS captures direct keyword relevance, graph provides discovery
 const (
 	WtVector    = 0.28
-	WtFTS       = 0.14
-	WtGraph     = 0.24
-	WtDimension = 0.16
+	WtFTS       = 0.30
+	WtGraph     = 0.14
+	WtDimension = 0.12
 	WtOutcome   = 0.10
-	WtNovelty   = 0.08
-	WtBarrier   = 0.15
+	WtNovelty   = 0.06
+	WtBarrier   = 0.10
 )
 
 // ComputeFinalScore applies the spec's weighted formula and sets c.FinalScore.

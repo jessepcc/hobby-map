@@ -2,6 +2,7 @@ package repo_test
 
 import (
 	"context"
+	"math"
 	"testing"
 
 	"hobby-map/internal/repo"
@@ -64,5 +65,51 @@ func TestGraphRepo_ExpandToHobbies(t *testing.T) {
 	}
 	if !ids["h3"] {
 		t.Error("missing h3 (kyudo)")
+	}
+}
+
+func TestGraphRepo_SearchNodeFTS_EscapesPunctuation(t *testing.T) {
+	db := testutil.TestDB(t)
+	testutil.SeedTestConcept(t, db, "c1", "long-term-practice", "Long Term Practice")
+
+	if _, err := db.Exec(`INSERT INTO node_fts (node_id, name, description) VALUES (?, ?, ?)`,
+		"c1", "Long Term Practice", "A long-term discipline"); err != nil {
+		t.Fatalf("insert node_fts: %v", err)
+	}
+
+	r := repo.NewGraphRepo(db)
+	ids, err := r.SearchNodeFTS(context.Background(), "long-term", 10)
+	if err != nil {
+		t.Fatalf("SearchNodeFTS: %v", err)
+	}
+	if len(ids) != 1 || ids[0] != "c1" {
+		t.Fatalf("ids = %v, want [c1]", ids)
+	}
+}
+
+func TestGraphRepo_ExpandToHobbies_AccumulatesAcrossSeeds(t *testing.T) {
+	db := testutil.TestDB(t)
+
+	testutil.SeedTestConcept(t, db, "s1", "seed-1", "Seed One")
+	testutil.SeedTestConcept(t, db, "s2", "seed-2", "Seed Two")
+	testutil.SeedTestConcept(t, db, "c1", "discipline", "Discipline")
+	testutil.SeedTestHobby(t, db, "h1", "kenjutsu", "Kenjutsu", "Japanese swordsmanship", nil)
+
+	testutil.SeedTestEdge(t, db, "e1", "s1", "c1", "related_to", 0.9)
+	testutil.SeedTestEdge(t, db, "e2", "s2", "c1", "related_to", 0.8)
+	testutil.SeedTestEdge(t, db, "e3", "c1", "h1", "related_to", 0.9)
+
+	r := repo.NewGraphRepo(db)
+	results, err := r.ExpandToHobbies(context.Background(), []string{"s1", "s2"}, 3, 10)
+	if err != nil {
+		t.Fatalf("ExpandToHobbies: %v", err)
+	}
+	if len(results) != 1 {
+		t.Fatalf("len = %d, want 1", len(results))
+	}
+
+	want := (0.9*0.9)/(1.0+0.35*2.0) + (0.8*0.9)/(1.0+0.35*2.0)
+	if math.Abs(results[0].Score-want) > 0.0001 {
+		t.Fatalf("score = %.6f, want %.6f", results[0].Score, want)
 	}
 }

@@ -20,10 +20,10 @@ func TestComputeFinalScore(t *testing.T) {
 
 	score := search.ComputeFinalScore(&c)
 
-	// 0.28*0.8 + 0.14*0.6 + 0.24*0.7 + 0.16*0.5 + 0.10*0.4 + 0.08*0.3 - 0.15*0.1
-	// = 0.224 + 0.084 + 0.168 + 0.08 + 0.04 + 0.024 - 0.015 = 0.605
-	assertNear(t, "final", score, 0.605)
-	assertNear(t, "candidate", c.FinalScore, 0.605)
+	// 0.28*0.8 + 0.30*0.6 + 0.14*0.7 + 0.12*0.5 + 0.10*0.4 + 0.06*0.3 - 0.10*0.1
+	// = 0.224 + 0.18 + 0.098 + 0.06 + 0.04 + 0.018 - 0.01 = 0.610
+	assertNear(t, "final", score, 0.610)
+	assertNear(t, "candidate", c.FinalScore, 0.610)
 }
 
 func TestComputeDimensionScore(t *testing.T) {

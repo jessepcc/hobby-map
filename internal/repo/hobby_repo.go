@@ -122,8 +122,19 @@ func (r *HobbyRepo) List(ctx context.Context, f ListFilter) ([]domain.Hobby, err
 }
 
 func (r *HobbyRepo) SearchFTS(ctx context.Context, query string, limit int) ([]ScoredID, error) {
+	return r.searchFTS(ctx, buildFTSQuery([]string{query}), limit)
+}
+
+func (r *HobbyRepo) SearchFTSClauses(ctx context.Context, clauses []string, limit int) ([]ScoredID, error) {
+	return r.searchFTS(ctx, buildFTSQuery(clauses), limit)
+}
+
+func (r *HobbyRepo) searchFTS(ctx context.Context, query string, limit int) ([]ScoredID, error) {
 	if limit == 0 {
 		limit = 20
+	}
+	if query == "" {
+		return nil, nil
 	}
 	rows, err := r.db.QueryContext(ctx, `
 		SELECT node_id, rank FROM hobby_fts WHERE hobby_fts MATCH ? ORDER BY rank LIMIT ?

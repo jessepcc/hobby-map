@@ -81,3 +81,21 @@ func TestHobbyRepo_SearchFTS(t *testing.T) {
 		t.Errorf("result ID = %q, want h1", results[0].ID)
 	}
 }
+
+func TestHobbyRepo_SearchFTSClauses_EscapesPunctuation(t *testing.T) {
+	db := testutil.TestDB(t)
+	testutil.SeedTestHobby(t, db, "h1", "kenjutsu", "Kenjutsu", "Japanese swordsmanship", nil)
+	testutil.SeedFTSEntry(t, db, "h1", "Kenjutsu", "", "Traditional Japanese swordsmanship", "", "Japanese history long term discipline")
+
+	r := repo.NewHobbyRepo(db)
+	results, err := r.SearchFTSClauses(context.Background(), []string{"Japanese history", "long-term"}, 10)
+	if err != nil {
+		t.Fatalf("SearchFTSClauses: %v", err)
+	}
+	if len(results) == 0 {
+		t.Fatal("expected at least 1 result")
+	}
+	if results[0].ID != "h1" {
+		t.Errorf("result ID = %q, want h1", results[0].ID)
+	}
+}

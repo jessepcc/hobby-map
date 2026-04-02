@@ -63,6 +63,10 @@ func (r *GraphRepo) GetEdgesFrom(ctx context.Context, nodeID string, edgeTypes [
 }
 
 func (r *GraphRepo) SearchNodeFTS(ctx context.Context, query string, limit int) ([]string, error) {
+	query = buildFTSQuery([]string{query})
+	if query == "" {
+		return nil, nil
+	}
 	rows, err := r.db.QueryContext(ctx,
 		"SELECT node_id FROM node_fts WHERE node_fts MATCH ? LIMIT ?", query, limit)
 	if err != nil {
@@ -78,8 +82,8 @@ func (r *GraphRepo) SearchNodeFTS(ctx context.Context, query string, limit int) 
 	return ids, rows.Err()
 }
 
-// ExpandToHobbies does BFS from seed nodes up to maxHops, returning hobbies found
-// with graph scores computed as: sum(pathWeight / (1.0 + 0.35*hops)).
+// ExpandToHobbies walks all simple paths from the seed set up to maxHops,
+// accumulating support from each valid path into the final hobby score.
 func (r *GraphRepo) ExpandToHobbies(ctx context.Context, seedNodeIDs []string, maxHops int, limit int) ([]ScoredID, error) {
 	if maxHops > 3 {
 		maxHops = 3
@@ -92,15 +96,21 @@ func (r *GraphRepo) ExpandToHobbies(ctx context.Context, seedNodeIDs []string, m
 		nodeID     string
 		hops       int
 		pathWeight float64
+		path       []string
 	}
 
 	hobbyScores := make(map[string]float64)
-	visited := make(map[string]bool)
 	queue := make([]visit, 0, len(seedNodeIDs))
+	nodeTypeCache := make(map[string]string)
+	edgeCache := make(map[string][]domain.Edge)
 
 	for _, id := range seedNodeIDs {
-		queue = append(queue, visit{nodeID: id, hops: 0, pathWeight: 1.0})
-		visited[id] = true
+		queue = append(queue, visit{
+			nodeID:     id,
+			hops:       0,
+			pathWeight: 1.0,
+			path:       []string{id},
+		})
 	}
 
 	for len(queue) > 0 {
@@ -108,8 +118,10 @@ func (r *GraphRepo) ExpandToHobbies(ctx context.Context, seedNodeIDs []string, m
 		queue = queue[1:]
 
 		// Check if this node is a hobby
-		var nodeType string
-		r.db.QueryRowContext(ctx, "SELECT node_type FROM nodes WHERE id = ?", v.nodeID).Scan(&nodeType)
+		nodeType, err := r.nodeType(ctx, nodeTypeCache, v.nodeID)
+		if err != nil {
+			continue
+		}
 		if nodeType == "hobby" {
 			score := v.pathWeight / (1.0 + 0.35*float64(v.hops))
 			hobbyScores[v.nodeID] += score
@@ -120,7 +132,7 @@ func (r *GraphRepo) ExpandToHobbies(ctx context.Context, seedNodeIDs []string, m
 		}
 
 		// Expand outgoing edges
-		edges, err := r.getEdgesBoth(ctx, v.nodeID)
+		edges, err := r.cachedEdgesBoth(ctx, edgeCache, v.nodeID)
 		if err != nil {
 			continue
 		}
@@ -129,14 +141,15 @@ func (r *GraphRepo) ExpandToHobbies(ctx context.Context, seedNodeIDs []string, m
 			if neighbor == v.nodeID {
 				neighbor = e.FromNodeID
 			}
-			if visited[neighbor] || e.Weight < 0.4 {
+			if e.Weight < 0.4 || containsNode(v.path, neighbor) {
 				continue
 			}
-			visited[neighbor] = true
+			path := append(append([]string(nil), v.path...), neighbor)
 			queue = append(queue, visit{
 				nodeID:     neighbor,
 				hops:       v.hops + 1,
 				pathWeight: v.pathWeight * e.Weight,
+				path:       path,
 			})
 		}
 	}
@@ -153,6 +166,41 @@ func (r *GraphRepo) ExpandToHobbies(ctx context.Context, seedNodeIDs []string, m
 		results = results[:limit]
 	}
 	return results, nil
+}
+
+func (r *GraphRepo) nodeType(ctx context.Context, cache map[string]string, nodeID string) (string, error) {
+	if nodeType, ok := cache[nodeID]; ok {
+		return nodeType, nil
+	}
+
+	var nodeType string
+	if err := r.db.QueryRowContext(ctx, "SELECT node_type FROM nodes WHERE id = ?", nodeID).Scan(&nodeType); err != nil {
+		return "", err
+	}
+	cache[nodeID] = nodeType
+	return nodeType, nil
+}
+
+func (r *GraphRepo) cachedEdgesBoth(ctx context.Context, cache map[string][]domain.Edge, nodeID string) ([]domain.Edge, error) {
+	if edges, ok := cache[nodeID]; ok {
+		return edges, nil
+	}
+
+	edges, err := r.getEdgesBoth(ctx, nodeID)
+	if err != nil {
+		return nil, err
+	}
+	cache[nodeID] = edges
+	return edges, nil
+}
+
+func containsNode(path []string, nodeID string) bool {
+	for _, current := range path {
+		if current == nodeID {
+			return true
+		}
+	}
+	return false
 }
 
 func (r *GraphRepo) getEdgesBoth(ctx context.Context, nodeID string) ([]domain.Edge, error) {

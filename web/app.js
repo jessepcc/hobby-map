@@ -306,8 +306,19 @@ function renderResults() {
   memCard.appendChild(el('p', null, state.lastMemory));
   memSection.appendChild(memCard);
 
-  // Signals
+  // Signals (collapsible)
   if (state.lastSignals?.length) {
+    const sigWrap = el('div', { cls: 'signals-wrap collapsed' });
+    const sigToggle = el('button', { cls: 'signals-toggle', onClick: () => {
+      sigWrap.classList.toggle('collapsed');
+      const isCollapsed = sigWrap.classList.contains('collapsed');
+      sigToggle.querySelector('.signals-toggle-count').textContent = state.lastSignals.length + ' signals extracted';
+      sigToggle.querySelector('.signals-toggle-arrow').textContent = isCollapsed ? '\u25B8' : '\u25BE';
+    }});
+    sigToggle.appendChild(el('span', { cls: 'signals-toggle-arrow' }, '\u25B8'));
+    sigToggle.appendChild(el('span', { cls: 'signals-toggle-count' }, state.lastSignals.length + ' signals extracted'));
+    sigWrap.appendChild(sigToggle);
+
     const sigSection = el('div', { cls: 'signals-section' });
     const grouped = {};
     const typeLabels = { interest: 'INTERESTS', lifestyle_constraint: 'LIFESTYLE', experience: 'EXPERIENCE', desired_experience: 'DESIRED EXPERIENCE' };
@@ -316,10 +327,7 @@ function renderResults() {
       if (!grouped[key]) grouped[key] = [];
       grouped[key].push(s);
     });
-    let first = true;
     Object.entries(grouped).forEach(([type, sigs]) => {
-      if (!first) sigSection.appendChild(el('div', { cls: 'signal-sep' }));
-      first = false;
       const group = el('div', { cls: 'signal-group' });
       group.setAttribute('data-type', type);
       group.appendChild(el('span', { cls: 'signal-group-label' }, typeLabels[type] || type.replace(/_/g, ' ').toUpperCase()));
@@ -328,7 +336,8 @@ function renderResults() {
       group.appendChild(pills);
       sigSection.appendChild(group);
     });
-    memSection.appendChild(sigSection);
+    sigWrap.appendChild(sigSection);
+    memSection.appendChild(sigWrap);
   }
   page.appendChild(memSection);
 
