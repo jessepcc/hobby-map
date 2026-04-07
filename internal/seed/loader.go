@@ -13,6 +13,7 @@ type hobbyJSON struct {
 	ID                string             `json:"id"`
 	Slug              string             `json:"slug"`
 	Name              string             `json:"name"`
+	NameZH            string             `json:"name_zh"`
 	Description       string             `json:"description"`
 	ShortDesc         string             `json:"short_desc"`
 	LongDesc          string             `json:"long_desc"`
@@ -121,7 +122,7 @@ func loadHobbies(tx *sql.Tx, dir string) error {
 	if err := readJSON(filepath.Join(dir, "hobbies.json"), &hobbies); err != nil {
 		return err
 	}
-	nodeStmt, err := tx.Prepare(`INSERT OR REPLACE INTO nodes (id, node_type, slug, name, description, metadata_json) VALUES (?, 'hobby', ?, ?, ?, ?)`)
+	nodeStmt, err := tx.Prepare(`INSERT OR REPLACE INTO nodes (id, node_type, slug, name, name_zh, description, metadata_json) VALUES (?, 'hobby', ?, ?, ?, ?, ?)`)
 	if err != nil {
 		return err
 	}
@@ -147,7 +148,7 @@ func loadHobbies(tx *sql.Tx, dir string) error {
 
 	for _, h := range hobbies {
 		metaJSON, _ := json.Marshal(h.Metadata)
-		if _, err := nodeStmt.Exec(h.ID, h.Slug, h.Name, h.Description, string(metaJSON)); err != nil {
+		if _, err := nodeStmt.Exec(h.ID, h.Slug, h.Name, h.NameZH, h.Description, string(metaJSON)); err != nil {
 			return fmt.Errorf("insert hobby node %s: %w", h.Slug, err)
 		}
 		if _, err := hobbyStmt.Exec(h.ID, h.ShortDesc, h.LongDesc, h.DifficultySummary, h.StarterPath, h.Popularity); err != nil {
@@ -212,7 +213,7 @@ func populateFTS(tx *sql.Tx) error {
 	}
 
 	rows, err := tx.Query(`
-		SELECT n.id, n.name, h.short_desc, h.long_desc
+		SELECT n.id, n.name, COALESCE(n.name_zh, ''), h.short_desc, h.long_desc
 		FROM nodes n
 		JOIN hobbies h ON h.node_id = n.id
 		WHERE n.node_type = 'hobby'
@@ -229,13 +230,18 @@ func populateFTS(tx *sql.Tx) error {
 	defer ftsStmt.Close()
 
 	for rows.Next() {
-		var id, name, shortDesc, longDesc string
-		if err := rows.Scan(&id, &name, &shortDesc, &longDesc); err != nil {
+		var id, name, nameZH, shortDesc, longDesc string
+		if err := rows.Scan(&id, &name, &nameZH, &shortDesc, &longDesc); err != nil {
 			return err
+		}
+		// Include Chinese name in the searchable name field
+		ftsName := name
+		if nameZH != "" {
+			ftsName = name + " " + nameZH
 		}
 		aliases := getAliases(tx, id)
 		concepts := getConcepts(tx, id)
-		if _, err := ftsStmt.Exec(id, name, aliases, shortDesc, longDesc, concepts); err != nil {
+		if _, err := ftsStmt.Exec(id, ftsName, aliases, shortDesc, longDesc, concepts); err != nil {
 			return fmt.Errorf("insert fts for %s: %w", id, err)
 		}
 	}

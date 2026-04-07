@@ -1,0 +1,5 @@
+-- Add name_zh column for Traditional Chinese translations.
+-- SQLite does not support IF NOT EXISTS for ALTER TABLE, so we create a
+-- trigger-based workaround: attempt the ALTER and silently succeed if already applied.
+-- This is handled in Go code; the raw SQL is kept as a no-op placeholder.
+-- The actual migration is applied programmatically in migrations.go.

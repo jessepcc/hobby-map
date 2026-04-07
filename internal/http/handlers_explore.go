@@ -20,6 +20,7 @@ type hobbyResponse struct {
 	ID                string             `json:"id"`
 	Slug              string             `json:"slug"`
 	Name              string             `json:"name"`
+	NameZH            string             `json:"nameZh,omitempty"`
 	ShortDesc         string             `json:"shortDesc"`
 	LongDesc          string             `json:"longDesc"`
 	DifficultySummary string             `json:"difficultySummary"`
@@ -43,6 +44,7 @@ func toHobbyResponse(h *domain.Hobby) hobbyResponse {
 		ID:                h.ID,
 		Slug:              h.Slug,
 		Name:              h.Name,
+		NameZH:            h.NameZH,
 		ShortDesc:         h.ShortDesc,
 		LongDesc:          h.LongDesc,
 		DifficultySummary: h.DifficultySummary,

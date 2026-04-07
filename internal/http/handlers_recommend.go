@@ -26,9 +26,10 @@ type vectorResult struct {
 }
 
 type candidateResp struct {
-	HobbyID   string           `json:"hobbyId"`
-	HobbyName string           `json:"hobbyName"`
-	Rank      int              `json:"rank"`
+	HobbyID     string           `json:"hobbyId"`
+	HobbyName   string           `json:"hobbyName"`
+	HobbyNameZH string           `json:"hobbyNameZh,omitempty"`
+	Rank        int              `json:"rank"`
 	Reasons   []string         `json:"reasons"`
 	Caution   string           `json:"caution"`
 	Radar     domain.RadarAxes `json:"radar"`
@@ -94,9 +95,10 @@ func (h *Handlers) Recommend(w http.ResponseWriter, r *http.Request) {
 			continue
 		}
 		resp.Results = append(resp.Results, candidateResp{
-			HobbyID:   c.HobbyID,
-			HobbyName: c.HobbyName,
-			Rank:      i + 1,
+			HobbyID:     c.HobbyID,
+			HobbyName:   c.HobbyName,
+			HobbyNameZH: hobby.NameZH,
+			Rank:        i + 1,
 			Reasons:   c.Reasons,
 			Caution:   c.Caution,
 			Radar:     domain.ComputeRadar(hobby.Dimensions),

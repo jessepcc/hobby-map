@@ -1,0 +1,6547 @@
+[
+  {
+    "id": "8dbda727-12bd-4265-865c-925b2a6c896e",
+    "node_type": "concept",
+    "slug": "arts-and-crafts",
+    "name": "Arts-And-Crafts",
+    "description": ""
+  },
+  {
+    "id": "9c83a194-8eba-4597-bddc-95ab8dcc70bc",
+    "node_type": "concept",
+    "slug": "music-and-audio",
+    "name": "Music-And-Audio",
+    "description": ""
+  },
+  {
+    "id": "3847b003-e204-4fb9-bb46-cbdcc620b684",
+    "node_type": "concept",
+    "slug": "outdoor-and-adventure",
+    "name": "Outdoor-And-Adventure",
+    "description": ""
+  },
+  {
+    "id": "f87663ba-d085-4232-bb2b-66bf2cab4b55",
+    "node_type": "concept",
+    "slug": "sports-and-fitness",
+    "name": "Sports-And-Fitness",
+    "description": ""
+  },
+  {
+    "id": "8d9aefc5-ca5e-4e69-a33f-4579780188ff",
+    "node_type": "concept",
+    "slug": "technology-and-making",
+    "name": "Technology-And-Making",
+    "description": ""
+  },
+  {
+    "id": "19ee588a-743f-42e2-81c2-621347a22362",
+    "node_type": "concept",
+    "slug": "gaming-and-play",
+    "name": "Gaming-And-Play",
+    "description": ""
+  },
+  {
+    "id": "4e813c2a-794b-4d88-864a-f37ab55dd898",
+    "node_type": "concept",
+    "slug": "food-and-drink",
+    "name": "Food-And-Drink",
+    "description": ""
+  },
+  {
+    "id": "9bcee0dd-0169-4de1-807d-96fcbc1c9fd7",
+    "node_type": "concept",
+    "slug": "collecting-and-curating",
+    "name": "Collecting-And-Curating",
+    "description": ""
+  },
+  {
+    "id": "edf53e60-adec-4984-bb06-5e2b36e4b230",
+    "node_type": "concept",
+    "slug": "writing-and-storytelling",
+    "name": "Writing-And-Storytelling",
+    "description": ""
+  },
+  {
+    "id": "a200d552-5a57-4872-8256-8690b0872814",
+    "node_type": "concept",
+    "slug": "mind-and-self-development",
+    "name": "Mind-And-Self-Development",
+    "description": ""
+  },
+  {
+    "id": "0a602034-1a65-4000-9507-67ecca05ade9",
+    "node_type": "concept",
+    "slug": "science-and-learning",
+    "name": "Science-And-Learning",
+    "description": ""
+  },
+  {
+    "id": "1b54089d-7b78-4db8-bdda-923b3f04cd2e",
+    "node_type": "concept",
+    "slug": "performance-and-expression",
+    "name": "Performance-And-Expression",
+    "description": ""
+  },
+  {
+    "id": "b3688b37-e714-4a66-b676-e25095820374",
+    "node_type": "concept",
+    "slug": "nature-and-animals",
+    "name": "Nature-And-Animals",
+    "description": ""
+  },
+  {
+    "id": "5428c9f0-6489-4738-a84c-fa1412c47f86",
+    "node_type": "concept",
+    "slug": "film-and-photography",
+    "name": "Film-And-Photography",
+    "description": ""
+  },
+  {
+    "id": "322003b5-8fc1-44be-971b-b80117f20e40",
+    "node_type": "concept",
+    "slug": "home-and-garden",
+    "name": "Home-And-Garden",
+    "description": ""
+  },
+  {
+    "id": "69820b5a-7ca2-4953-8ef5-1aa8956e6a3f",
+    "node_type": "concept",
+    "slug": "social-and-community",
+    "name": "Social-And-Community",
+    "description": ""
+  },
+  {
+    "id": "433d5e4a-fd38-4fed-a5b6-a4509b2e03d2",
+    "node_type": "concept",
+    "slug": "travel-and-culture",
+    "name": "Travel-And-Culture",
+    "description": ""
+  },
+  {
+    "id": "dfa4e3d4-3e8d-4249-bf5b-4570ac1014bf",
+    "node_type": "concept",
+    "slug": "fashion-and-style",
+    "name": "Fashion-And-Style",
+    "description": ""
+  },
+  {
+    "id": "d46b5801-98f5-4a36-ac12-de6516987d36",
+    "node_type": "concept",
+    "slug": "creativity",
+    "name": "Creativity",
+    "description": ""
+  },
+  {
+    "id": "fa8338de-ca1e-493c-a097-23b1b71c2427",
+    "node_type": "concept",
+    "slug": "visual-arts",
+    "name": "Visual Arts",
+    "description": ""
+  },
+  {
+    "id": "f500c1cf-2dcc-4843-848f-43304b14c9fb",
+    "node_type": "concept",
+    "slug": "color-theory",
+    "name": "Color Theory",
+    "description": ""
+  },
+  {
+    "id": "7f79ce15-3138-4b35-abd9-b5a8594c622e",
+    "node_type": "concept",
+    "slug": "artistic-expression",
+    "name": "Artistic Expression",
+    "description": ""
+  },
+  {
+    "id": "b72900c5-191a-4485-b865-c67ffb7a8270",
+    "node_type": "concept",
+    "slug": "historical-cultural-depth",
+    "name": "Historical Cultural Depth",
+    "description": ""
+  },
+  {
+    "id": "2297db4d-43b1-4950-813d-0736b3074b65",
+    "node_type": "entity",
+    "slug": "canvas",
+    "name": "Canvas",
+    "description": ""
+  },
+  {
+    "id": "5010f68b-9a7b-45c5-9c54-24920664bdbd",
+    "node_type": "entity",
+    "slug": "oil-paints",
+    "name": "Oil Paints",
+    "description": ""
+  },
+  {
+    "id": "28bf0bdb-ae9d-42a6-8260-8f1fecc03ae9",
+    "node_type": "entity",
+    "slug": "brushes",
+    "name": "Brushes",
+    "description": ""
+  },
+  {
+    "id": "b85e6ade-2724-4f9f-b079-cb126f5951c8",
+    "node_type": "entity",
+    "slug": "palette",
+    "name": "Palette",
+    "description": ""
+  },
+  {
+    "id": "cf4f833a-be7a-4426-ad59-98322286eb78",
+    "node_type": "entity",
+    "slug": "linseed-oil",
+    "name": "Linseed Oil",
+    "description": ""
+  },
+  {
+    "id": "13539303-cea7-4bde-800c-cac785583ff4",
+    "node_type": "outcome",
+    "slug": "artistic-expression",
+    "name": "Artistic Expression",
+    "description": ""
+  },
+  {
+    "id": "8add3ebc-6536-4a67-b37f-2a2506e0c7db",
+    "node_type": "outcome",
+    "slug": "creative-fulfillment",
+    "name": "Creative Fulfillment",
+    "description": ""
+  },
+  {
+    "id": "ec219c20-abca-439b-bc37-6ab9336c79e4",
+    "node_type": "outcome",
+    "slug": "aesthetic-pleasure",
+    "name": "Aesthetic Pleasure",
+    "description": ""
+  },
+  {
+    "id": "1a433c5d-8ef3-4ffb-bf1e-3cf84f551269",
+    "node_type": "barrier",
+    "slug": "steep-learning-curve",
+    "name": "Steep Learning Curve",
+    "description": ""
+  },
+  {
+    "id": "891d931a-064f-4793-bcfb-ab6301ac7167",
+    "node_type": "concept",
+    "slug": "craftsmanship",
+    "name": "Craftsmanship",
+    "description": ""
+  },
+  {
+    "id": "ff2c612c-f2e6-46c4-9438-33ada295fb63",
+    "node_type": "concept",
+    "slug": "manual-dexterity",
+    "name": "Manual Dexterity",
+    "description": ""
+  },
+  {
+    "id": "1779a04b-fb00-4efc-a2c7-5cbed5ad6231",
+    "node_type": "concept",
+    "slug": "creative-expression",
+    "name": "Creative Expression",
+    "description": ""
+  },
+  {
+    "id": "c23e629a-fed4-4a28-808a-8db88e6dcc80",
+    "node_type": "concept",
+    "slug": "patience",
+    "name": "Patience",
+    "description": ""
+  },
+  {
+    "id": "e7d7cd8c-f32f-4104-ad4b-7777dfa64270",
+    "node_type": "concept",
+    "slug": "cultural-heritage",
+    "name": "Cultural Heritage",
+    "description": ""
+  },
+  {
+    "id": "0d0387cf-ea39-4cbc-995f-e5968072bb29",
+    "node_type": "entity",
+    "slug": "clay",
+    "name": "Clay",
+    "description": ""
+  },
+  {
+    "id": "ad935852-216d-4846-a90d-35efb0f0c3bc",
+    "node_type": "entity",
+    "slug": "pottery-wheel",
+    "name": "Pottery Wheel",
+    "description": ""
+  },
+  {
+    "id": "bdd96705-921c-4b15-88d1-cd038aa8b3a5",
+    "node_type": "entity",
+    "slug": "kiln",
+    "name": "Kiln",
+    "description": ""
+  },
+  {
+    "id": "44fb80cc-a52c-4543-b549-2f2a5d680849",
+    "node_type": "entity",
+    "slug": "glazes",
+    "name": "Glazes",
+    "description": ""
+  },
+  {
+    "id": "3ce0401e-9667-4c9e-9266-53b3bf2b3d39",
+    "node_type": "entity",
+    "slug": "clay-tools",
+    "name": "Clay Tools",
+    "description": ""
+  },
+  {
+    "id": "98faac4c-0a45-40c7-bb18-3bafd64ef7f9",
+    "node_type": "outcome",
+    "slug": "sense-of-mastery",
+    "name": "Sense Of Mastery",
+    "description": ""
+  },
+  {
+    "id": "e6e75db0-83c5-432f-b70e-e915bf4f0909",
+    "node_type": "outcome",
+    "slug": "stress-relief",
+    "name": "Stress Relief",
+    "description": ""
+  },
+  {
+    "id": "6067cdd1-6827-4095-b036-a3a81c90878e",
+    "node_type": "barrier",
+    "slug": "requires-dedicated-space",
+    "name": "Requires Dedicated Space",
+    "description": ""
+  },
+  {
+    "id": "e7ef4761-d1de-4ffc-8daf-f0b2cd71af00",
+    "node_type": "concept",
+    "slug": "design-thinking",
+    "name": "Design Thinking",
+    "description": ""
+  },
+  {
+    "id": "54f2e9c7-83fa-47d5-9544-0e5d6817efee",
+    "node_type": "concept",
+    "slug": "practical-skills",
+    "name": "Practical Skills",
+    "description": ""
+  },
+  {
+    "id": "a2ebb70d-d46b-4f38-bc49-fd4cee939ebb",
+    "node_type": "entity",
+    "slug": "leather-hides",
+    "name": "Leather Hides",
+    "description": ""
+  },
+  {
+    "id": "2c01e23b-7f92-4619-a1b1-a861fc2716c8",
+    "node_type": "entity",
+    "slug": "cutting-tools",
+    "name": "Cutting Tools",
+    "description": ""
+  },
+  {
+    "id": "0771efa5-bb5e-47df-a89f-b6036f44d504",
+    "node_type": "entity",
+    "slug": "stamps",
+    "name": "Stamps",
+    "description": ""
+  },
+  {
+    "id": "4b188022-a154-493f-a112-7c096f59a973",
+    "node_type": "entity",
+    "slug": "stitching-thread",
+    "name": "Stitching Thread",
+    "description": ""
+  },
+  {
+    "id": "d0fa0581-331a-4175-bb04-a81f7136ba9c",
+    "node_type": "entity",
+    "slug": "edge-beveler",
+    "name": "Edge Beveler",
+    "description": ""
+  },
+  {
+    "id": "6252c13d-0032-4881-a5a8-27e803b677c6",
+    "node_type": "outcome",
+    "slug": "practical-skills",
+    "name": "Practical Skills",
+    "description": ""
+  },
+  {
+    "id": "6684e770-8c0e-48c2-946c-40eaa4dc9d82",
+    "node_type": "concept",
+    "slug": "precision",
+    "name": "Precision",
+    "description": ""
+  },
+  {
+    "id": "3bec66cc-00a8-46f3-a4b7-2b1bd9bfa334",
+    "node_type": "concept",
+    "slug": "discipline",
+    "name": "Discipline",
+    "description": ""
+  },
+  {
+    "id": "558fa7f1-f5b3-46b2-a56d-8a3a126b0336",
+    "node_type": "concept",
+    "slug": "mindfulness",
+    "name": "Mindfulness",
+    "description": ""
+  },
+  {
+    "id": "f9e14b23-81a8-4778-8920-c05221f38109",
+    "node_type": "entity",
+    "slug": "nib",
+    "name": "Nib",
+    "description": ""
+  },
+  {
+    "id": "7e3365e4-d177-447d-bd85-c16c96c4e078",
+    "node_type": "entity",
+    "slug": "ink",
+    "name": "Ink",
+    "description": ""
+  },
+  {
+    "id": "2765effc-37bc-4fb2-8256-37a968b0cdca",
+    "node_type": "entity",
+    "slug": "paper",
+    "name": "Paper",
+    "description": ""
+  },
+  {
+    "id": "a5a818ee-fd6d-42a0-bb3f-919881229e8d",
+    "node_type": "entity",
+    "slug": "pen",
+    "name": "Pen",
+    "description": ""
+  },
+  {
+    "id": "a207fba2-5bf5-4815-8d86-1ab65775de2a",
+    "node_type": "entity",
+    "slug": "brush",
+    "name": "Brush",
+    "description": ""
+  },
+  {
+    "id": "783b19cb-8d25-47a4-8bc7-cf7b7a33ba7b",
+    "node_type": "outcome",
+    "slug": "mindfulness-calm",
+    "name": "Mindfulness Calm",
+    "description": ""
+  },
+  {
+    "id": "e4197825-76c7-4029-b04b-e4b006643bca",
+    "node_type": "concept",
+    "slug": "aromatherapy",
+    "name": "Aromatherapy",
+    "description": ""
+  },
+  {
+    "id": "4eee555d-0841-4832-bfcd-0412ce2686db",
+    "node_type": "entity",
+    "slug": "soy-wax",
+    "name": "Soy Wax",
+    "description": ""
+  },
+  {
+    "id": "cb8c801e-59ad-4870-bb9c-3759abe5bd93",
+    "node_type": "entity",
+    "slug": "fragrance-oils",
+    "name": "Fragrance Oils",
+    "description": ""
+  },
+  {
+    "id": "934bc52f-886c-4c9e-b1a8-fe84de7d1886",
+    "node_type": "entity",
+    "slug": "wicks",
+    "name": "Wicks",
+    "description": ""
+  },
+  {
+    "id": "f5b15785-8ccb-4b69-af2d-6dfbb4ef8343",
+    "node_type": "entity",
+    "slug": "containers",
+    "name": "Containers",
+    "description": ""
+  },
+  {
+    "id": "72b5260d-ae66-4761-8150-fd1a324c6476",
+    "node_type": "entity",
+    "slug": "thermometer",
+    "name": "Thermometer",
+    "description": ""
+  },
+  {
+    "id": "934d70d5-03a9-4058-97ca-c6c73543b1ed",
+    "node_type": "barrier",
+    "slug": "time-intensive",
+    "name": "Time Intensive",
+    "description": ""
+  },
+  {
+    "id": "41e34cd8-51f3-4c53-9f06-030dccdd3c6d",
+    "node_type": "concept",
+    "slug": "japanese-culture",
+    "name": "Japanese Culture",
+    "description": ""
+  },
+  {
+    "id": "d6310855-47f3-4e4f-8967-d260149b8768",
+    "node_type": "concept",
+    "slug": "problem-solving",
+    "name": "Problem Solving",
+    "description": ""
+  },
+  {
+    "id": "cdc37f17-b001-436b-b136-10723488c706",
+    "node_type": "entity",
+    "slug": "origami-paper",
+    "name": "Origami Paper",
+    "description": ""
+  },
+  {
+    "id": "41f133dc-e292-4098-8d09-a749400a75dc",
+    "node_type": "entity",
+    "slug": "printed-instructions",
+    "name": "Printed Instructions",
+    "description": ""
+  },
+  {
+    "id": "87b91d76-e95c-4a3c-a38b-197135eaa684",
+    "node_type": "entity",
+    "slug": "folding-surface",
+    "name": "Folding Surface",
+    "description": ""
+  },
+  {
+    "id": "77a924b2-007e-4a97-b3b5-00edb5129f90",
+    "node_type": "entity",
+    "slug": "bone-folder",
+    "name": "Bone Folder",
+    "description": ""
+  },
+  {
+    "id": "b66244fd-834b-4916-920d-5c4ae33851a4",
+    "node_type": "entity",
+    "slug": "watercolor-paints",
+    "name": "Watercolor Paints",
+    "description": ""
+  },
+  {
+    "id": "65322813-93d7-49bf-b858-247a98ebf9a1",
+    "node_type": "entity",
+    "slug": "watercolor-paper",
+    "name": "Watercolor Paper",
+    "description": ""
+  },
+  {
+    "id": "a7661479-5447-4856-b7c3-26e677d190b1",
+    "node_type": "entity",
+    "slug": "water-container",
+    "name": "Water Container",
+    "description": ""
+  },
+  {
+    "id": "05ec19df-d829-4d30-8914-301ed530a64c",
+    "node_type": "entity",
+    "slug": "embroidery-floss",
+    "name": "Embroidery Floss",
+    "description": ""
+  },
+  {
+    "id": "6512ac60-399d-4243-8bda-9bc6abaa9dd1",
+    "node_type": "entity",
+    "slug": "needle",
+    "name": "Needle",
+    "description": ""
+  },
+  {
+    "id": "8319e84c-ecd3-4652-bf19-e38f0e394fc3",
+    "node_type": "entity",
+    "slug": "fabric",
+    "name": "Fabric",
+    "description": ""
+  },
+  {
+    "id": "f6544e26-029a-4e4d-8996-28f38fbfbc74",
+    "node_type": "entity",
+    "slug": "hoop",
+    "name": "Hoop",
+    "description": ""
+  },
+  {
+    "id": "610e7758-611d-4be6-9aa2-9aaa2d863793",
+    "node_type": "entity",
+    "slug": "pattern",
+    "name": "Pattern",
+    "description": ""
+  },
+  {
+    "id": "1c512e77-14fd-417d-81a7-384ee984183e",
+    "node_type": "concept",
+    "slug": "community-building",
+    "name": "Community Building",
+    "description": ""
+  },
+  {
+    "id": "930ad820-1964-4ec1-9191-7cebde60cf46",
+    "node_type": "entity",
+    "slug": "yarn",
+    "name": "Yarn",
+    "description": ""
+  },
+  {
+    "id": "a38c8b73-4ebb-42a9-978b-3b7c7fa055c3",
+    "node_type": "entity",
+    "slug": "knitting-needles",
+    "name": "Knitting Needles",
+    "description": ""
+  },
+  {
+    "id": "6e88081e-8aac-4ea1-bd0e-0a90b25483e7",
+    "node_type": "entity",
+    "slug": "stitch-markers",
+    "name": "Stitch Markers",
+    "description": ""
+  },
+  {
+    "id": "11545611-76b9-48d5-9c6b-3ea302b3fbc3",
+    "node_type": "entity",
+    "slug": "row-counter",
+    "name": "Row Counter",
+    "description": ""
+  },
+  {
+    "id": "5ff4c342-916c-412e-9b8b-93fcc03aa0c7",
+    "node_type": "outcome",
+    "slug": "community-belonging",
+    "name": "Community Belonging",
+    "description": ""
+  },
+  {
+    "id": "7e6d157c-76e1-4f00-9774-cd44f1e8885e",
+    "node_type": "entity",
+    "slug": "crochet-hook",
+    "name": "Crochet Hook",
+    "description": ""
+  },
+  {
+    "id": "defc0d54-0046-4555-989c-881b99fc7191",
+    "node_type": "entity",
+    "slug": "yarn-needle",
+    "name": "Yarn Needle",
+    "description": ""
+  },
+  {
+    "id": "4fec977e-f1a8-4ead-bfd4-449d7793e532",
+    "node_type": "concept",
+    "slug": "engineering",
+    "name": "Engineering",
+    "description": ""
+  },
+  {
+    "id": "4d218576-555d-41b8-88b9-4481613bea04",
+    "node_type": "entity",
+    "slug": "wood",
+    "name": "Wood",
+    "description": ""
+  },
+  {
+    "id": "73582da1-c8f5-4989-8098-dc3ba4a2016f",
+    "node_type": "entity",
+    "slug": "hand-tools",
+    "name": "Hand Tools",
+    "description": ""
+  },
+  {
+    "id": "f43f66b6-6ba4-4c8b-a170-456461a2b69f",
+    "node_type": "entity",
+    "slug": "power-tools",
+    "name": "Power Tools",
+    "description": ""
+  },
+  {
+    "id": "c92df909-4059-4aee-b1ee-91033cdbef70",
+    "node_type": "entity",
+    "slug": "sandpaper",
+    "name": "Sandpaper",
+    "description": ""
+  },
+  {
+    "id": "a2a3fcee-0f59-4cb6-b6df-deeca0625ea8",
+    "node_type": "entity",
+    "slug": "finish",
+    "name": "Finish",
+    "description": ""
+  },
+  {
+    "id": "0c646a5a-39ae-4668-a6a7-c1b2c2f748ce",
+    "node_type": "entity",
+    "slug": "beads",
+    "name": "Beads",
+    "description": ""
+  },
+  {
+    "id": "1c14ec8f-5061-459b-969c-1c7d93b76061",
+    "node_type": "entity",
+    "slug": "wire",
+    "name": "Wire",
+    "description": ""
+  },
+  {
+    "id": "9d0a0e2a-aae6-4c94-97b0-34ad173f64bb",
+    "node_type": "entity",
+    "slug": "findings",
+    "name": "Findings",
+    "description": ""
+  },
+  {
+    "id": "37bb6b14-62ed-4dbf-a34b-61ddfc69c0c3",
+    "node_type": "entity",
+    "slug": "pliers",
+    "name": "Pliers",
+    "description": ""
+  },
+  {
+    "id": "4d8bbae0-0961-4063-82b3-6dee578a3994",
+    "node_type": "entity",
+    "slug": "gemstones",
+    "name": "Gemstones",
+    "description": ""
+  },
+  {
+    "id": "9de74b59-cb3e-42ac-9477-f1cb4af2fec9",
+    "node_type": "outcome",
+    "slug": "personal-identity",
+    "name": "Personal Identity",
+    "description": ""
+  },
+  {
+    "id": "7420f16e-5884-4c9a-9f94-ed40685e9ac3",
+    "node_type": "concept",
+    "slug": "self-expression",
+    "name": "Self Expression",
+    "description": ""
+  },
+  {
+    "id": "09e63508-1305-434e-a00d-737cc19e798b",
+    "node_type": "concept",
+    "slug": "sustainability",
+    "name": "Sustainability",
+    "description": ""
+  },
+  {
+    "id": "34497b95-2502-4d9a-97d5-3f47691c2369",
+    "node_type": "entity",
+    "slug": "thread",
+    "name": "Thread",
+    "description": ""
+  },
+  {
+    "id": "ac0f3213-5edd-4a2d-87bc-2b4d5d1f3a1d",
+    "node_type": "entity",
+    "slug": "sewing-machine",
+    "name": "Sewing Machine",
+    "description": ""
+  },
+  {
+    "id": "1d8fb0fe-0d38-4190-bc73-fc9d0944653f",
+    "node_type": "entity",
+    "slug": "scissors",
+    "name": "Scissors",
+    "description": ""
+  },
+  {
+    "id": "d269b969-18f8-48bd-8c1f-0ab9552d26c8",
+    "node_type": "barrier",
+    "slug": "requires-instruction",
+    "name": "Requires Instruction",
+    "description": ""
+  },
+  {
+    "id": "8f00da5e-7e45-4c8f-96e0-24d6845ad0b3",
+    "node_type": "concept",
+    "slug": "scientific-inquiry",
+    "name": "Scientific Inquiry",
+    "description": ""
+  },
+  {
+    "id": "d22da7fa-5683-40a8-a38d-974db2d8138f",
+    "node_type": "entity",
+    "slug": "oils",
+    "name": "Oils",
+    "description": ""
+  },
+  {
+    "id": "0e23da2a-cfc4-495c-9cec-941cb72a7603",
+    "node_type": "entity",
+    "slug": "lye",
+    "name": "Lye",
+    "description": ""
+  },
+  {
+    "id": "2e36c933-96eb-436b-a4ba-b965e39bd5e1",
+    "node_type": "entity",
+    "slug": "soap-molds",
+    "name": "Soap Molds",
+    "description": ""
+  },
+  {
+    "id": "9df041b2-d070-45c2-a60e-f445277c313f",
+    "node_type": "entity",
+    "slug": "colorants",
+    "name": "Colorants",
+    "description": ""
+  },
+  {
+    "id": "803c03e3-3e16-4c95-a62b-34a94b6fc22a",
+    "node_type": "concept",
+    "slug": "spatial-thinking",
+    "name": "Spatial Thinking",
+    "description": ""
+  },
+  {
+    "id": "dba5315a-eed3-42f2-97c6-2e6064fdd2d6",
+    "node_type": "entity",
+    "slug": "sculpting-tools",
+    "name": "Sculpting Tools",
+    "description": ""
+  },
+  {
+    "id": "5523d497-16b8-4c0e-8805-c7a0a1b969c2",
+    "node_type": "entity",
+    "slug": "mallet",
+    "name": "Mallet",
+    "description": ""
+  },
+  {
+    "id": "d3fe3bbb-d6ef-4829-8330-79edb6ae3f85",
+    "node_type": "entity",
+    "slug": "chisel",
+    "name": "Chisel",
+    "description": ""
+  },
+  {
+    "id": "beaab11d-ab90-4f02-93ce-15932c1aa842",
+    "node_type": "barrier",
+    "slug": "high-startup-cost",
+    "name": "High Startup Cost",
+    "description": ""
+  },
+  {
+    "id": "8ba6d1d6-80bc-4bac-b78e-4622dab54c13",
+    "node_type": "entity",
+    "slug": "molten-glass",
+    "name": "Molten Glass",
+    "description": ""
+  },
+  {
+    "id": "8675e182-d6df-465e-871c-33ad8305135d",
+    "node_type": "entity",
+    "slug": "blowpipe",
+    "name": "Blowpipe",
+    "description": ""
+  },
+  {
+    "id": "94d5d170-1dd4-4676-8ef8-8b205797c103",
+    "node_type": "entity",
+    "slug": "punty",
+    "name": "Punty",
+    "description": ""
+  },
+  {
+    "id": "e96a6087-2726-4bc6-9e2d-63e39baf5db0",
+    "node_type": "entity",
+    "slug": "furnace",
+    "name": "Furnace",
+    "description": ""
+  },
+  {
+    "id": "0546acd1-1421-410a-9101-7f577786dd94",
+    "node_type": "entity",
+    "slug": "annealing-oven",
+    "name": "Annealing Oven",
+    "description": ""
+  },
+  {
+    "id": "f24f2d18-d77b-445f-8b6a-a39a0a3c2c6a",
+    "node_type": "concept",
+    "slug": "meditative-practice",
+    "name": "Meditative Practice",
+    "description": ""
+  },
+  {
+    "id": "7f36006b-649e-42df-914e-15f99d225650",
+    "node_type": "entity",
+    "slug": "cord",
+    "name": "Cord",
+    "description": ""
+  },
+  {
+    "id": "fdfce625-0c10-4e2d-8304-8ee744fe93bb",
+    "node_type": "entity",
+    "slug": "rope",
+    "name": "Rope",
+    "description": ""
+  },
+  {
+    "id": "582791e0-7a5c-46b1-b4f0-ee077ecbc8b8",
+    "node_type": "entity",
+    "slug": "knots",
+    "name": "Knots",
+    "description": ""
+  },
+  {
+    "id": "ecedae6d-cd16-4cec-83b6-b182a8990733",
+    "node_type": "entity",
+    "slug": "fringe",
+    "name": "Fringe",
+    "description": ""
+  },
+  {
+    "id": "91224ac0-2877-4a4f-8726-9e7c5f4330a9",
+    "node_type": "entity",
+    "slug": "macrame-board",
+    "name": "Macrame Board",
+    "description": ""
+  },
+  {
+    "id": "26d98126-51fc-4908-8434-03c405e2fbfe",
+    "node_type": "barrier",
+    "slug": "none",
+    "name": "None",
+    "description": ""
+  },
+  {
+    "id": "86e8f4ce-860c-4246-a598-d807347946c1",
+    "node_type": "entity",
+    "slug": "floss",
+    "name": "Floss",
+    "description": ""
+  },
+  {
+    "id": "cc9cacc5-78f3-4b0e-814b-98bdee698083",
+    "node_type": "entity",
+    "slug": "cross-stitch-pattern",
+    "name": "Cross Stitch Pattern",
+    "description": ""
+  },
+  {
+    "id": "55cac8bb-3621-4e4a-b902-dd9aab37e3ca",
+    "node_type": "entity",
+    "slug": "loom",
+    "name": "Loom",
+    "description": ""
+  },
+  {
+    "id": "06306740-0dc1-4c59-b7c4-df29c3a39fff",
+    "node_type": "entity",
+    "slug": "warp-threads",
+    "name": "Warp Threads",
+    "description": ""
+  },
+  {
+    "id": "a96862e2-680b-436f-87f0-95e5b4ba88af",
+    "node_type": "entity",
+    "slug": "weft-threads",
+    "name": "Weft Threads",
+    "description": ""
+  },
+  {
+    "id": "a99c479f-0a77-4eb7-b96a-09b0fbd8d503",
+    "node_type": "entity",
+    "slug": "shuttle",
+    "name": "Shuttle",
+    "description": ""
+  },
+  {
+    "id": "fbbe625a-814f-4f15-807a-e1c12bd111ef",
+    "node_type": "concept",
+    "slug": "strength-training",
+    "name": "Strength Training",
+    "description": ""
+  },
+  {
+    "id": "5eb0b7c1-27be-4c52-aa6c-280383a8b062",
+    "node_type": "entity",
+    "slug": "forge",
+    "name": "Forge",
+    "description": ""
+  },
+  {
+    "id": "720cb409-c431-4087-ac13-a8fbacdf6b54",
+    "node_type": "entity",
+    "slug": "anvil",
+    "name": "Anvil",
+    "description": ""
+  },
+  {
+    "id": "8a297796-77d0-49a9-ae81-ef0b13f974d5",
+    "node_type": "entity",
+    "slug": "hammer",
+    "name": "Hammer",
+    "description": ""
+  },
+  {
+    "id": "6474eec2-3bd0-436f-87cf-c9f6fc746c50",
+    "node_type": "entity",
+    "slug": "metal-stock",
+    "name": "Metal Stock",
+    "description": ""
+  },
+  {
+    "id": "e9fad367-a758-433b-8154-93bfc50dec31",
+    "node_type": "entity",
+    "slug": "tongs",
+    "name": "Tongs",
+    "description": ""
+  },
+  {
+    "id": "b29039b9-23e7-41f3-9766-6e80c83c919e",
+    "node_type": "entity",
+    "slug": "pyrography-pen",
+    "name": "Pyrography Pen",
+    "description": ""
+  },
+  {
+    "id": "f67029ec-e01d-4040-95cd-dabc8939ce06",
+    "node_type": "entity",
+    "slug": "leather",
+    "name": "Leather",
+    "description": ""
+  },
+  {
+    "id": "93b882a5-8cf1-4969-8b83-56533c172d21",
+    "node_type": "entity",
+    "slug": "heating-tool",
+    "name": "Heating Tool",
+    "description": ""
+  },
+  {
+    "id": "2c5873af-0fca-4a5f-a133-73e89350f0cb",
+    "node_type": "entity",
+    "slug": "templates",
+    "name": "Templates",
+    "description": ""
+  },
+  {
+    "id": "cd3f6279-7fb3-495e-9e5e-12dffa5ccc0f",
+    "node_type": "barrier",
+    "slug": "injury-risk",
+    "name": "Injury Risk",
+    "description": ""
+  },
+  {
+    "id": "697dc2dc-167b-453f-86c3-44af594c008b",
+    "node_type": "entity",
+    "slug": "rotary-cutter",
+    "name": "Rotary Cutter",
+    "description": ""
+  },
+  {
+    "id": "cf2a04ec-c887-4a10-944d-48ab5a13e976",
+    "node_type": "entity",
+    "slug": "quilting-frame",
+    "name": "Quilting Frame",
+    "description": ""
+  },
+  {
+    "id": "8e124a28-cd7c-4f78-a19b-374f39714476",
+    "node_type": "concept",
+    "slug": "storytelling",
+    "name": "Storytelling",
+    "description": ""
+  },
+  {
+    "id": "75f91eeb-6952-4e38-acf1-b56e9ce6e874",
+    "node_type": "concept",
+    "slug": "personal-growth",
+    "name": "Personal Growth",
+    "description": ""
+  },
+  {
+    "id": "f9b708bf-14ee-4c31-a82c-4dcac6766ea1",
+    "node_type": "entity",
+    "slug": "photos",
+    "name": "Photos",
+    "description": ""
+  },
+  {
+    "id": "965b721c-f0ba-4460-8c71-b646be307399",
+    "node_type": "entity",
+    "slug": "scrapbook-album",
+    "name": "Scrapbook Album",
+    "description": ""
+  },
+  {
+    "id": "3cee4cbc-1a12-4a1d-b691-4ec8e426fec0",
+    "node_type": "entity",
+    "slug": "cardstock",
+    "name": "Cardstock",
+    "description": ""
+  },
+  {
+    "id": "be3a0944-d3ac-42d7-9b42-a98eb854f034",
+    "node_type": "entity",
+    "slug": "embellishments",
+    "name": "Embellishments",
+    "description": ""
+  },
+  {
+    "id": "43578363-4a4a-48ca-9ef8-53cc0b2f9d86",
+    "node_type": "entity",
+    "slug": "adhesives",
+    "name": "Adhesives",
+    "description": ""
+  },
+  {
+    "id": "f75193cb-d63c-43c9-9aaa-2de56e30fa4f",
+    "node_type": "concept",
+    "slug": "digital-creation",
+    "name": "Digital Creation",
+    "description": ""
+  },
+  {
+    "id": "c3e3959a-ac2b-4660-b219-1a6c8c1fec66",
+    "node_type": "entity",
+    "slug": "drawing-tablet",
+    "name": "Drawing Tablet",
+    "description": ""
+  },
+  {
+    "id": "7b877f86-6d75-47d5-ae62-66d4514f7518",
+    "node_type": "entity",
+    "slug": "illustration-software",
+    "name": "Illustration Software",
+    "description": ""
+  },
+  {
+    "id": "6da93c33-109e-49fa-b0c9-ca1de377f6a9",
+    "node_type": "entity",
+    "slug": "stylus",
+    "name": "Stylus",
+    "description": ""
+  },
+  {
+    "id": "1323e07b-9336-44a1-ac2d-fe04f30159b4",
+    "node_type": "entity",
+    "slug": "digital-canvas",
+    "name": "Digital Canvas",
+    "description": ""
+  },
+  {
+    "id": "c5b8e9bb-08e4-4c4a-b0bc-176c3fc348d8",
+    "node_type": "entity",
+    "slug": "layers",
+    "name": "Layers",
+    "description": ""
+  },
+  {
+    "id": "9290d88a-f396-4867-8685-058d39d98b7d",
+    "node_type": "concept",
+    "slug": "historical-research",
+    "name": "Historical Research",
+    "description": ""
+  },
+  {
+    "id": "e3f74f65-a71d-4207-a167-9538d49741e7",
+    "node_type": "entity",
+    "slug": "binding-thread",
+    "name": "Binding Thread",
+    "description": ""
+  },
+  {
+    "id": "4672886b-b309-42eb-8b6e-74333f96dd5b",
+    "node_type": "entity",
+    "slug": "cover-material",
+    "name": "Cover Material",
+    "description": ""
+  },
+  {
+    "id": "bab5d2ce-9ac5-42a6-8940-ef405b3b28b4",
+    "node_type": "entity",
+    "slug": "paper-strips",
+    "name": "Paper Strips",
+    "description": ""
+  },
+  {
+    "id": "9ce4003f-7bfc-4640-84ed-aa6958f00547",
+    "node_type": "entity",
+    "slug": "quilling-tool",
+    "name": "Quilling Tool",
+    "description": ""
+  },
+  {
+    "id": "9f72b88a-153c-4c00-8014-1d880fb59689",
+    "node_type": "entity",
+    "slug": "adhesive",
+    "name": "Adhesive",
+    "description": ""
+  },
+  {
+    "id": "c5c7621a-ea8d-4ef9-946d-9a7aa28edd27",
+    "node_type": "entity",
+    "slug": "board",
+    "name": "Board",
+    "description": ""
+  },
+  {
+    "id": "b00bc3ad-23c3-4a87-9146-28cee5502df0",
+    "node_type": "concept",
+    "slug": "nature-connection",
+    "name": "Nature Connection",
+    "description": ""
+  },
+  {
+    "id": "a3478fec-20f0-4a7b-9476-7fd9dd0529bb",
+    "node_type": "concept",
+    "slug": "aesthetics",
+    "name": "Aesthetics",
+    "description": ""
+  },
+  {
+    "id": "ac4e5354-4470-48d3-a63c-e063ab605547",
+    "node_type": "entity",
+    "slug": "fresh-flowers",
+    "name": "Fresh Flowers",
+    "description": ""
+  },
+  {
+    "id": "05ed7bf8-1eba-483f-b0e2-00552dbbf825",
+    "node_type": "entity",
+    "slug": "floral-foam",
+    "name": "Floral Foam",
+    "description": ""
+  },
+  {
+    "id": "349c2d35-a178-4a59-b6d7-78b96a14a687",
+    "node_type": "entity",
+    "slug": "vase",
+    "name": "Vase",
+    "description": ""
+  },
+  {
+    "id": "4aac5484-6b57-4081-bb75-2b9aff5419c8",
+    "node_type": "outcome",
+    "slug": "social-connections",
+    "name": "Social Connections",
+    "description": ""
+  },
+  {
+    "id": "304bae25-d1ca-4793-9496-56e5c19fe3ae",
+    "node_type": "barrier",
+    "slug": "ongoing-expense",
+    "name": "Ongoing Expense",
+    "description": ""
+  },
+  {
+    "id": "4f3ba9ef-3d33-4eca-8fc4-6961e1556e99",
+    "node_type": "entity",
+    "slug": "miniature-figures",
+    "name": "Miniature Figures",
+    "description": ""
+  },
+  {
+    "id": "b5f4cc68-f1e3-410c-a980-12735ae02d21",
+    "node_type": "entity",
+    "slug": "terrain-base",
+    "name": "Terrain Base",
+    "description": ""
+  },
+  {
+    "id": "d845b5dc-d874-45a9-89a6-16319e58c308",
+    "node_type": "entity",
+    "slug": "paint",
+    "name": "Paint",
+    "description": ""
+  },
+  {
+    "id": "de61c26a-4d48-41f0-b165-d574f1684178",
+    "node_type": "entity",
+    "slug": "scenery-materials",
+    "name": "Scenery Materials",
+    "description": ""
+  },
+  {
+    "id": "20f3f5c7-802c-488a-a6ff-70809a8d787d",
+    "node_type": "entity",
+    "slug": "dyed-sand",
+    "name": "Dyed Sand",
+    "description": ""
+  },
+  {
+    "id": "72637630-dfb7-4014-b2b4-edace1e6231f",
+    "node_type": "entity",
+    "slug": "bottles",
+    "name": "Bottles",
+    "description": ""
+  },
+  {
+    "id": "291a7f4a-f737-47fc-aff3-a5f0cea81582",
+    "node_type": "entity",
+    "slug": "funnels",
+    "name": "Funnels",
+    "description": ""
+  },
+  {
+    "id": "524aa666-1cce-450e-9275-c215f682db46",
+    "node_type": "entity",
+    "slug": "miniatures",
+    "name": "Miniatures",
+    "description": ""
+  },
+  {
+    "id": "12e85700-9f1a-4551-8564-1555d3aa8807",
+    "node_type": "entity",
+    "slug": "acrylic-paint",
+    "name": "Acrylic Paint",
+    "description": ""
+  },
+  {
+    "id": "102eccf4-63a2-494d-95b9-a0ee4b3ddead",
+    "node_type": "entity",
+    "slug": "painting-palette",
+    "name": "Painting Palette",
+    "description": ""
+  },
+  {
+    "id": "bcbd2117-d8ad-4a70-b733-bda2fb222ea9",
+    "node_type": "concept",
+    "slug": "chemical-understanding",
+    "name": "Chemical Understanding",
+    "description": ""
+  },
+  {
+    "id": "4997fd93-8940-45c4-8c3e-ad694957781e",
+    "node_type": "entity",
+    "slug": "essential-oils",
+    "name": "Essential Oils",
+    "description": ""
+  },
+  {
+    "id": "c2ecb1d2-1e62-4013-a11a-7825c32bd7a8",
+    "node_type": "entity",
+    "slug": "carrier-oil",
+    "name": "Carrier Oil",
+    "description": ""
+  },
+  {
+    "id": "73fa26cb-10e7-4eab-8888-58adc1c23695",
+    "node_type": "entity",
+    "slug": "fragrance-bottles",
+    "name": "Fragrance Bottles",
+    "description": ""
+  },
+  {
+    "id": "c00a295d-44f7-4c83-9a18-fe3fd2d141f2",
+    "node_type": "entity",
+    "slug": "blending-scales",
+    "name": "Blending Scales",
+    "description": ""
+  },
+  {
+    "id": "2ed8b796-559f-488d-822c-7cedfd0f1062",
+    "node_type": "entity",
+    "slug": "plant-materials",
+    "name": "Plant Materials",
+    "description": ""
+  },
+  {
+    "id": "7b5e961d-1527-4d03-978b-f4c0e89587d1",
+    "node_type": "entity",
+    "slug": "mordant",
+    "name": "Mordant",
+    "description": ""
+  },
+  {
+    "id": "436e125d-bd80-44ae-bc8d-459084a807d3",
+    "node_type": "entity",
+    "slug": "dye-pot",
+    "name": "Dye Pot",
+    "description": ""
+  },
+  {
+    "id": "23ad4a52-bc99-4f48-86b0-fc9b80933d2d",
+    "node_type": "outcome",
+    "slug": "nature-appreciation",
+    "name": "Nature Appreciation",
+    "description": ""
+  },
+  {
+    "id": "4cb3934e-07ec-4e01-be8e-d5c1a639b4f2",
+    "node_type": "entity",
+    "slug": "lathe",
+    "name": "Lathe",
+    "description": ""
+  },
+  {
+    "id": "628cde8a-1259-4c71-bbb6-59b944661bbd",
+    "node_type": "entity",
+    "slug": "wooden-blanks",
+    "name": "Wooden Blanks",
+    "description": ""
+  },
+  {
+    "id": "450d2016-2925-4b7d-83f5-c2b009c77657",
+    "node_type": "entity",
+    "slug": "pen-hardware",
+    "name": "Pen Hardware",
+    "description": ""
+  },
+  {
+    "id": "73c7d624-2c96-4462-bfb2-66d3c1ffad7c",
+    "node_type": "entity",
+    "slug": "turning-tools",
+    "name": "Turning Tools",
+    "description": ""
+  },
+  {
+    "id": "fa6ed2e4-f73c-4daa-94cd-8f2ca363fb95",
+    "node_type": "concept",
+    "slug": "collection-curation",
+    "name": "Collection Curation",
+    "description": ""
+  },
+  {
+    "id": "9227bcee-746c-42d7-b605-98ff144e4091",
+    "node_type": "concept",
+    "slug": "geology",
+    "name": "Geology",
+    "description": ""
+  },
+  {
+    "id": "a1ce61a3-790c-4056-b285-79b596309669",
+    "node_type": "concept",
+    "slug": "geology-appreciation",
+    "name": "Geology Appreciation",
+    "description": ""
+  },
+  {
+    "id": "d8fb6464-241a-4025-a3f4-87946a531000",
+    "node_type": "entity",
+    "slug": "rock-tumbler",
+    "name": "Rock Tumbler",
+    "description": ""
+  },
+  {
+    "id": "d8f30ea1-8264-4210-afac-4f3876a1bc5b",
+    "node_type": "entity",
+    "slug": "rough-stones",
+    "name": "Rough Stones",
+    "description": ""
+  },
+  {
+    "id": "a3203c6c-828e-4b6d-8ac0-ea4909b4dc08",
+    "node_type": "entity",
+    "slug": "abrasive-grit",
+    "name": "Abrasive Grit",
+    "description": ""
+  },
+  {
+    "id": "fcee345b-ff12-4183-b142-4a1a1d19dd9a",
+    "node_type": "entity",
+    "slug": "polishing-compound",
+    "name": "Polishing Compound",
+    "description": ""
+  },
+  {
+    "id": "02f3a527-483b-46ed-a7e5-9ed382cbf04b",
+    "node_type": "outcome",
+    "slug": "achievement-pride",
+    "name": "Achievement Pride",
+    "description": ""
+  },
+  {
+    "id": "adc1c79c-557d-4299-8ba8-8c7813adc911",
+    "node_type": "outcome",
+    "slug": "collection-satisfaction",
+    "name": "Collection Satisfaction",
+    "description": ""
+  },
+  {
+    "id": "1bbb390a-0afe-42d9-87cc-ce6663759218",
+    "node_type": "concept",
+    "slug": "spatial-reasoning",
+    "name": "Spatial Reasoning",
+    "description": ""
+  },
+  {
+    "id": "95f6ed73-d927-48b4-8ee5-0e57ccdc8ced",
+    "node_type": "entity",
+    "slug": "lego-bricks",
+    "name": "LEGO Bricks",
+    "description": ""
+  },
+  {
+    "id": "0457fac1-f24d-4a23-a772-68e11a782fc6",
+    "node_type": "entity",
+    "slug": "building-plates",
+    "name": "Building Plates",
+    "description": ""
+  },
+  {
+    "id": "97c60402-4418-4f83-bcf3-6f786891648f",
+    "node_type": "entity",
+    "slug": "minifigures",
+    "name": "Minifigures",
+    "description": ""
+  },
+  {
+    "id": "267bd1cf-796e-41ca-8e15-1f4351807c00",
+    "node_type": "entity",
+    "slug": "specialized-pieces",
+    "name": "Specialized Pieces",
+    "description": ""
+  },
+  {
+    "id": "e62c5e07-bb84-4e30-8cbb-a2dbb232e9e8",
+    "node_type": "concept",
+    "slug": "stress-relief",
+    "name": "Stress Relief",
+    "description": ""
+  },
+  {
+    "id": "812a8348-2864-407e-b815-5612e00ba614",
+    "node_type": "entity",
+    "slug": "resin-diamonds",
+    "name": "Resin Diamonds",
+    "description": ""
+  },
+  {
+    "id": "415456a5-0093-45bb-b2e7-1c4eca81581b",
+    "node_type": "entity",
+    "slug": "applicator-pen",
+    "name": "Applicator Pen",
+    "description": ""
+  },
+  {
+    "id": "390726d7-8343-447e-8ba3-cd51e742a59a",
+    "node_type": "entity",
+    "slug": "diamond-tray",
+    "name": "Diamond Tray",
+    "description": ""
+  },
+  {
+    "id": "931ff814-5d88-41fb-9c07-e3652600c9ef",
+    "node_type": "entity",
+    "slug": "whittling-knife",
+    "name": "Whittling Knife",
+    "description": ""
+  },
+  {
+    "id": "44b6e327-693c-4d79-ad35-436030fb4b38",
+    "node_type": "entity",
+    "slug": "basswood",
+    "name": "Basswood",
+    "description": ""
+  },
+  {
+    "id": "6539df89-9771-4b5f-ade2-8fc76c683b3f",
+    "node_type": "entity",
+    "slug": "wood-block",
+    "name": "Wood Block",
+    "description": ""
+  },
+  {
+    "id": "152c6322-18e1-4b85-a330-9e7d3b2b2f53",
+    "node_type": "concept",
+    "slug": "music-theory",
+    "name": "Music Theory",
+    "description": ""
+  },
+  {
+    "id": "2a6cf5ba-3ec0-4be9-8932-a35ac198275d",
+    "node_type": "concept",
+    "slug": "rhythm",
+    "name": "Rhythm",
+    "description": ""
+  },
+  {
+    "id": "bd9b8a0d-5368-477b-ae7b-7663ef610545",
+    "node_type": "concept",
+    "slug": "performance",
+    "name": "Performance",
+    "description": ""
+  },
+  {
+    "id": "ab8bbbcd-069f-40a7-be76-3b92fbc35709",
+    "node_type": "entity",
+    "slug": "guitar",
+    "name": "Guitar",
+    "description": ""
+  },
+  {
+    "id": "b439ab3f-7777-466c-9c51-08762eb148eb",
+    "node_type": "entity",
+    "slug": "pick",
+    "name": "Pick",
+    "description": ""
+  },
+  {
+    "id": "fdad61bb-1710-411b-8ab0-06cd986cf970",
+    "node_type": "entity",
+    "slug": "amplifier",
+    "name": "Amplifier",
+    "description": ""
+  },
+  {
+    "id": "aab67e2b-e21c-43c9-ab08-61c83c935994",
+    "node_type": "entity",
+    "slug": "piano",
+    "name": "Piano",
+    "description": ""
+  },
+  {
+    "id": "179d8487-52b6-4e67-976f-343236edd916",
+    "node_type": "entity",
+    "slug": "keyboard",
+    "name": "Keyboard",
+    "description": ""
+  },
+  {
+    "id": "90ecca0d-fcfe-4e68-80b5-62f6cd2c2f3d",
+    "node_type": "entity",
+    "slug": "sheet-music",
+    "name": "Sheet Music",
+    "description": ""
+  },
+  {
+    "id": "ef9f916e-7842-47b7-807c-deb8bc50f19f",
+    "node_type": "outcome",
+    "slug": "mental-sharpness",
+    "name": "Mental Sharpness",
+    "description": ""
+  },
+  {
+    "id": "b320cc7d-203c-488d-99c5-70aa4c26d857",
+    "node_type": "concept",
+    "slug": "joy",
+    "name": "Joy",
+    "description": ""
+  },
+  {
+    "id": "04c856d3-6f7f-4ba7-9c82-89709fd36cde",
+    "node_type": "entity",
+    "slug": "ukulele",
+    "name": "Ukulele",
+    "description": ""
+  },
+  {
+    "id": "ea0193b3-335f-4067-a21b-df35d0d6f2e5",
+    "node_type": "entity",
+    "slug": "string",
+    "name": "String",
+    "description": ""
+  },
+  {
+    "id": "e946ae54-6086-4825-afc1-090302a00e9e",
+    "node_type": "entity",
+    "slug": "tuner",
+    "name": "Tuner",
+    "description": ""
+  },
+  {
+    "id": "b54afab0-73ed-4739-b208-ff67ac1ea036",
+    "node_type": "concept",
+    "slug": "timing",
+    "name": "Timing",
+    "description": ""
+  },
+  {
+    "id": "7964deba-4f5e-4128-a33b-a5b46a01c6a2",
+    "node_type": "concept",
+    "slug": "coordination",
+    "name": "Coordination",
+    "description": ""
+  },
+  {
+    "id": "f99fd63b-71e5-4973-9601-65acaa89c3f2",
+    "node_type": "concept",
+    "slug": "physical-fitness",
+    "name": "Physical Fitness",
+    "description": ""
+  },
+  {
+    "id": "fe1c71e2-7ed9-444d-a392-0ec3544b9815",
+    "node_type": "concept",
+    "slug": "percussion",
+    "name": "Percussion",
+    "description": ""
+  },
+  {
+    "id": "53a52f8f-cd6d-45b4-b01f-426a9ed0d680",
+    "node_type": "entity",
+    "slug": "drum-kit",
+    "name": "Drum Kit",
+    "description": ""
+  },
+  {
+    "id": "a09ca0e6-8091-4864-b902-5fb79507a0e4",
+    "node_type": "entity",
+    "slug": "drumstick",
+    "name": "Drumstick",
+    "description": ""
+  },
+  {
+    "id": "7f1fba45-7c3b-4370-aee6-5073830f5ad4",
+    "node_type": "entity",
+    "slug": "cymbal",
+    "name": "Cymbal",
+    "description": ""
+  },
+  {
+    "id": "fc55062c-d277-454b-8bae-67dc96208187",
+    "node_type": "outcome",
+    "slug": "physical-fitness",
+    "name": "Physical Fitness",
+    "description": ""
+  },
+  {
+    "id": "e2395357-fe40-4412-b07b-4e01a5bf29ed",
+    "node_type": "concept",
+    "slug": "breathing",
+    "name": "Breathing",
+    "description": ""
+  },
+  {
+    "id": "3e3a1326-9077-42d6-b64e-65963368fbb8",
+    "node_type": "concept",
+    "slug": "emotional-expression",
+    "name": "Emotional Expression",
+    "description": ""
+  },
+  {
+    "id": "01941923-695b-481b-934f-7bbe9635ff27",
+    "node_type": "entity",
+    "slug": "voice",
+    "name": "Voice",
+    "description": ""
+  },
+  {
+    "id": "c19f9eed-e76e-4f90-b403-a0c3923e51f0",
+    "node_type": "entity",
+    "slug": "microphone",
+    "name": "Microphone",
+    "description": ""
+  },
+  {
+    "id": "2ed4f7e0-4c0d-4221-81f9-518cf2a720ec",
+    "node_type": "entity",
+    "slug": "pitch",
+    "name": "Pitch",
+    "description": ""
+  },
+  {
+    "id": "6e9d6f3f-6457-412b-b802-9567a5ea242f",
+    "node_type": "outcome",
+    "slug": "emotional-expression",
+    "name": "Emotional Expression",
+    "description": ""
+  },
+  {
+    "id": "edba0bea-8493-4b44-b73b-649b5d31ef37",
+    "node_type": "concept",
+    "slug": "music-curation",
+    "name": "Music Curation",
+    "description": ""
+  },
+  {
+    "id": "bd706c24-a2d5-4dec-9b65-41c8a413f5ff",
+    "node_type": "concept",
+    "slug": "technical-skill",
+    "name": "Technical Skill",
+    "description": ""
+  },
+  {
+    "id": "c0ed8d2f-9ba3-43f0-a6fd-a526e887406f",
+    "node_type": "entity",
+    "slug": "dj-controller",
+    "name": "DJ Controller",
+    "description": ""
+  },
+  {
+    "id": "d9bd8688-809c-4f76-8964-5623cf7b664a",
+    "node_type": "entity",
+    "slug": "turntable",
+    "name": "Turntable",
+    "description": ""
+  },
+  {
+    "id": "0755fa16-aa76-471b-b9a9-5e49ed45ca02",
+    "node_type": "entity",
+    "slug": "mixer",
+    "name": "Mixer",
+    "description": ""
+  },
+  {
+    "id": "01b13e01-908d-4cf3-88a6-0770de8bb252",
+    "node_type": "outcome",
+    "slug": "performance-thrill",
+    "name": "Performance Thrill",
+    "description": ""
+  },
+  {
+    "id": "d95cb6c1-202b-48bf-a097-fdf62d3e6df0",
+    "node_type": "barrier",
+    "slug": "requires-partner-or-group",
+    "name": "Requires Partner Or Group",
+    "description": ""
+  },
+  {
+    "id": "0616d437-6213-4a21-a41d-02b2a12241f1",
+    "node_type": "concept",
+    "slug": "music-production",
+    "name": "Music Production",
+    "description": ""
+  },
+  {
+    "id": "ae422c0b-d044-483b-8323-1e1066051153",
+    "node_type": "concept",
+    "slug": "sound-design",
+    "name": "Sound Design",
+    "description": ""
+  },
+  {
+    "id": "b5ec0ef3-b513-4b68-a18f-c0ba6a1cf4e4",
+    "node_type": "entity",
+    "slug": "daw",
+    "name": "DAW",
+    "description": ""
+  },
+  {
+    "id": "18e9b4ad-602f-4b94-bd1e-1465dfce15c8",
+    "node_type": "entity",
+    "slug": "synthesizer",
+    "name": "Synthesizer",
+    "description": ""
+  },
+  {
+    "id": "1899b842-258f-4af5-8f88-76e8bfbba78a",
+    "node_type": "entity",
+    "slug": "audio-interface",
+    "name": "Audio Interface",
+    "description": ""
+  },
+  {
+    "id": "e885d061-ec0e-486c-b476-a8559f885080",
+    "node_type": "outcome",
+    "slug": "intellectual-growth",
+    "name": "Intellectual Growth",
+    "description": ""
+  },
+  {
+    "id": "f546ecd0-63a6-41b8-a418-36da2a79616d",
+    "node_type": "concept",
+    "slug": "breath-control",
+    "name": "Breath Control",
+    "description": ""
+  },
+  {
+    "id": "8fca6eef-9a95-4743-bd77-e07a273939f3",
+    "node_type": "concept",
+    "slug": "physical-performance",
+    "name": "Physical Performance",
+    "description": ""
+  },
+  {
+    "id": "8a35fd12-0708-451f-9989-c5c8f8a73465",
+    "node_type": "entity",
+    "slug": "metronome",
+    "name": "Metronome",
+    "description": ""
+  },
+  {
+    "id": "e6df0680-0372-4213-8ccc-361fd512a5f4",
+    "node_type": "concept",
+    "slug": "audience-building",
+    "name": "Audience Building",
+    "description": ""
+  },
+  {
+    "id": "e9345c22-0e21-422c-a555-753278f80204",
+    "node_type": "concept",
+    "slug": "content-creation",
+    "name": "Content Creation",
+    "description": ""
+  },
+  {
+    "id": "29dc96ba-b474-4fa6-b96b-559743e58295",
+    "node_type": "concept",
+    "slug": "communication",
+    "name": "Communication",
+    "description": ""
+  },
+  {
+    "id": "369ca082-95df-4c98-8751-b6206c5a34ee",
+    "node_type": "entity",
+    "slug": "podcast-host",
+    "name": "Podcast Host",
+    "description": ""
+  },
+  {
+    "id": "097d0a1a-a0ac-4951-9e12-53fa842bacec",
+    "node_type": "concept",
+    "slug": "composition",
+    "name": "Composition",
+    "description": ""
+  },
+  {
+    "id": "11f34c7f-0762-4b93-833e-e1b35aa63426",
+    "node_type": "concept",
+    "slug": "lyrical-expression",
+    "name": "Lyrical Expression",
+    "description": ""
+  },
+  {
+    "id": "ebf475ef-276d-4954-96f8-763fa21add8e",
+    "node_type": "entity",
+    "slug": "lyrics",
+    "name": "Lyrics",
+    "description": ""
+  },
+  {
+    "id": "e6001c5b-6e28-471a-b162-23b136106a55",
+    "node_type": "entity",
+    "slug": "melody",
+    "name": "Melody",
+    "description": ""
+  },
+  {
+    "id": "87b8fe11-888f-4e95-a5ad-ac0109c2d3f9",
+    "node_type": "entity",
+    "slug": "chord-progression",
+    "name": "Chord Progression",
+    "description": ""
+  },
+  {
+    "id": "4bf6d15b-307a-4743-a3e6-d306cfb1933f",
+    "node_type": "outcome",
+    "slug": "self-expression",
+    "name": "Self Expression",
+    "description": ""
+  },
+  {
+    "id": "00cb2ec5-20d6-40a4-a55b-447371a13a8e",
+    "node_type": "concept",
+    "slug": "audio-engineering",
+    "name": "Audio Engineering",
+    "description": ""
+  },
+  {
+    "id": "ba5968c3-4cdc-4581-bc2f-500d4a5bf0ed",
+    "node_type": "entity",
+    "slug": "harmonica",
+    "name": "Harmonica",
+    "description": ""
+  },
+  {
+    "id": "2297cb1a-d26f-4e24-b4ac-c1efd89cdf83",
+    "node_type": "entity",
+    "slug": "reed",
+    "name": "Reed",
+    "description": ""
+  },
+  {
+    "id": "8f9c19e0-acd8-4a67-ab85-69a5f7aea281",
+    "node_type": "entity",
+    "slug": "mouth-cavity",
+    "name": "Mouth Cavity",
+    "description": ""
+  },
+  {
+    "id": "8b8bc3f0-bf62-464f-a1be-572c23204e82",
+    "node_type": "outcome",
+    "slug": "musical-skill",
+    "name": "Musical Skill",
+    "description": ""
+  },
+  {
+    "id": "b89f8084-b950-489f-91a3-9ee4aa30636c",
+    "node_type": "concept",
+    "slug": "improvisation",
+    "name": "Improvisation",
+    "description": ""
+  },
+  {
+    "id": "8fc30d04-6f9f-4863-a21b-b96cc1342fe8",
+    "node_type": "concept",
+    "slug": "jazz-culture",
+    "name": "Jazz Culture",
+    "description": ""
+  },
+  {
+    "id": "b749a470-c84a-488d-a9d4-42f5425e0037",
+    "node_type": "entity",
+    "slug": "saxophone",
+    "name": "Saxophone",
+    "description": ""
+  },
+  {
+    "id": "c0f37e59-fadb-4490-819f-96ab744c234e",
+    "node_type": "entity",
+    "slug": "mouthpiece",
+    "name": "Mouthpiece",
+    "description": ""
+  },
+  {
+    "id": "ea0c8d2d-c80e-4bae-b92f-361ae2f0d0cb",
+    "node_type": "entity",
+    "slug": "neck-strap",
+    "name": "Neck Strap",
+    "description": ""
+  },
+  {
+    "id": "66789d6c-abd2-411d-b12a-4df99164cd9b",
+    "node_type": "concept",
+    "slug": "classical-training",
+    "name": "Classical Training",
+    "description": ""
+  },
+  {
+    "id": "aeb108f2-c335-49c0-affb-7ef0b0065ff6",
+    "node_type": "entity",
+    "slug": "violin",
+    "name": "Violin",
+    "description": ""
+  },
+  {
+    "id": "54a49960-0d91-459b-8b9c-95eb95fc7e2b",
+    "node_type": "entity",
+    "slug": "bow",
+    "name": "Bow",
+    "description": ""
+  },
+  {
+    "id": "cdf16d03-6d47-44f1-9093-1d68359d6810",
+    "node_type": "entity",
+    "slug": "strings",
+    "name": "Strings",
+    "description": ""
+  },
+  {
+    "id": "73328eb3-0ef1-4e6c-a5ee-8450e4c53639",
+    "node_type": "entity",
+    "slug": "rosin",
+    "name": "Rosin",
+    "description": ""
+  },
+  {
+    "id": "eb4a670b-1cad-4a22-a540-4b145b0688e0",
+    "node_type": "concept",
+    "slug": "social-connection",
+    "name": "Social Connection",
+    "description": ""
+  },
+  {
+    "id": "7d3f7c29-dd94-4a77-b3da-823fb284f341",
+    "node_type": "concept",
+    "slug": "collective-creativity",
+    "name": "Collective Creativity",
+    "description": ""
+  },
+  {
+    "id": "e424322f-eb1f-4965-b616-841166f9d115",
+    "node_type": "entity",
+    "slug": "harmony",
+    "name": "Harmony",
+    "description": ""
+  },
+  {
+    "id": "20457ddc-867f-438e-aaf5-8e1cfe7e9a08",
+    "node_type": "concept",
+    "slug": "american-folk",
+    "name": "American Folk",
+    "description": ""
+  },
+  {
+    "id": "1e02835a-b5bd-48e8-ab09-5a4bbd10a46f",
+    "node_type": "entity",
+    "slug": "banjo",
+    "name": "Banjo",
+    "description": ""
+  },
+  {
+    "id": "a057bf2a-0bcc-49f2-8a8a-61ef858666e5",
+    "node_type": "entity",
+    "slug": "picks",
+    "name": "Picks",
+    "description": ""
+  },
+  {
+    "id": "883597c9-85bd-4b86-880c-e3ab3ad40f33",
+    "node_type": "entity",
+    "slug": "bridge",
+    "name": "Bridge",
+    "description": ""
+  },
+  {
+    "id": "ac352bf3-c5f2-4ac5-a4a2-871d39b4bcbf",
+    "node_type": "outcome",
+    "slug": "cultural-appreciation",
+    "name": "Cultural Appreciation",
+    "description": ""
+  },
+  {
+    "id": "602088f4-a5ee-4326-bfb3-8b4938539083",
+    "node_type": "concept",
+    "slug": "outdoor-exploration",
+    "name": "Outdoor Exploration",
+    "description": ""
+  },
+  {
+    "id": "876c5a3a-dac2-4eaf-869b-bdc0bc30eeb1",
+    "node_type": "concept",
+    "slug": "wellness",
+    "name": "Wellness",
+    "description": ""
+  },
+  {
+    "id": "d2c5b5d0-c538-456a-8735-bbd37171d037",
+    "node_type": "entity",
+    "slug": "hiking-boots",
+    "name": "Hiking Boots",
+    "description": ""
+  },
+  {
+    "id": "173c0723-da5b-42fc-8d6d-9fb48cfad26d",
+    "node_type": "entity",
+    "slug": "backpack",
+    "name": "Backpack",
+    "description": ""
+  },
+  {
+    "id": "3ec16803-3131-4e88-a417-d88eff5c8c8f",
+    "node_type": "entity",
+    "slug": "trail",
+    "name": "Trail",
+    "description": ""
+  },
+  {
+    "id": "0b40bf41-74a3-4f71-932a-77757fcc22dd",
+    "node_type": "barrier",
+    "slug": "weather-dependent",
+    "name": "Weather Dependent",
+    "description": ""
+  },
+  {
+    "id": "93939f60-6a73-4b54-9942-4ff0e70501de",
+    "node_type": "concept",
+    "slug": "balance-coordination",
+    "name": "Balance Coordination",
+    "description": ""
+  },
+  {
+    "id": "f636b06c-052f-4a11-96b6-342495b8661b",
+    "node_type": "concept",
+    "slug": "risk-management",
+    "name": "Risk Management",
+    "description": ""
+  },
+  {
+    "id": "a0badc4e-0eac-46ac-b2d7-88072a7af507",
+    "node_type": "entity",
+    "slug": "climbing-wall",
+    "name": "Climbing Wall",
+    "description": ""
+  },
+  {
+    "id": "0bbf6b58-9303-4e7c-9dc5-335ac0813a32",
+    "node_type": "entity",
+    "slug": "harness",
+    "name": "Harness",
+    "description": ""
+  },
+  {
+    "id": "839b6738-636d-4ff4-9d97-ac317f73eabd",
+    "node_type": "entity",
+    "slug": "climbing-shoes",
+    "name": "Climbing Shoes",
+    "description": ""
+  },
+  {
+    "id": "00fe03a2-e372-41de-ab94-6b97cae62c43",
+    "node_type": "concept",
+    "slug": "water-sports",
+    "name": "Water Sports",
+    "description": ""
+  },
+  {
+    "id": "3aea2578-f9e0-456b-9b93-67458ef0b835",
+    "node_type": "concept",
+    "slug": "environmental-awareness",
+    "name": "Environmental Awareness",
+    "description": ""
+  },
+  {
+    "id": "2f2668a8-444b-444b-ae8a-edff9771b29d",
+    "node_type": "entity",
+    "slug": "kayak",
+    "name": "Kayak",
+    "description": ""
+  },
+  {
+    "id": "25c973b4-8262-429a-af97-584f9643df0b",
+    "node_type": "entity",
+    "slug": "paddle",
+    "name": "Paddle",
+    "description": ""
+  },
+  {
+    "id": "5734ae2f-61c7-40b9-9937-052eeb9cc2ea",
+    "node_type": "entity",
+    "slug": "life-jacket",
+    "name": "Life Jacket",
+    "description": ""
+  },
+  {
+    "id": "0e168c57-fcd6-45f9-bddc-1ca42b69cf73",
+    "node_type": "entity",
+    "slug": "water",
+    "name": "Water",
+    "description": ""
+  },
+  {
+    "id": "b406474a-7ae2-4f39-906b-b030ad884031",
+    "node_type": "outcome",
+    "slug": "adventure-thrill",
+    "name": "Adventure Thrill",
+    "description": ""
+  },
+  {
+    "id": "4ceedd84-6251-481d-b6d7-04b0a0b31f41",
+    "node_type": "concept",
+    "slug": "survival-skills",
+    "name": "Survival Skills",
+    "description": ""
+  },
+  {
+    "id": "2f6d53eb-76b1-425f-8251-3abaeafe81a7",
+    "node_type": "concept",
+    "slug": "self-sufficiency",
+    "name": "Self Sufficiency",
+    "description": ""
+  },
+  {
+    "id": "033c8f4d-8404-42d3-bccb-072b06a05797",
+    "node_type": "concept",
+    "slug": "adventure",
+    "name": "Adventure",
+    "description": ""
+  },
+  {
+    "id": "adb488cf-79c5-4b79-9cb5-1e5afbaddae1",
+    "node_type": "entity",
+    "slug": "tent",
+    "name": "Tent",
+    "description": ""
+  },
+  {
+    "id": "3b581ad1-18cb-4ae4-9273-fdf622dbcc35",
+    "node_type": "entity",
+    "slug": "sleeping-bag",
+    "name": "Sleeping Bag",
+    "description": ""
+  },
+  {
+    "id": "eff08383-fc98-4dac-849c-bfd86ed69fb3",
+    "node_type": "entity",
+    "slug": "campfire",
+    "name": "Campfire",
+    "description": ""
+  },
+  {
+    "id": "bd0aae50-374f-4812-beab-d4ca7726ac89",
+    "node_type": "entity",
+    "slug": "cooking-gear",
+    "name": "Cooking Gear",
+    "description": ""
+  },
+  {
+    "id": "7a319f2c-4788-425e-a765-5fd4663b9505",
+    "node_type": "concept",
+    "slug": "ocean-connection",
+    "name": "Ocean Connection",
+    "description": ""
+  },
+  {
+    "id": "1c7f0f24-ff76-48fb-b42b-4c60ff556055",
+    "node_type": "entity",
+    "slug": "surfboard",
+    "name": "Surfboard",
+    "description": ""
+  },
+  {
+    "id": "53f1a758-6ec4-4891-88b6-572b11534f53",
+    "node_type": "entity",
+    "slug": "wax",
+    "name": "Wax",
+    "description": ""
+  },
+  {
+    "id": "eb7133b1-ae3a-4a39-bd5d-9cec25b469dc",
+    "node_type": "entity",
+    "slug": "wetsuit",
+    "name": "Wetsuit",
+    "description": ""
+  },
+  {
+    "id": "850eed0e-c302-49ec-af56-f7145c9a3faa",
+    "node_type": "entity",
+    "slug": "waves",
+    "name": "Waves",
+    "description": ""
+  },
+  {
+    "id": "fc714426-ac73-4af9-a3b6-46bf19ca7c8c",
+    "node_type": "entity",
+    "slug": "scuba-tank",
+    "name": "Scuba Tank",
+    "description": ""
+  },
+  {
+    "id": "c4593699-4761-4762-8774-d19c5c296423",
+    "node_type": "entity",
+    "slug": "regulator",
+    "name": "Regulator",
+    "description": ""
+  },
+  {
+    "id": "92f7930b-cbae-4239-ac98-6e66584ff1e4",
+    "node_type": "entity",
+    "slug": "mask",
+    "name": "Mask",
+    "description": ""
+  },
+  {
+    "id": "6e3bb3f5-dcc3-46d5-877d-ced7e870fb8c",
+    "node_type": "entity",
+    "slug": "mountain-bike",
+    "name": "Mountain Bike",
+    "description": ""
+  },
+  {
+    "id": "d38038cc-d67d-41d8-8fd8-4e7e597b1e96",
+    "node_type": "entity",
+    "slug": "helmet",
+    "name": "Helmet",
+    "description": ""
+  },
+  {
+    "id": "9d0cae36-3d96-43bb-9cdf-658490f30620",
+    "node_type": "entity",
+    "slug": "suspension",
+    "name": "Suspension",
+    "description": ""
+  },
+  {
+    "id": "4ba2f7b6-f315-413e-ba0f-d41f0295fa03",
+    "node_type": "concept",
+    "slug": "adventure-thrill",
+    "name": "Adventure Thrill",
+    "description": ""
+  },
+  {
+    "id": "5cc11fea-69f0-4373-b847-2c743bf47cb3",
+    "node_type": "entity",
+    "slug": "gps-receiver",
+    "name": "GPS Receiver",
+    "description": ""
+  },
+  {
+    "id": "02cf9405-a296-47ac-8ce7-d4bec96f2fe0",
+    "node_type": "entity",
+    "slug": "cache-container",
+    "name": "Cache Container",
+    "description": ""
+  },
+  {
+    "id": "0269a6d8-fcbc-40e0-a6f8-93701ee79dac",
+    "node_type": "entity",
+    "slug": "logbook",
+    "name": "Logbook",
+    "description": ""
+  },
+  {
+    "id": "2f16fd45-9913-4e00-b9e8-2771debd3fd8",
+    "node_type": "barrier",
+    "slug": "limited-local-access",
+    "name": "Limited Local Access",
+    "description": ""
+  },
+  {
+    "id": "adb7742d-96e1-4930-8ad4-d43800e6f5c5",
+    "node_type": "entity",
+    "slug": "knife",
+    "name": "Knife",
+    "description": ""
+  },
+  {
+    "id": "f3e709d0-bae2-495d-8095-f53cf25d3a7b",
+    "node_type": "entity",
+    "slug": "fire-steel",
+    "name": "Fire Steel",
+    "description": ""
+  },
+  {
+    "id": "312c4042-eee5-47c9-8937-ee58442d7be1",
+    "node_type": "entity",
+    "slug": "shelter-materials",
+    "name": "Shelter Materials",
+    "description": ""
+  },
+  {
+    "id": "9e40b55d-f0e9-4f60-86ed-b05d8e429a37",
+    "node_type": "outcome",
+    "slug": "self-confidence",
+    "name": "Self Confidence",
+    "description": ""
+  },
+  {
+    "id": "99b4108f-8ead-424e-a76e-33b1dc4a2adc",
+    "node_type": "entity",
+    "slug": "canoe",
+    "name": "Canoe",
+    "description": ""
+  },
+  {
+    "id": "7bae7b11-ae10-4335-814e-5bc2171bd6af",
+    "node_type": "entity",
+    "slug": "lifejacket",
+    "name": "Lifejacket",
+    "description": ""
+  },
+  {
+    "id": "4baa997a-3e4f-4164-8723-5e0fe5a66d72",
+    "node_type": "concept",
+    "slug": "competition",
+    "name": "Competition",
+    "description": ""
+  },
+  {
+    "id": "88cd4c2b-1012-4ab6-9df1-cd97bc78b9ef",
+    "node_type": "concept",
+    "slug": "strategy",
+    "name": "Strategy",
+    "description": ""
+  },
+  {
+    "id": "ffb903b3-3a19-4ac5-8636-8193c382d355",
+    "node_type": "entity",
+    "slug": "sailboat",
+    "name": "Sailboat",
+    "description": ""
+  },
+  {
+    "id": "292daa40-fc86-4369-bbdd-39750bc453cf",
+    "node_type": "entity",
+    "slug": "sails",
+    "name": "Sails",
+    "description": ""
+  },
+  {
+    "id": "9a23f157-2dea-4405-afb0-dcceca2d3605",
+    "node_type": "entity",
+    "slug": "rigging",
+    "name": "Rigging",
+    "description": ""
+  },
+  {
+    "id": "0be3bbdf-d43f-4805-af12-970dff74b55d",
+    "node_type": "concept",
+    "slug": "team-play",
+    "name": "Team Play",
+    "description": ""
+  },
+  {
+    "id": "3f2967e7-ae83-428f-933d-35e161ec2c74",
+    "node_type": "concept",
+    "slug": "endurance",
+    "name": "Endurance",
+    "description": ""
+  },
+  {
+    "id": "4fbb6663-623f-47d0-b592-6f4495793024",
+    "node_type": "entity",
+    "slug": "rappelling-gear",
+    "name": "Rappelling Gear",
+    "description": ""
+  },
+  {
+    "id": "81ac91c7-4a0d-4b9e-bc90-e426ef23e8cb",
+    "node_type": "entity",
+    "slug": "off-road-vehicle",
+    "name": "Off-Road Vehicle",
+    "description": ""
+  },
+  {
+    "id": "af42fd91-98c1-4d7d-a9e0-e92537389f75",
+    "node_type": "entity",
+    "slug": "recovery-gear",
+    "name": "Recovery Gear",
+    "description": ""
+  },
+  {
+    "id": "9ff0d84c-2781-42e9-8c1a-7f63ded503cf",
+    "node_type": "entity",
+    "slug": "camping-equipment",
+    "name": "Camping Equipment",
+    "description": ""
+  },
+  {
+    "id": "3981ba9c-c309-4d54-9c45-3065fb335b40",
+    "node_type": "entity",
+    "slug": "paddleboard",
+    "name": "Paddleboard",
+    "description": ""
+  },
+  {
+    "id": "1fdbd094-cf90-44c3-9849-44c6d743f02a",
+    "node_type": "concept",
+    "slug": "photography",
+    "name": "Photography",
+    "description": ""
+  },
+  {
+    "id": "7aaac680-4220-4c4c-8960-ea7873f43a85",
+    "node_type": "concept",
+    "slug": "urban-culture",
+    "name": "Urban Culture",
+    "description": ""
+  },
+  {
+    "id": "94274938-065b-451b-922f-dc6065b14684",
+    "node_type": "entity",
+    "slug": "camera",
+    "name": "Camera",
+    "description": ""
+  },
+  {
+    "id": "18704e22-2084-4d39-8703-373eeca01c5c",
+    "node_type": "entity",
+    "slug": "flashlight",
+    "name": "Flashlight",
+    "description": ""
+  },
+  {
+    "id": "e5901792-9df4-49e8-908f-8b2771b3d0fb",
+    "node_type": "entity",
+    "slug": "climbing-gear",
+    "name": "Climbing Gear",
+    "description": ""
+  },
+  {
+    "id": "21044624-37cb-455d-bfc0-0c687971b59a",
+    "node_type": "outcome",
+    "slug": "historical-appreciation",
+    "name": "Historical Appreciation",
+    "description": ""
+  },
+  {
+    "id": "85c6597e-83e9-400e-9b7a-0012661f9119",
+    "node_type": "concept",
+    "slug": "aerial-sports",
+    "name": "Aerial Sports",
+    "description": ""
+  },
+  {
+    "id": "112aa7a7-577f-41a8-b89f-969c45911e18",
+    "node_type": "concept",
+    "slug": "speed-agility",
+    "name": "Speed Agility",
+    "description": ""
+  },
+  {
+    "id": "aaa4e989-fc47-4cd8-bc8b-07d8e454ee7a",
+    "node_type": "entity",
+    "slug": "paraglider-wing",
+    "name": "Paraglider Wing",
+    "description": ""
+  },
+  {
+    "id": "a41577c7-0252-4c35-8ec2-c054153cc49f",
+    "node_type": "concept",
+    "slug": "winter-sports",
+    "name": "Winter Sports",
+    "description": ""
+  },
+  {
+    "id": "6cc1ed3d-0c98-455a-9837-7e4396f416cb",
+    "node_type": "entity",
+    "slug": "skis",
+    "name": "Skis",
+    "description": ""
+  },
+  {
+    "id": "323f70ce-f644-43c7-bd2b-f4eda8269159",
+    "node_type": "entity",
+    "slug": "boots",
+    "name": "Boots",
+    "description": ""
+  },
+  {
+    "id": "78da4f88-a8f2-4981-84c4-c40181fcf51e",
+    "node_type": "barrier",
+    "slug": "seasonal-only",
+    "name": "Seasonal Only",
+    "description": ""
+  },
+  {
+    "id": "9744e625-a4fb-414a-857b-e43ed3bc16d7",
+    "node_type": "entity",
+    "slug": "snowboard",
+    "name": "Snowboard",
+    "description": ""
+  },
+  {
+    "id": "f1f5c91b-8393-4a5c-a629-3f930370b58f",
+    "node_type": "entity",
+    "slug": "metal-detector",
+    "name": "Metal Detector",
+    "description": ""
+  },
+  {
+    "id": "46b500fd-699a-4959-a6fe-8303b1a1eb8d",
+    "node_type": "entity",
+    "slug": "search-coil",
+    "name": "Search Coil",
+    "description": ""
+  },
+  {
+    "id": "fe18ffbc-dffc-4589-baec-a1adbd525c93",
+    "node_type": "entity",
+    "slug": "pinpointer",
+    "name": "Pinpointer",
+    "description": ""
+  },
+  {
+    "id": "6b698004-6db4-4141-9c67-47e9773bbc5f",
+    "node_type": "entity",
+    "slug": "finds-pouch",
+    "name": "Finds Pouch",
+    "description": ""
+  },
+  {
+    "id": "dfa893e4-2426-48b7-b382-7ac326ff4928",
+    "node_type": "entity",
+    "slug": "headphones",
+    "name": "Headphones",
+    "description": ""
+  },
+  {
+    "id": "e20fbe49-d0f8-48a4-a4c6-ab7d5820df17",
+    "node_type": "concept",
+    "slug": "mental-sharpness",
+    "name": "Mental Sharpness",
+    "description": ""
+  },
+  {
+    "id": "aa391e4f-af3b-4933-9a20-1db82a8a28eb",
+    "node_type": "entity",
+    "slug": "arrows",
+    "name": "Arrows",
+    "description": ""
+  },
+  {
+    "id": "420b7f1f-17c4-46cc-847a-0da333581f61",
+    "node_type": "entity",
+    "slug": "target",
+    "name": "Target",
+    "description": ""
+  },
+  {
+    "id": "1de57615-180b-4285-9aed-8c367a3e9288",
+    "node_type": "entity",
+    "slug": "arm-guard",
+    "name": "Arm Guard",
+    "description": ""
+  },
+  {
+    "id": "6220642b-e3e0-4448-a73c-d4873f514d44",
+    "node_type": "entity",
+    "slug": "release",
+    "name": "Release",
+    "description": ""
+  },
+  {
+    "id": "da743a62-8b31-4a32-aa7d-7d565ec5090c",
+    "node_type": "entity",
+    "slug": "yoga-mat",
+    "name": "Yoga Mat",
+    "description": ""
+  },
+  {
+    "id": "ab584f20-55a2-4e95-beb2-266e110af01a",
+    "node_type": "entity",
+    "slug": "blocks",
+    "name": "Blocks",
+    "description": ""
+  },
+  {
+    "id": "20c9f64d-f28e-4450-95f8-835b5533b0db",
+    "node_type": "entity",
+    "slug": "strap",
+    "name": "Strap",
+    "description": ""
+  },
+  {
+    "id": "fe7c87fc-acbe-4b04-9e49-5e4ac3975cf8",
+    "node_type": "entity",
+    "slug": "meditation-cushion",
+    "name": "Meditation Cushion",
+    "description": ""
+  },
+  {
+    "id": "a6996597-962e-4871-95d1-b2ecffee4c3f",
+    "node_type": "entity",
+    "slug": "breathing",
+    "name": "Breathing",
+    "description": ""
+  },
+  {
+    "id": "587cbe0a-5629-4b44-a2c1-d3a3672e7300",
+    "node_type": "outcome",
+    "slug": "therapeutic-benefit",
+    "name": "Therapeutic Benefit",
+    "description": ""
+  },
+  {
+    "id": "917d060a-6c36-4af5-b057-07fab102c953",
+    "node_type": "concept",
+    "slug": "martial-discipline",
+    "name": "Martial Discipline",
+    "description": ""
+  },
+  {
+    "id": "89dd9c62-9bdd-4e15-8c0c-57b4ed83b6c7",
+    "node_type": "entity",
+    "slug": "gi",
+    "name": "Gi",
+    "description": ""
+  },
+  {
+    "id": "31917364-3014-46ed-9730-6fb8b66f5b5a",
+    "node_type": "entity",
+    "slug": "belt",
+    "name": "Belt",
+    "description": ""
+  },
+  {
+    "id": "14032916-ef9e-458b-8b86-17379b3464ab",
+    "node_type": "entity",
+    "slug": "dojo",
+    "name": "Dojo",
+    "description": ""
+  },
+  {
+    "id": "cb6bf957-8bac-4e1c-bbd0-aba78a8830bd",
+    "node_type": "entity",
+    "slug": "mats",
+    "name": "Mats",
+    "description": ""
+  },
+  {
+    "id": "a2e0d485-4779-494e-9994-1c61acd8c083",
+    "node_type": "entity",
+    "slug": "sparring-gear",
+    "name": "Sparring Gear",
+    "description": ""
+  },
+  {
+    "id": "2b06da8e-4e2d-46d8-8220-363e9271fe45",
+    "node_type": "entity",
+    "slug": "holds",
+    "name": "Holds",
+    "description": ""
+  },
+  {
+    "id": "89f09e24-00f1-44c7-bd07-8ef36731dedd",
+    "node_type": "entity",
+    "slug": "chalk",
+    "name": "Chalk",
+    "description": ""
+  },
+  {
+    "id": "e993c6c3-4bb7-4315-b5fb-518e1e275b99",
+    "node_type": "entity",
+    "slug": "foil",
+    "name": "Foil",
+    "description": ""
+  },
+  {
+    "id": "0d7efc3e-e3d0-4243-99e0-aa0d9207ed1f",
+    "node_type": "entity",
+    "slug": "p-e",
+    "name": "éPéE",
+    "description": ""
+  },
+  {
+    "id": "2b196e69-90bf-4c5a-b8d5-8743136ed871",
+    "node_type": "entity",
+    "slug": "sabre",
+    "name": "Sabre",
+    "description": ""
+  },
+  {
+    "id": "bf6a89bd-8a6a-4984-a425-06ca6150ff28",
+    "node_type": "entity",
+    "slug": "fencing-jacket",
+    "name": "Fencing Jacket",
+    "description": ""
+  },
+  {
+    "id": "c59bf519-9bb4-407e-8416-4e52fddd011d",
+    "node_type": "entity",
+    "slug": "training-shoes",
+    "name": "Training Shoes",
+    "description": ""
+  },
+  {
+    "id": "1cb35b36-f2fc-4448-8806-301c436f4605",
+    "node_type": "entity",
+    "slug": "outdoor-obstacles",
+    "name": "Outdoor Obstacles",
+    "description": ""
+  },
+  {
+    "id": "18da498d-6db2-4b64-ae02-7dfae9d6a21a",
+    "node_type": "entity",
+    "slug": "gym-mats",
+    "name": "Gym Mats",
+    "description": ""
+  },
+  {
+    "id": "c8d4c8c4-671f-4730-8a84-56801452eebc",
+    "node_type": "entity",
+    "slug": "clothing",
+    "name": "Clothing",
+    "description": ""
+  },
+  {
+    "id": "fbf30c2d-b095-4e42-9b94-01ab0cda3491",
+    "node_type": "entity",
+    "slug": "bicycle",
+    "name": "Bicycle",
+    "description": ""
+  },
+  {
+    "id": "25a28276-2580-4bfd-bf9c-9e316dd3c632",
+    "node_type": "entity",
+    "slug": "pedals",
+    "name": "Pedals",
+    "description": ""
+  },
+  {
+    "id": "17fb57e6-2434-4719-8e77-2a57e1bf264b",
+    "node_type": "entity",
+    "slug": "tires",
+    "name": "Tires",
+    "description": ""
+  },
+  {
+    "id": "a4f38607-019e-4d85-9a92-f19ee85bf19d",
+    "node_type": "entity",
+    "slug": "chain",
+    "name": "Chain",
+    "description": ""
+  },
+  {
+    "id": "66bb5499-8a3a-4626-be4f-7439c6470e8b",
+    "node_type": "entity",
+    "slug": "running-shoes",
+    "name": "Running Shoes",
+    "description": ""
+  },
+  {
+    "id": "c9a1da60-74c3-429b-b19a-af25da9b53bd",
+    "node_type": "entity",
+    "slug": "watch",
+    "name": "Watch",
+    "description": ""
+  },
+  {
+    "id": "d870a42b-3bc5-4e8b-b055-682ab565095c",
+    "node_type": "entity",
+    "slug": "moisture-wicking-clothing",
+    "name": "Moisture-Wicking Clothing",
+    "description": ""
+  },
+  {
+    "id": "bab58ea5-dcc7-45ce-9e4a-afa9b8dfd4be",
+    "node_type": "entity",
+    "slug": "route",
+    "name": "Route",
+    "description": ""
+  },
+  {
+    "id": "11659f8f-7bc9-49cd-9228-fad0c7edc336",
+    "node_type": "entity",
+    "slug": "timer",
+    "name": "Timer",
+    "description": ""
+  },
+  {
+    "id": "6f0c9ff0-5523-49a6-b41b-a40928f332cc",
+    "node_type": "entity",
+    "slug": "swimsuit",
+    "name": "Swimsuit",
+    "description": ""
+  },
+  {
+    "id": "313f990c-6ffc-42af-9c31-f03f8e4ff170",
+    "node_type": "entity",
+    "slug": "goggles",
+    "name": "Goggles",
+    "description": ""
+  },
+  {
+    "id": "adc40e0b-5ef8-42d5-91c3-b1d4e92e6b5d",
+    "node_type": "entity",
+    "slug": "pool",
+    "name": "Pool",
+    "description": ""
+  },
+  {
+    "id": "fbb748c1-0064-41c8-9839-08e51393c9b3",
+    "node_type": "entity",
+    "slug": "fins",
+    "name": "Fins",
+    "description": ""
+  },
+  {
+    "id": "b45ffadf-ecc2-455e-8947-726ed72fe81c",
+    "node_type": "entity",
+    "slug": "kickboard",
+    "name": "Kickboard",
+    "description": ""
+  },
+  {
+    "id": "003252c9-557e-4c3c-8b15-8dd6542ac649",
+    "node_type": "concept",
+    "slug": "social-connections",
+    "name": "Social Connections",
+    "description": ""
+  },
+  {
+    "id": "e49f9e9e-51f2-4ddd-8a6f-4511d9c30361",
+    "node_type": "entity",
+    "slug": "pickleball",
+    "name": "Pickleball",
+    "description": ""
+  },
+  {
+    "id": "b43b201a-fae9-445d-9f0d-ff4b9e852f04",
+    "node_type": "entity",
+    "slug": "court",
+    "name": "Court",
+    "description": ""
+  },
+  {
+    "id": "93fe5630-24e2-4aa8-8f87-62913556c1a5",
+    "node_type": "entity",
+    "slug": "net",
+    "name": "Net",
+    "description": ""
+  },
+  {
+    "id": "bed191ef-d990-4f6b-bc45-744ec6314b4c",
+    "node_type": "entity",
+    "slug": "shoes",
+    "name": "Shoes",
+    "description": ""
+  },
+  {
+    "id": "3d900c38-de2e-4e32-9830-7a6efc262dad",
+    "node_type": "entity",
+    "slug": "tennis-racquet",
+    "name": "Tennis Racquet",
+    "description": ""
+  },
+  {
+    "id": "80dd1111-7d76-4fa0-8d5f-bed37362f84c",
+    "node_type": "entity",
+    "slug": "tennis-ball",
+    "name": "Tennis Ball",
+    "description": ""
+  },
+  {
+    "id": "3971b144-0d3f-4ef8-84f1-ad48df563cd1",
+    "node_type": "entity",
+    "slug": "court-shoes",
+    "name": "Court Shoes",
+    "description": ""
+  },
+  {
+    "id": "e879f626-891b-4fcb-b7f7-f36e357c337d",
+    "node_type": "entity",
+    "slug": "disc",
+    "name": "Disc",
+    "description": ""
+  },
+  {
+    "id": "4d6f4400-927a-4374-a535-09e17562f19a",
+    "node_type": "entity",
+    "slug": "basket",
+    "name": "Basket",
+    "description": ""
+  },
+  {
+    "id": "acc9d994-fa35-40d8-8697-cb3f7b279ca8",
+    "node_type": "entity",
+    "slug": "tee-area",
+    "name": "Tee Area",
+    "description": ""
+  },
+  {
+    "id": "844faed2-434f-4acc-87a9-d73ed934ac61",
+    "node_type": "entity",
+    "slug": "flying-disc",
+    "name": "Flying Disc",
+    "description": ""
+  },
+  {
+    "id": "a224a51d-4b4b-4d44-b16a-ab851cc4f794",
+    "node_type": "entity",
+    "slug": "skateboard",
+    "name": "Skateboard",
+    "description": ""
+  },
+  {
+    "id": "e2d93955-253a-4af7-af88-1ca95fd43dbf",
+    "node_type": "entity",
+    "slug": "wheels",
+    "name": "Wheels",
+    "description": ""
+  },
+  {
+    "id": "5fd85c0b-2608-4a94-87f8-0d70ce3b65e1",
+    "node_type": "entity",
+    "slug": "grip-tape",
+    "name": "Grip Tape",
+    "description": ""
+  },
+  {
+    "id": "38016d04-7480-4f22-8916-7060e7f169cd",
+    "node_type": "entity",
+    "slug": "bearings",
+    "name": "Bearings",
+    "description": ""
+  },
+  {
+    "id": "7854f7c6-d969-4c51-8e4e-8b90dd32d9b4",
+    "node_type": "entity",
+    "slug": "form",
+    "name": "Form",
+    "description": ""
+  },
+  {
+    "id": "87ed5854-5c7a-4f29-976d-3cf4bdec2bfd",
+    "node_type": "entity",
+    "slug": "energy",
+    "name": "Energy",
+    "description": ""
+  },
+  {
+    "id": "b591acdf-4885-4b52-9b34-26aba6bf0276",
+    "node_type": "entity",
+    "slug": "balance",
+    "name": "Balance",
+    "description": ""
+  },
+  {
+    "id": "4eb5fc64-c448-43e5-8c84-95d4e36e90e0",
+    "node_type": "entity",
+    "slug": "posture",
+    "name": "Posture",
+    "description": ""
+  },
+  {
+    "id": "e89dcf52-6334-484d-91bb-8c0006ff5a5f",
+    "node_type": "entity",
+    "slug": "gloves",
+    "name": "Gloves",
+    "description": ""
+  },
+  {
+    "id": "d0183305-1f9d-4ff8-8d77-7f45da3614eb",
+    "node_type": "entity",
+    "slug": "hand-wraps",
+    "name": "Hand Wraps",
+    "description": ""
+  },
+  {
+    "id": "908e52d7-430b-4c4a-b9ee-ed1a9f1d2e58",
+    "node_type": "entity",
+    "slug": "heavy-bag",
+    "name": "Heavy Bag",
+    "description": ""
+  },
+  {
+    "id": "bcd6b24d-2303-4493-9998-7532da4a4aad",
+    "node_type": "entity",
+    "slug": "speed-bag",
+    "name": "Speed Bag",
+    "description": ""
+  },
+  {
+    "id": "a1062ac0-2594-453b-8cb6-de61c3af1c6c",
+    "node_type": "entity",
+    "slug": "boxing-ring",
+    "name": "Boxing Ring",
+    "description": ""
+  },
+  {
+    "id": "557c4140-0439-41a2-b97f-52e37b6212b2",
+    "node_type": "entity",
+    "slug": "slackline",
+    "name": "Slackline",
+    "description": ""
+  },
+  {
+    "id": "b77ed062-2bf4-4667-ac72-d181729dfcbb",
+    "node_type": "entity",
+    "slug": "webbing",
+    "name": "Webbing",
+    "description": ""
+  },
+  {
+    "id": "e217ab1c-9e88-4b9d-8aad-79a546bf0db0",
+    "node_type": "entity",
+    "slug": "anchor-points",
+    "name": "Anchor Points",
+    "description": ""
+  },
+  {
+    "id": "a94e5e26-73e0-49a9-8878-2173b366b0d1",
+    "node_type": "entity",
+    "slug": "trees",
+    "name": "Trees",
+    "description": ""
+  },
+  {
+    "id": "96dfe16a-facc-4906-9050-606cea88e690",
+    "node_type": "entity",
+    "slug": "ice-skates",
+    "name": "Ice Skates",
+    "description": ""
+  },
+  {
+    "id": "67c600a2-70b1-4f28-ab61-cedb590b5dfb",
+    "node_type": "entity",
+    "slug": "ice-rink",
+    "name": "Ice Rink",
+    "description": ""
+  },
+  {
+    "id": "e9b3c008-0685-4511-b2d2-be579d922d83",
+    "node_type": "entity",
+    "slug": "blade",
+    "name": "Blade",
+    "description": ""
+  },
+  {
+    "id": "c84dc344-ae8d-45f4-a70b-360f4529ed13",
+    "node_type": "entity",
+    "slug": "laces",
+    "name": "Laces",
+    "description": ""
+  },
+  {
+    "id": "de7c25a0-3f21-4a07-8f7e-e41310787bff",
+    "node_type": "entity",
+    "slug": "bowling-ball",
+    "name": "Bowling Ball",
+    "description": ""
+  },
+  {
+    "id": "9245071f-49e0-4a58-b431-00a90d4b2f8d",
+    "node_type": "entity",
+    "slug": "pins",
+    "name": "Pins",
+    "description": ""
+  },
+  {
+    "id": "2226e653-9a14-45ee-aed8-54d7e9d825f3",
+    "node_type": "entity",
+    "slug": "alley",
+    "name": "Alley",
+    "description": ""
+  },
+  {
+    "id": "a3911da7-01dd-47a7-9ed9-b37f3ee150a5",
+    "node_type": "entity",
+    "slug": "lane",
+    "name": "Lane",
+    "description": ""
+  },
+  {
+    "id": "a97dbd2c-f654-42b5-8105-0ddfd05b0dcf",
+    "node_type": "entity",
+    "slug": "ping-pong-ball",
+    "name": "Ping Pong Ball",
+    "description": ""
+  },
+  {
+    "id": "ecaaa64f-f2fd-4c97-b11e-c20c4bc781ce",
+    "node_type": "entity",
+    "slug": "table",
+    "name": "Table",
+    "description": ""
+  },
+  {
+    "id": "456ed71c-85df-4683-acb0-ba1f8ccae48e",
+    "node_type": "entity",
+    "slug": "badminton-racket",
+    "name": "Badminton Racket",
+    "description": ""
+  },
+  {
+    "id": "74184b5b-d2ef-4666-a96e-800062759a01",
+    "node_type": "entity",
+    "slug": "shuttlecock",
+    "name": "Shuttlecock",
+    "description": ""
+  },
+  {
+    "id": "3f688619-00f7-4cb8-93db-550c861d1202",
+    "node_type": "entity",
+    "slug": "roller-skates",
+    "name": "Roller Skates",
+    "description": ""
+  },
+  {
+    "id": "307f1823-b2c1-4297-8d48-2c06324a86ef",
+    "node_type": "entity",
+    "slug": "rink",
+    "name": "Rink",
+    "description": ""
+  },
+  {
+    "id": "b8a16db4-66e8-4a45-bbc4-8a9854a4d414",
+    "node_type": "entity",
+    "slug": "protective-gear",
+    "name": "Protective Gear",
+    "description": ""
+  },
+  {
+    "id": "5bb04770-eb4e-450a-9487-44df6aff2056",
+    "node_type": "entity",
+    "slug": "punching-bag",
+    "name": "Punching Bag",
+    "description": ""
+  },
+  {
+    "id": "d3296cfa-26eb-4160-ab88-fe9f0286fc32",
+    "node_type": "entity",
+    "slug": "kickpad",
+    "name": "Kickpad",
+    "description": ""
+  },
+  {
+    "id": "27583661-09d9-40e4-9b5b-06a02084e88c",
+    "node_type": "entity",
+    "slug": "shin-guards",
+    "name": "Shin Guards",
+    "description": ""
+  },
+  {
+    "id": "59b4d6ab-374f-49db-86a1-b705d870bae5",
+    "node_type": "concept",
+    "slug": "body-awareness",
+    "name": "Body Awareness",
+    "description": ""
+  },
+  {
+    "id": "cc0709ce-3e77-4096-80eb-b7e5f3543d35",
+    "node_type": "entity",
+    "slug": "mat",
+    "name": "Mat",
+    "description": ""
+  },
+  {
+    "id": "b41245be-708b-4206-ab9f-52ea2a128029",
+    "node_type": "entity",
+    "slug": "reformer",
+    "name": "Reformer",
+    "description": ""
+  },
+  {
+    "id": "cc3f67fd-4eb3-450d-9f33-1fdbf499314f",
+    "node_type": "entity",
+    "slug": "resistance-bands",
+    "name": "Resistance Bands",
+    "description": ""
+  },
+  {
+    "id": "26ffecdd-ec50-4510-ba28-6e09eef8fbed",
+    "node_type": "entity",
+    "slug": "foam-roller",
+    "name": "Foam Roller",
+    "description": ""
+  },
+  {
+    "id": "45015492-8c27-42d2-add4-64b0fe73eb28",
+    "node_type": "entity",
+    "slug": "pull-up-bar",
+    "name": "Pull-Up Bar",
+    "description": ""
+  },
+  {
+    "id": "23474c63-8841-484d-827d-29b8fccf561d",
+    "node_type": "entity",
+    "slug": "parallettes",
+    "name": "Parallettes",
+    "description": ""
+  },
+  {
+    "id": "56fc7b69-12e3-4f15-9003-e850cb29463a",
+    "node_type": "entity",
+    "slug": "speargun",
+    "name": "Speargun",
+    "description": ""
+  },
+  {
+    "id": "29685392-2715-4a00-ab44-2e208ab89700",
+    "node_type": "entity",
+    "slug": "pole-spear",
+    "name": "Pole Spear",
+    "description": ""
+  },
+  {
+    "id": "63a51ee4-6c22-453b-88a0-b5c726db9911",
+    "node_type": "entity",
+    "slug": "freediving-fins",
+    "name": "Freediving Fins",
+    "description": ""
+  },
+  {
+    "id": "adaada20-7ddc-4f08-ae1e-a4d4f5ec0412",
+    "node_type": "entity",
+    "slug": "3d-printer",
+    "name": "3D Printer",
+    "description": ""
+  },
+  {
+    "id": "0aee3efc-c199-416b-958d-68fcbcc3f88d",
+    "node_type": "entity",
+    "slug": "filament",
+    "name": "Filament",
+    "description": ""
+  },
+  {
+    "id": "e243d2fe-b3d6-4e0b-8a4b-a8604d4c148d",
+    "node_type": "entity",
+    "slug": "print-bed",
+    "name": "Print Bed",
+    "description": ""
+  },
+  {
+    "id": "7a0bc7e1-5e02-4769-9c78-9885fbe0e13c",
+    "node_type": "entity",
+    "slug": "slicing-software",
+    "name": "Slicing Software",
+    "description": ""
+  },
+  {
+    "id": "5f7f342f-8bb3-4a0c-b256-a70f12dd3bff",
+    "node_type": "concept",
+    "slug": "logical-thinking",
+    "name": "Logical Thinking",
+    "description": ""
+  },
+  {
+    "id": "80b5769f-0bc0-4a05-905f-0f8f8cdd275b",
+    "node_type": "entity",
+    "slug": "code-editor",
+    "name": "Code Editor",
+    "description": ""
+  },
+  {
+    "id": "9919af65-b11a-42a4-8c31-4b6a192462b6",
+    "node_type": "entity",
+    "slug": "programming-language",
+    "name": "Programming Language",
+    "description": ""
+  },
+  {
+    "id": "3f6ba777-839d-4e70-b18b-56537d7eab1e",
+    "node_type": "entity",
+    "slug": "ide",
+    "name": "IDE",
+    "description": ""
+  },
+  {
+    "id": "3a73bd72-2f9f-470d-a226-d3ad10606447",
+    "node_type": "entity",
+    "slug": "microcontroller",
+    "name": "Microcontroller",
+    "description": ""
+  },
+  {
+    "id": "5a69c395-ddcf-4050-a2c6-21f8439f7f6e",
+    "node_type": "entity",
+    "slug": "motor",
+    "name": "Motor",
+    "description": ""
+  },
+  {
+    "id": "3db78e37-d8ed-4532-92e5-aea3c8f82998",
+    "node_type": "entity",
+    "slug": "sensor",
+    "name": "Sensor",
+    "description": ""
+  },
+  {
+    "id": "3cc68f9e-1458-4d8e-985b-87a873ce3e93",
+    "node_type": "entity",
+    "slug": "circuit-board",
+    "name": "Circuit Board",
+    "description": ""
+  },
+  {
+    "id": "acb6b3c1-f59b-42e5-afc9-ad87f790824f",
+    "node_type": "entity",
+    "slug": "drone",
+    "name": "Drone",
+    "description": ""
+  },
+  {
+    "id": "d53b773a-02e1-45de-a20b-b35f91d2ee57",
+    "node_type": "entity",
+    "slug": "remote-controller",
+    "name": "Remote Controller",
+    "description": ""
+  },
+  {
+    "id": "e2151b26-95a0-4547-b6a3-c51239ba6d69",
+    "node_type": "entity",
+    "slug": "battery",
+    "name": "Battery",
+    "description": ""
+  },
+  {
+    "id": "2dc1ff03-e4ef-4d55-8be7-346033d33b35",
+    "node_type": "entity",
+    "slug": "fpv-goggles",
+    "name": "FPV Goggles",
+    "description": ""
+  },
+  {
+    "id": "fc83651b-e861-4f31-8a34-9e2ccd9678c3",
+    "node_type": "concept",
+    "slug": "convenience",
+    "name": "Convenience",
+    "description": ""
+  },
+  {
+    "id": "43a647c8-25fb-4ae1-9138-43e3571bb618",
+    "node_type": "concept",
+    "slug": "efficiency",
+    "name": "Efficiency",
+    "description": ""
+  },
+  {
+    "id": "29407a8d-b5d3-4f14-9cd3-b479ed65d352",
+    "node_type": "entity",
+    "slug": "smart-hub",
+    "name": "Smart Hub",
+    "description": ""
+  },
+  {
+    "id": "4d8d426e-f436-4966-b4ea-9228e28ce48b",
+    "node_type": "entity",
+    "slug": "smart-bulbs",
+    "name": "Smart Bulbs",
+    "description": ""
+  },
+  {
+    "id": "5a295a27-7e08-4570-b491-dcde8d8e6004",
+    "node_type": "entity",
+    "slug": "temperature-sensor",
+    "name": "Temperature Sensor",
+    "description": ""
+  },
+  {
+    "id": "ed29ddd1-21d9-47d1-98ad-ee66794d2994",
+    "node_type": "entity",
+    "slug": "motion-detector",
+    "name": "Motion Detector",
+    "description": ""
+  },
+  {
+    "id": "1a4ce61c-f3d2-487a-a179-19ee46d2cf36",
+    "node_type": "entity",
+    "slug": "mechanical-switches",
+    "name": "Mechanical Switches",
+    "description": ""
+  },
+  {
+    "id": "6e2be2e0-48a4-4c9f-b816-c78152934f8d",
+    "node_type": "entity",
+    "slug": "keycaps",
+    "name": "Keycaps",
+    "description": ""
+  },
+  {
+    "id": "71697f71-126f-4d1b-a1c6-2be66f560a72",
+    "node_type": "entity",
+    "slug": "pcb",
+    "name": "PCB",
+    "description": ""
+  },
+  {
+    "id": "6058128e-a766-426d-8067-ba96e760bdb5",
+    "node_type": "entity",
+    "slug": "stabilizers",
+    "name": "Stabilizers",
+    "description": ""
+  },
+  {
+    "id": "dea1529f-91c4-4e63-a0f4-1a2c144cd34f",
+    "node_type": "concept",
+    "slug": "security",
+    "name": "Security",
+    "description": ""
+  },
+  {
+    "id": "fa326135-9175-4870-86c7-f704b8259507",
+    "node_type": "entity",
+    "slug": "penetration-testing-tools",
+    "name": "Penetration Testing Tools",
+    "description": ""
+  },
+  {
+    "id": "83026b96-a18c-42e7-98b3-993a67691d00",
+    "node_type": "entity",
+    "slug": "virtual-machine",
+    "name": "Virtual Machine",
+    "description": ""
+  },
+  {
+    "id": "d61e8ef4-14c3-4544-81e0-897d1c91196f",
+    "node_type": "entity",
+    "slug": "ctf-platform",
+    "name": "CTF Platform",
+    "description": ""
+  },
+  {
+    "id": "b802caa6-3180-4167-b76e-5fc8d2142d4a",
+    "node_type": "concept",
+    "slug": "mechanical-understanding",
+    "name": "Mechanical Understanding",
+    "description": ""
+  },
+  {
+    "id": "d036cc32-fdd9-41db-9f16-73dc8303b6f2",
+    "node_type": "entity",
+    "slug": "lock-pick-set",
+    "name": "Lock Pick Set",
+    "description": ""
+  },
+  {
+    "id": "ad21f6da-dd9a-4054-9162-232308a2f448",
+    "node_type": "entity",
+    "slug": "practice-locks",
+    "name": "Practice Locks",
+    "description": ""
+  },
+  {
+    "id": "785b3589-a351-4e5b-a4d5-ad0246eeb803",
+    "node_type": "entity",
+    "slug": "tension-wrench",
+    "name": "Tension Wrench",
+    "description": ""
+  },
+  {
+    "id": "87601691-8413-4380-ae5f-5c28cf15ff28",
+    "node_type": "entity",
+    "slug": "laser-cutter",
+    "name": "Laser Cutter",
+    "description": ""
+  },
+  {
+    "id": "6cb648a4-f983-4de5-ad2d-09bc40cf5b4d",
+    "node_type": "entity",
+    "slug": "design-software",
+    "name": "Design Software",
+    "description": ""
+  },
+  {
+    "id": "5616b8bb-e118-4421-bd39-accfd8751117",
+    "node_type": "entity",
+    "slug": "wood-material",
+    "name": "Wood Material",
+    "description": ""
+  },
+  {
+    "id": "872c02fd-5c50-48a9-95a2-87fd1a7b4521",
+    "node_type": "entity",
+    "slug": "acrylic-sheets",
+    "name": "Acrylic Sheets",
+    "description": ""
+  },
+  {
+    "id": "a5176d9a-baf4-41d7-a47d-b95de62118a8",
+    "node_type": "concept",
+    "slug": "game-design",
+    "name": "Game Design",
+    "description": ""
+  },
+  {
+    "id": "7cff6bc1-9582-4bd6-8f3e-f03454718ad6",
+    "node_type": "entity",
+    "slug": "game-engine",
+    "name": "Game Engine",
+    "description": ""
+  },
+  {
+    "id": "2fa51d7f-b8c5-4ca5-b299-f4a086f54fc9",
+    "node_type": "entity",
+    "slug": "modding-tools",
+    "name": "Modding Tools",
+    "description": ""
+  },
+  {
+    "id": "c32e6b05-598b-4b99-91d7-5d55ef00d109",
+    "node_type": "entity",
+    "slug": "3d-model-software",
+    "name": "3D Model Software",
+    "description": ""
+  },
+  {
+    "id": "24c0c097-ed0e-4649-b779-a22e5d903dcc",
+    "node_type": "entity",
+    "slug": "browser-developer-tools",
+    "name": "Browser Developer Tools",
+    "description": ""
+  },
+  {
+    "id": "12965bea-2dce-4e80-80a0-30cf21c869f8",
+    "node_type": "entity",
+    "slug": "version-control",
+    "name": "Version Control",
+    "description": ""
+  },
+  {
+    "id": "7f595133-4f9a-4e06-87a5-b42a394e58c3",
+    "node_type": "concept",
+    "slug": "technical-knowledge",
+    "name": "Technical Knowledge",
+    "description": ""
+  },
+  {
+    "id": "912560d2-00e5-4fe2-9f7a-fc67885e654b",
+    "node_type": "entity",
+    "slug": "radio-transceiver",
+    "name": "Radio Transceiver",
+    "description": ""
+  },
+  {
+    "id": "418f6477-86dd-4d4a-9817-a06b5fa418b7",
+    "node_type": "entity",
+    "slug": "antenna",
+    "name": "Antenna",
+    "description": ""
+  },
+  {
+    "id": "c2e20942-1a39-400e-b3c6-291f461114a7",
+    "node_type": "concept",
+    "slug": "strategic-thinking",
+    "name": "Strategic Thinking",
+    "description": ""
+  },
+  {
+    "id": "746527d7-81f2-4461-9099-95821ed6aedd",
+    "node_type": "entity",
+    "slug": "cards",
+    "name": "Cards",
+    "description": ""
+  },
+  {
+    "id": "63f30152-4630-4f00-8469-dd3a8d5982c8",
+    "node_type": "entity",
+    "slug": "dice",
+    "name": "Dice",
+    "description": ""
+  },
+  {
+    "id": "16209423-2fbe-4f67-bdee-632a6462d5d8",
+    "node_type": "entity",
+    "slug": "game-board",
+    "name": "Game Board",
+    "description": ""
+  },
+  {
+    "id": "66dee6e3-3162-4b37-bbba-ff69a51c6b4c",
+    "node_type": "entity",
+    "slug": "visualization-tool",
+    "name": "Visualization Tool",
+    "description": ""
+  },
+  {
+    "id": "abe4a354-ead3-431d-b00c-f5ef4d15361f",
+    "node_type": "entity",
+    "slug": "dataset",
+    "name": "Dataset",
+    "description": ""
+  },
+  {
+    "id": "c72c5ade-a19b-4cf7-9b20-52fd31399a1b",
+    "node_type": "entity",
+    "slug": "foam-materials",
+    "name": "Foam Materials",
+    "description": ""
+  },
+  {
+    "id": "138b0e5d-cb15-42f6-b24e-0574fa19720e",
+    "node_type": "entity",
+    "slug": "resin",
+    "name": "Resin",
+    "description": ""
+  },
+  {
+    "id": "09236a92-2b25-4285-ba27-074def6a50f6",
+    "node_type": "entity",
+    "slug": "board-game",
+    "name": "Board Game",
+    "description": ""
+  },
+  {
+    "id": "05cabfc1-6284-42fb-86c8-36d3759b40ca",
+    "node_type": "entity",
+    "slug": "game-pieces",
+    "name": "Game Pieces",
+    "description": ""
+  },
+  {
+    "id": "fc13d6e9-b1dd-48fb-bfd4-02ce376291f4",
+    "node_type": "entity",
+    "slug": "chess-board",
+    "name": "Chess Board",
+    "description": ""
+  },
+  {
+    "id": "c81e666d-762e-4053-857b-44d26dc12680",
+    "node_type": "entity",
+    "slug": "chess-pieces",
+    "name": "Chess Pieces",
+    "description": ""
+  },
+  {
+    "id": "61375ee5-23b8-4033-9deb-7e575347c36f",
+    "node_type": "entity",
+    "slug": "chess-clock",
+    "name": "Chess Clock",
+    "description": ""
+  },
+  {
+    "id": "fd5ad3f2-f154-486b-ab9f-d722fa552816",
+    "node_type": "entity",
+    "slug": "gaming-console",
+    "name": "Gaming Console",
+    "description": ""
+  },
+  {
+    "id": "c39d6b83-3a5a-489d-b60e-927c29135f06",
+    "node_type": "entity",
+    "slug": "controller",
+    "name": "Controller",
+    "description": ""
+  },
+  {
+    "id": "2dab4299-d7b8-4d91-8eba-f5d2a9bc9093",
+    "node_type": "entity",
+    "slug": "game-software",
+    "name": "Game Software",
+    "description": ""
+  },
+  {
+    "id": "d6b411b5-bb29-4806-85e2-f7a251108d67",
+    "node_type": "concept",
+    "slug": "imagination",
+    "name": "Imagination",
+    "description": ""
+  },
+  {
+    "id": "3e18fa77-575c-4b80-862b-8fd87c5e1e19",
+    "node_type": "entity",
+    "slug": "character-sheet",
+    "name": "Character Sheet",
+    "description": ""
+  },
+  {
+    "id": "65113cdc-41f8-488d-97bd-728e029aedf5",
+    "node_type": "entity",
+    "slug": "rulebook",
+    "name": "Rulebook",
+    "description": ""
+  },
+  {
+    "id": "b2e443cc-765b-48d6-9f53-2feb67bbc80d",
+    "node_type": "concept",
+    "slug": "teamwork",
+    "name": "Teamwork",
+    "description": ""
+  },
+  {
+    "id": "1c821397-03da-4802-945c-7588ed703579",
+    "node_type": "entity",
+    "slug": "puzzle-room",
+    "name": "Puzzle Room",
+    "description": ""
+  },
+  {
+    "id": "9a7fb6ef-6936-441e-8321-18f16da0d209",
+    "node_type": "entity",
+    "slug": "props",
+    "name": "Props",
+    "description": ""
+  },
+  {
+    "id": "f0f510ed-3e85-4091-83b5-6f336397ecb8",
+    "node_type": "entity",
+    "slug": "locks",
+    "name": "Locks",
+    "description": ""
+  },
+  {
+    "id": "677367a8-377f-4d41-a3bb-75e226ebd1e3",
+    "node_type": "entity",
+    "slug": "go-board",
+    "name": "Go Board",
+    "description": ""
+  },
+  {
+    "id": "e97a87b2-887c-4417-a5e2-a06d93204326",
+    "node_type": "entity",
+    "slug": "stones",
+    "name": "Stones",
+    "description": ""
+  },
+  {
+    "id": "fabd8821-4434-4877-a2c9-3c525ccb1cc1",
+    "node_type": "entity",
+    "slug": "go-clock",
+    "name": "Go Clock",
+    "description": ""
+  },
+  {
+    "id": "0fcce7a8-034e-4878-afe6-317affeccd5e",
+    "node_type": "concept",
+    "slug": "psychology",
+    "name": "Psychology",
+    "description": ""
+  },
+  {
+    "id": "dded9ab5-5bd6-45f8-8238-18ef3b30f3a8",
+    "node_type": "concept",
+    "slug": "probability",
+    "name": "Probability",
+    "description": ""
+  },
+  {
+    "id": "8244a1c7-e08e-489d-9f5b-e699908efdf3",
+    "node_type": "entity",
+    "slug": "playing-cards",
+    "name": "Playing Cards",
+    "description": ""
+  },
+  {
+    "id": "7a9be95e-47b5-424b-ae63-d24c655b458d",
+    "node_type": "entity",
+    "slug": "poker-chips",
+    "name": "Poker Chips",
+    "description": ""
+  },
+  {
+    "id": "afa54f08-1f6a-4bd5-ae1a-1be5631d42b4",
+    "node_type": "concept",
+    "slug": "visual-perception",
+    "name": "Visual Perception",
+    "description": ""
+  },
+  {
+    "id": "908891d2-aad3-4011-8070-ad07ffd12af6",
+    "node_type": "concept",
+    "slug": "relaxation",
+    "name": "Relaxation",
+    "description": ""
+  },
+  {
+    "id": "e1abe42b-9a41-4039-990f-3478b9474cd4",
+    "node_type": "entity",
+    "slug": "puzzle-pieces",
+    "name": "Puzzle Pieces",
+    "description": ""
+  },
+  {
+    "id": "964e4f16-17d0-4cc8-a2ba-c0c801700afa",
+    "node_type": "entity",
+    "slug": "cardboard-frame",
+    "name": "Cardboard Frame",
+    "description": ""
+  },
+  {
+    "id": "fb5ac685-f788-442d-a0ff-199c424dd12a",
+    "node_type": "entity",
+    "slug": "storage-box",
+    "name": "Storage Box",
+    "description": ""
+  },
+  {
+    "id": "883c5694-d358-43ce-a97d-b2e31579c097",
+    "node_type": "entity",
+    "slug": "rubik-s-cube",
+    "name": "Rubik'S Cube",
+    "description": ""
+  },
+  {
+    "id": "e490c297-2665-4a93-b002-0aa24f2b971a",
+    "node_type": "entity",
+    "slug": "timing-mat",
+    "name": "Timing Mat",
+    "description": ""
+  },
+  {
+    "id": "b2afb1a2-2f48-4a0f-a93f-7baef7b257c7",
+    "node_type": "entity",
+    "slug": "lube",
+    "name": "Lube",
+    "description": ""
+  },
+  {
+    "id": "3f77fade-1906-4b01-8e1e-f3457ef70890",
+    "node_type": "outcome",
+    "slug": "competition",
+    "name": "Competition",
+    "description": ""
+  },
+  {
+    "id": "6f671890-fd15-4e48-af32-09ef9ed8cc54",
+    "node_type": "entity",
+    "slug": "card-deck",
+    "name": "Card Deck",
+    "description": ""
+  },
+  {
+    "id": "0097c2d1-21a2-4dfb-ac1d-90072319d05f",
+    "node_type": "entity",
+    "slug": "instruction-book",
+    "name": "Instruction Book",
+    "description": ""
+  },
+  {
+    "id": "af9d0154-f9c8-4e5a-a524-6b7e8f37ab59",
+    "node_type": "concept",
+    "slug": "culinary-arts",
+    "name": "Culinary Arts",
+    "description": ""
+  },
+  {
+    "id": "adce5321-9f23-4ac8-a9fc-2f2c77c089e1",
+    "node_type": "concept",
+    "slug": "sensory-pleasure",
+    "name": "Sensory Pleasure",
+    "description": ""
+  },
+  {
+    "id": "5e4368d6-ec5f-450e-acd7-ff6eff036e82",
+    "node_type": "entity",
+    "slug": "flour",
+    "name": "Flour",
+    "description": ""
+  },
+  {
+    "id": "6a768be7-22cb-4dff-855e-41f9906c0af6",
+    "node_type": "entity",
+    "slug": "mixing-bowl",
+    "name": "Mixing Bowl",
+    "description": ""
+  },
+  {
+    "id": "83acfa16-eb5b-45ac-97fa-1f9701b146f1",
+    "node_type": "entity",
+    "slug": "oven",
+    "name": "Oven",
+    "description": ""
+  },
+  {
+    "id": "87defa6b-251a-4772-8dfa-22fe38888ba2",
+    "node_type": "entity",
+    "slug": "piping-bags",
+    "name": "Piping Bags",
+    "description": ""
+  },
+  {
+    "id": "5370a1dc-7e13-4025-9cdf-237300366de8",
+    "node_type": "concept",
+    "slug": "chemistry",
+    "name": "Chemistry",
+    "description": ""
+  },
+  {
+    "id": "dbdbfb79-6d8c-4809-899e-271ebf016a1d",
+    "node_type": "concept",
+    "slug": "fermentation",
+    "name": "Fermentation",
+    "description": ""
+  },
+  {
+    "id": "cd88883f-f780-419e-9ba0-9d50b72dff43",
+    "node_type": "entity",
+    "slug": "fermenter",
+    "name": "Fermenter",
+    "description": ""
+  },
+  {
+    "id": "1e413f42-4307-415d-8539-7112c99c2fb9",
+    "node_type": "entity",
+    "slug": "brewing-kettle",
+    "name": "Brewing Kettle",
+    "description": ""
+  },
+  {
+    "id": "d9958115-c421-4236-8d24-2d0c061823e4",
+    "node_type": "entity",
+    "slug": "yeast",
+    "name": "Yeast",
+    "description": ""
+  },
+  {
+    "id": "984dc245-0166-4e86-b9c7-25a9880b645e",
+    "node_type": "entity",
+    "slug": "hops",
+    "name": "Hops",
+    "description": ""
+  },
+  {
+    "id": "58e0eccb-b6a8-48a8-8800-a848dd622bfe",
+    "node_type": "concept",
+    "slug": "sensory-science",
+    "name": "Sensory Science",
+    "description": ""
+  },
+  {
+    "id": "f43c8218-1d16-4652-99d5-103da231f315",
+    "node_type": "concept",
+    "slug": "experimentation",
+    "name": "Experimentation",
+    "description": ""
+  },
+  {
+    "id": "65efd17d-b925-496b-b253-af08d5aab59c",
+    "node_type": "entity",
+    "slug": "green-beans",
+    "name": "Green Beans",
+    "description": ""
+  },
+  {
+    "id": "87d126bf-16ab-4955-821c-4a34e5a7ba2b",
+    "node_type": "entity",
+    "slug": "roaster",
+    "name": "Roaster",
+    "description": ""
+  },
+  {
+    "id": "2f52b83f-38eb-4ce1-8079-16667c6db16e",
+    "node_type": "entity",
+    "slug": "fermentation-jar",
+    "name": "Fermentation Jar",
+    "description": ""
+  },
+  {
+    "id": "01d00652-158a-45fe-bc35-f80beea2663c",
+    "node_type": "entity",
+    "slug": "vegetables",
+    "name": "Vegetables",
+    "description": ""
+  },
+  {
+    "id": "570e5826-8ffa-4c7a-86e1-3ac8bcc1a521",
+    "node_type": "entity",
+    "slug": "salt",
+    "name": "Salt",
+    "description": ""
+  },
+  {
+    "id": "e439bc7d-3258-4049-a87a-52a6aa92bfb3",
+    "node_type": "entity",
+    "slug": "starter-culture",
+    "name": "Starter Culture",
+    "description": ""
+  },
+  {
+    "id": "20916599-6d0c-4eac-948b-f8019be02e83",
+    "node_type": "outcome",
+    "slug": "wellness",
+    "name": "Wellness",
+    "description": ""
+  },
+  {
+    "id": "85e20522-dab4-42c4-8ba5-24c597bec765",
+    "node_type": "concept",
+    "slug": "geography",
+    "name": "Geography",
+    "description": ""
+  },
+  {
+    "id": "aaa8f5f4-fab4-42ef-952a-8e7ec0878cc9",
+    "node_type": "concept",
+    "slug": "history",
+    "name": "History",
+    "description": ""
+  },
+  {
+    "id": "186a5461-a489-4ad6-8f4e-a5f909487b9d",
+    "node_type": "entity",
+    "slug": "wine-glass",
+    "name": "Wine Glass",
+    "description": ""
+  },
+  {
+    "id": "36a62189-e240-4eff-bbb3-25fa1b6d90c6",
+    "node_type": "entity",
+    "slug": "bottle",
+    "name": "Bottle",
+    "description": ""
+  },
+  {
+    "id": "0488e6c5-5e30-4709-9803-826ee7afaf03",
+    "node_type": "entity",
+    "slug": "wine-region",
+    "name": "Wine Region",
+    "description": ""
+  },
+  {
+    "id": "7727d599-4bcf-4665-96b9-8f19b40797a2",
+    "node_type": "entity",
+    "slug": "vintage",
+    "name": "Vintage",
+    "description": ""
+  },
+  {
+    "id": "1490994a-111f-47e4-b512-2b24922d3ac3",
+    "node_type": "concept",
+    "slug": "microbiology",
+    "name": "Microbiology",
+    "description": ""
+  },
+  {
+    "id": "d097468c-1d4a-460c-bcaa-50b72dd197c5",
+    "node_type": "entity",
+    "slug": "milk",
+    "name": "Milk",
+    "description": ""
+  },
+  {
+    "id": "aec19650-efc9-41e2-93fc-937a81cd8b40",
+    "node_type": "entity",
+    "slug": "rennet",
+    "name": "Rennet",
+    "description": ""
+  },
+  {
+    "id": "a65c497b-e6ee-406f-8bbf-28dc78a91281",
+    "node_type": "entity",
+    "slug": "cheese-cloth",
+    "name": "Cheese Cloth",
+    "description": ""
+  },
+  {
+    "id": "1f74f606-dd5c-4730-9188-23ff1ad928f2",
+    "node_type": "entity",
+    "slug": "aging-cave",
+    "name": "Aging Cave",
+    "description": ""
+  },
+  {
+    "id": "c875932e-f583-4b69-84b4-0fe957e93b2d",
+    "node_type": "concept",
+    "slug": "nutrition",
+    "name": "Nutrition",
+    "description": ""
+  },
+  {
+    "id": "88e364de-f61a-4e0b-8e61-e24c18cad11d",
+    "node_type": "entity",
+    "slug": "chef-knife",
+    "name": "Chef Knife",
+    "description": ""
+  },
+  {
+    "id": "316617e0-9e8c-4d51-a47a-dcb7338a7abc",
+    "node_type": "entity",
+    "slug": "cutting-board",
+    "name": "Cutting Board",
+    "description": ""
+  },
+  {
+    "id": "26598915-54c1-4d7d-900c-09a201060989",
+    "node_type": "entity",
+    "slug": "stove",
+    "name": "Stove",
+    "description": ""
+  },
+  {
+    "id": "22cc93d5-acdd-4d0a-a566-1fd0fa88b961",
+    "node_type": "entity",
+    "slug": "ingredients",
+    "name": "Ingredients",
+    "description": ""
+  },
+  {
+    "id": "84be07ad-5c40-44e5-8546-bcff04b42a88",
+    "node_type": "concept",
+    "slug": "flavor-science",
+    "name": "Flavor Science",
+    "description": ""
+  },
+  {
+    "id": "f72da561-3963-43cc-b9ae-6e30a99d0261",
+    "node_type": "concept",
+    "slug": "hospitality",
+    "name": "Hospitality",
+    "description": ""
+  },
+  {
+    "id": "ec694f62-3839-4948-a530-ebbff8cc7d12",
+    "node_type": "entity",
+    "slug": "spirits",
+    "name": "Spirits",
+    "description": ""
+  },
+  {
+    "id": "fb84753d-da91-452c-b54e-e6c67ba81457",
+    "node_type": "entity",
+    "slug": "jigger",
+    "name": "Jigger",
+    "description": ""
+  },
+  {
+    "id": "c7ce5e27-ea84-447b-8ef2-aadb10f8f9e8",
+    "node_type": "entity",
+    "slug": "cocktail-shaker",
+    "name": "Cocktail Shaker",
+    "description": ""
+  },
+  {
+    "id": "12236081-3f60-4c7c-ad86-dfa97249e335",
+    "node_type": "entity",
+    "slug": "fresh-citrus",
+    "name": "Fresh Citrus",
+    "description": ""
+  },
+  {
+    "id": "01dbe33e-36f7-45e7-b394-32b0c5603f49",
+    "node_type": "entity",
+    "slug": "sourdough-starter",
+    "name": "Sourdough Starter",
+    "description": ""
+  },
+  {
+    "id": "bf273128-27d4-4314-b75a-1f87be9c7eb9",
+    "node_type": "entity",
+    "slug": "dough",
+    "name": "Dough",
+    "description": ""
+  },
+  {
+    "id": "fe7dff9b-5588-42dc-a013-41a7eae86d26",
+    "node_type": "entity",
+    "slug": "baking-stone",
+    "name": "Baking Stone",
+    "description": ""
+  },
+  {
+    "id": "963ce3cc-131f-4f08-9728-1ec990d7f276",
+    "node_type": "entity",
+    "slug": "dutch-oven",
+    "name": "Dutch Oven",
+    "description": ""
+  },
+  {
+    "id": "b2dde518-de76-4545-b72f-09cbdc5c57f0",
+    "node_type": "entity",
+    "slug": "grill",
+    "name": "Grill",
+    "description": ""
+  },
+  {
+    "id": "b0cb6239-c467-4945-8009-b4c80ab8dfed",
+    "node_type": "entity",
+    "slug": "charcoal",
+    "name": "Charcoal",
+    "description": ""
+  },
+  {
+    "id": "db35e6ac-4645-44dd-9fb6-a1581e73ec93",
+    "node_type": "entity",
+    "slug": "wood-chips",
+    "name": "Wood Chips",
+    "description": ""
+  },
+  {
+    "id": "09392f03-a4a2-4fc0-9a3e-cb3356e3fc90",
+    "node_type": "entity",
+    "slug": "meat-thermometer",
+    "name": "Meat Thermometer",
+    "description": ""
+  },
+  {
+    "id": "97156fa1-32e4-4e28-a2af-d84fed971169",
+    "node_type": "entity",
+    "slug": "grilling-tools",
+    "name": "Grilling Tools",
+    "description": ""
+  },
+  {
+    "id": "0645b76c-2184-42a8-9dd1-3bcc16c9b9d3",
+    "node_type": "entity",
+    "slug": "espresso-machine",
+    "name": "Espresso Machine",
+    "description": ""
+  },
+  {
+    "id": "e25061f5-adc9-4b15-9c71-55609c9c4a58",
+    "node_type": "entity",
+    "slug": "steam-wand",
+    "name": "Steam Wand",
+    "description": ""
+  },
+  {
+    "id": "c4f682d9-1521-4af1-b84e-963c69fcc286",
+    "node_type": "entity",
+    "slug": "milk-pitcher",
+    "name": "Milk Pitcher",
+    "description": ""
+  },
+  {
+    "id": "c2acf6b2-a3c8-4049-bbf3-c18fc7d98976",
+    "node_type": "entity",
+    "slug": "espresso-cups",
+    "name": "Espresso Cups",
+    "description": ""
+  },
+  {
+    "id": "83ef9c4f-d6a9-4565-bfdc-a9d3cd680229",
+    "node_type": "entity",
+    "slug": "scoby",
+    "name": "SCOBY",
+    "description": ""
+  },
+  {
+    "id": "d50c7692-4a93-450a-bcbc-34091d2f8892",
+    "node_type": "entity",
+    "slug": "glass-jar",
+    "name": "Glass Jar",
+    "description": ""
+  },
+  {
+    "id": "fa32b34f-0256-4454-9a97-445fc47198c3",
+    "node_type": "entity",
+    "slug": "tea",
+    "name": "Tea",
+    "description": ""
+  },
+  {
+    "id": "13e3cdeb-cedb-4c38-8dc2-b4c49e1538f3",
+    "node_type": "entity",
+    "slug": "sugar",
+    "name": "Sugar",
+    "description": ""
+  },
+  {
+    "id": "be0d3b22-85a2-4e6d-aaf5-225867f8519e",
+    "node_type": "entity",
+    "slug": "fermentation-vessel",
+    "name": "Fermentation Vessel",
+    "description": ""
+  },
+  {
+    "id": "bf500fcb-1416-406c-9ac2-235cd4e8794f",
+    "node_type": "concept",
+    "slug": "aesthetic-pleasure",
+    "name": "Aesthetic Pleasure",
+    "description": ""
+  },
+  {
+    "id": "48eb94b8-5501-40de-9caa-885e4633f140",
+    "node_type": "entity",
+    "slug": "vinyl-record",
+    "name": "Vinyl Record",
+    "description": ""
+  },
+  {
+    "id": "b06a6cd3-ba15-4bd1-8c12-bf9835f53d8c",
+    "node_type": "entity",
+    "slug": "record-sleeve",
+    "name": "Record Sleeve",
+    "description": ""
+  },
+  {
+    "id": "509254a7-bac8-4e5b-b2e2-646ba7b0eff5",
+    "node_type": "entity",
+    "slug": "speakers",
+    "name": "Speakers",
+    "description": ""
+  },
+  {
+    "id": "cdb62496-e745-42d3-82b0-1538c3673adc",
+    "node_type": "concept",
+    "slug": "financial-literacy",
+    "name": "Financial Literacy",
+    "description": ""
+  },
+  {
+    "id": "b3bed1d6-146c-421a-8ceb-59f1a16d098e",
+    "node_type": "entity",
+    "slug": "coins",
+    "name": "Coins",
+    "description": ""
+  },
+  {
+    "id": "422d536d-8479-4513-946e-f566f7b6852d",
+    "node_type": "entity",
+    "slug": "coin-magnifier",
+    "name": "Coin Magnifier",
+    "description": ""
+  },
+  {
+    "id": "143af35a-e6e2-45c6-ad3c-81a69322e925",
+    "node_type": "entity",
+    "slug": "collection-album",
+    "name": "Collection Album",
+    "description": ""
+  },
+  {
+    "id": "385c00c6-8ca5-4ad6-9bbf-ae9dad791dc6",
+    "node_type": "entity",
+    "slug": "grading-scale",
+    "name": "Grading Scale",
+    "description": ""
+  },
+  {
+    "id": "5f221ee1-496d-4833-acda-2d755f224e41",
+    "node_type": "entity",
+    "slug": "price-guide",
+    "name": "Price Guide",
+    "description": ""
+  },
+  {
+    "id": "a4dc08b6-b0cb-49d3-91d6-9ea47c96e306",
+    "node_type": "outcome",
+    "slug": "financial-reward",
+    "name": "Financial Reward",
+    "description": ""
+  },
+  {
+    "id": "5e724893-1e22-4d4a-9660-b4c8d78ba4f4",
+    "node_type": "entity",
+    "slug": "postage-stamps",
+    "name": "Postage Stamps",
+    "description": ""
+  },
+  {
+    "id": "6f481c8e-1eb4-48fe-a1ef-d56d43a07569",
+    "node_type": "entity",
+    "slug": "stamp-album",
+    "name": "Stamp Album",
+    "description": ""
+  },
+  {
+    "id": "f6ea5f55-9478-440a-91e2-2fc54fa31c87",
+    "node_type": "entity",
+    "slug": "magnifier",
+    "name": "Magnifier",
+    "description": ""
+  },
+  {
+    "id": "0cd254fa-30e9-4ad8-a97f-693647372216",
+    "node_type": "entity",
+    "slug": "hinges",
+    "name": "Hinges",
+    "description": ""
+  },
+  {
+    "id": "dbd26541-1b93-4193-9c86-cc3cfbdbee28",
+    "node_type": "entity",
+    "slug": "fountain-pen",
+    "name": "Fountain Pen",
+    "description": ""
+  },
+  {
+    "id": "81bb2ac9-d393-40d9-9596-eb92b316ac67",
+    "node_type": "entity",
+    "slug": "ink-bottle",
+    "name": "Ink Bottle",
+    "description": ""
+  },
+  {
+    "id": "839902c8-49a6-4d7c-bcad-971bf5577850",
+    "node_type": "entity",
+    "slug": "converter",
+    "name": "Converter",
+    "description": ""
+  },
+  {
+    "id": "1f708266-09f7-47d6-88e0-2a7b14f38ea2",
+    "node_type": "entity",
+    "slug": "pen-case",
+    "name": "Pen Case",
+    "description": ""
+  },
+  {
+    "id": "7d59a9e8-9fc4-4d7b-9f55-9cabbf05271f",
+    "node_type": "entity",
+    "slug": "antique-furniture",
+    "name": "Antique Furniture",
+    "description": ""
+  },
+  {
+    "id": "75bcca74-24c4-4bbb-b65e-5e63f77be57d",
+    "node_type": "entity",
+    "slug": "ceramics",
+    "name": "Ceramics",
+    "description": ""
+  },
+  {
+    "id": "fdeb2604-adb2-406b-b37c-6405b8b767c0",
+    "node_type": "entity",
+    "slug": "restoration-tools",
+    "name": "Restoration Tools",
+    "description": ""
+  },
+  {
+    "id": "2d39805a-7439-43d7-97ee-b69f667f6f7f",
+    "node_type": "entity",
+    "slug": "price-guides",
+    "name": "Price Guides",
+    "description": ""
+  },
+  {
+    "id": "797bb832-97f7-45f4-92ee-5521a93675aa",
+    "node_type": "entity",
+    "slug": "authentication-resources",
+    "name": "Authentication Resources",
+    "description": ""
+  },
+  {
+    "id": "a878838c-e243-4cf5-acdb-1d380948e7a1",
+    "node_type": "entity",
+    "slug": "sneakers",
+    "name": "Sneakers",
+    "description": ""
+  },
+  {
+    "id": "8adaa68d-a364-4441-959f-1e4b569e3e55",
+    "node_type": "entity",
+    "slug": "shoe-boxes",
+    "name": "Shoe Boxes",
+    "description": ""
+  },
+  {
+    "id": "2b888839-da00-4fdc-aa8d-488279257c13",
+    "node_type": "entity",
+    "slug": "authentication-guide",
+    "name": "Authentication Guide",
+    "description": ""
+  },
+  {
+    "id": "ad2c4cf0-7dcc-4aba-a01d-3c1eb3bac440",
+    "node_type": "entity",
+    "slug": "storage-shelving",
+    "name": "Storage Shelving",
+    "description": ""
+  },
+  {
+    "id": "69d25206-1a34-4a90-b1a8-ca93358effe8",
+    "node_type": "entity",
+    "slug": "cleaning-supplies",
+    "name": "Cleaning Supplies",
+    "description": ""
+  },
+  {
+    "id": "1da09527-072e-4d94-baab-4875ea3ede59",
+    "node_type": "concept",
+    "slug": "bargain-hunting",
+    "name": "Bargain Hunting",
+    "description": ""
+  },
+  {
+    "id": "fc331166-1db2-4266-b226-b3beb1deae5f",
+    "node_type": "entity",
+    "slug": "thrift-store",
+    "name": "Thrift Store",
+    "description": ""
+  },
+  {
+    "id": "76851dbd-1d78-4956-b1be-f8d4b8baa909",
+    "node_type": "entity",
+    "slug": "vintage-clothing",
+    "name": "Vintage Clothing",
+    "description": ""
+  },
+  {
+    "id": "daa35968-79ec-4d82-ace4-0843d530f811",
+    "node_type": "entity",
+    "slug": "reusable-bags",
+    "name": "Reusable Bags",
+    "description": ""
+  },
+  {
+    "id": "7d34a62f-3226-4f01-adb7-dff9294e9f57",
+    "node_type": "entity",
+    "slug": "measuring-tape",
+    "name": "Measuring Tape",
+    "description": ""
+  },
+  {
+    "id": "92583674-1e98-4990-9d89-e71e5f5f3c76",
+    "node_type": "entity",
+    "slug": "price-tags",
+    "name": "Price Tags",
+    "description": ""
+  },
+  {
+    "id": "90460646-d234-447f-aa74-bab0912445ac",
+    "node_type": "concept",
+    "slug": "intellectual-growth",
+    "name": "Intellectual Growth",
+    "description": ""
+  },
+  {
+    "id": "a39a3ead-b394-4f8e-b82c-f9ef4e6064a8",
+    "node_type": "entity",
+    "slug": "books",
+    "name": "Books",
+    "description": ""
+  },
+  {
+    "id": "3ac6d4f2-1941-4a14-bf95-915d7a208e4f",
+    "node_type": "entity",
+    "slug": "bookshelves",
+    "name": "Bookshelves",
+    "description": ""
+  },
+  {
+    "id": "a6949b05-2cc9-4436-85c5-fafec185159e",
+    "node_type": "entity",
+    "slug": "protective-sleeves",
+    "name": "Protective Sleeves",
+    "description": ""
+  },
+  {
+    "id": "4764b38b-8b81-4358-a8ef-d8e602fe20a5",
+    "node_type": "entity",
+    "slug": "bookmarks",
+    "name": "Bookmarks",
+    "description": ""
+  },
+  {
+    "id": "e060c625-3760-4338-8fca-e068c6f8b97a",
+    "node_type": "entity",
+    "slug": "writing-software",
+    "name": "Writing Software",
+    "description": ""
+  },
+  {
+    "id": "a1fdcb98-c1f2-41fc-bfe0-bcf72c1c3d88",
+    "node_type": "entity",
+    "slug": "notebooks",
+    "name": "Notebooks",
+    "description": ""
+  },
+  {
+    "id": "2124259d-4ea9-41c1-b232-d4341daa668a",
+    "node_type": "entity",
+    "slug": "writing-prompts",
+    "name": "Writing Prompts",
+    "description": ""
+  },
+  {
+    "id": "68e7e469-8b45-45d1-a8da-09a5682fd1c9",
+    "node_type": "entity",
+    "slug": "feedback-groups",
+    "name": "Feedback Groups",
+    "description": ""
+  },
+  {
+    "id": "30e37de5-ec77-4188-b660-a8bcdf39a230",
+    "node_type": "entity",
+    "slug": "editing-tools",
+    "name": "Editing Tools",
+    "description": ""
+  },
+  {
+    "id": "f1015ab9-9598-47c1-b14d-74ca49058d78",
+    "node_type": "entity",
+    "slug": "blog-platform",
+    "name": "Blog Platform",
+    "description": ""
+  },
+  {
+    "id": "77e656b4-2e99-4fb5-bd42-37848219cf53",
+    "node_type": "entity",
+    "slug": "text-editor",
+    "name": "Text Editor",
+    "description": ""
+  },
+  {
+    "id": "5b8dece2-b3a8-4c0f-877c-b9cea477da9f",
+    "node_type": "entity",
+    "slug": "internet-connection",
+    "name": "Internet Connection",
+    "description": ""
+  },
+  {
+    "id": "c3e4d367-f7e7-4e94-822c-a1a2139e7595",
+    "node_type": "concept",
+    "slug": "literary-tradition",
+    "name": "Literary Tradition",
+    "description": ""
+  },
+  {
+    "id": "cc5fc849-631a-4da1-b976-5490cd48f3b5",
+    "node_type": "concept",
+    "slug": "emotional-depth",
+    "name": "Emotional Depth",
+    "description": ""
+  },
+  {
+    "id": "8ac9efb1-b802-4fc9-ae9e-cfe29c1c5984",
+    "node_type": "entity",
+    "slug": "notebook",
+    "name": "Notebook",
+    "description": ""
+  },
+  {
+    "id": "21823dbf-c376-48d2-b274-50a2d886b6c0",
+    "node_type": "entity",
+    "slug": "poetry-collection",
+    "name": "Poetry Collection",
+    "description": ""
+  },
+  {
+    "id": "0072aa6a-8e1c-4158-ba12-a4562c5c7a89",
+    "node_type": "concept",
+    "slug": "reflection",
+    "name": "Reflection",
+    "description": ""
+  },
+  {
+    "id": "5d3268a7-1017-4662-8346-aad752dc4e16",
+    "node_type": "entity",
+    "slug": "journal-prompt",
+    "name": "Journal Prompt",
+    "description": ""
+  },
+  {
+    "id": "ea8afa3e-2791-4abd-b076-005149fdc688",
+    "node_type": "concept",
+    "slug": "structure",
+    "name": "Structure",
+    "description": ""
+  },
+  {
+    "id": "e6710d9d-239c-49dc-9d1b-c9e57ea318a7",
+    "node_type": "concept",
+    "slug": "dialogue",
+    "name": "Dialogue",
+    "description": ""
+  },
+  {
+    "id": "9919d175-3eac-4549-a107-6ad805ae7557",
+    "node_type": "entity",
+    "slug": "screenplay",
+    "name": "Screenplay",
+    "description": ""
+  },
+  {
+    "id": "dd76a8db-4504-491b-bee1-d040bd79467a",
+    "node_type": "entity",
+    "slug": "script-formatting-software",
+    "name": "Script Formatting Software",
+    "description": ""
+  },
+  {
+    "id": "ca8aad5b-6766-43ea-8b9d-be76912ba94d",
+    "node_type": "entity",
+    "slug": "story-structure",
+    "name": "Story Structure",
+    "description": ""
+  },
+  {
+    "id": "828c25ae-89d8-468e-8310-6acccaf27e69",
+    "node_type": "concept",
+    "slug": "world-creation",
+    "name": "World Creation",
+    "description": ""
+  },
+  {
+    "id": "1f1e600f-4fb0-4b26-aa7c-b678b850ff8b",
+    "node_type": "entity",
+    "slug": "fictional-map",
+    "name": "Fictional Map",
+    "description": ""
+  },
+  {
+    "id": "4e48b249-fd08-48da-874f-8fd90246e123",
+    "node_type": "entity",
+    "slug": "cultural-system",
+    "name": "Cultural System",
+    "description": ""
+  },
+  {
+    "id": "157fd5af-2345-4f75-bcbc-0c280555c95d",
+    "node_type": "entity",
+    "slug": "history-documents",
+    "name": "History Documents",
+    "description": ""
+  },
+  {
+    "id": "f7d3733c-c143-4df0-964d-e25e23f648ba",
+    "node_type": "concept",
+    "slug": "organization",
+    "name": "Organization",
+    "description": ""
+  },
+  {
+    "id": "320f26c1-48c1-4aa2-9d50-b32e11230722",
+    "node_type": "concept",
+    "slug": "planning",
+    "name": "Planning",
+    "description": ""
+  },
+  {
+    "id": "8927a551-8284-4056-9919-5fa1829d9edd",
+    "node_type": "entity",
+    "slug": "bullet-journal-notebook",
+    "name": "Bullet Journal Notebook",
+    "description": ""
+  },
+  {
+    "id": "f27a3396-399a-4e08-b1c3-b26e04253b16",
+    "node_type": "entity",
+    "slug": "markers-watercolor",
+    "name": "Markers Watercolor",
+    "description": ""
+  },
+  {
+    "id": "7780763c-0f99-4042-a38c-e1b63adae7d1",
+    "node_type": "outcome",
+    "slug": "organization-clarity",
+    "name": "Organization Clarity",
+    "description": ""
+  },
+  {
+    "id": "df9986ed-36f8-4f28-8596-40bf8b2c1d43",
+    "node_type": "concept",
+    "slug": "performing-arts",
+    "name": "Performing Arts",
+    "description": ""
+  },
+  {
+    "id": "8d6462c0-260b-4da6-bc26-3f0e90fe5b0e",
+    "node_type": "entity",
+    "slug": "story-script",
+    "name": "Story Script",
+    "description": ""
+  },
+  {
+    "id": "c140484e-7112-46fd-a44e-0ee109bdb393",
+    "node_type": "entity",
+    "slug": "performance-space",
+    "name": "Performance Space",
+    "description": ""
+  },
+  {
+    "id": "2eca83d4-beb0-405e-b72c-daa88d2987b9",
+    "node_type": "entity",
+    "slug": "audience",
+    "name": "Audience",
+    "description": ""
+  },
+  {
+    "id": "af2962dc-ee5a-4790-bb4a-6255c8e33cfa",
+    "node_type": "concept",
+    "slug": "meditation",
+    "name": "Meditation",
+    "description": ""
+  },
+  {
+    "id": "17bb918c-8b49-434c-8812-652fbcab4988",
+    "node_type": "concept",
+    "slug": "mental-health",
+    "name": "Mental Health",
+    "description": ""
+  },
+  {
+    "id": "d5a70067-4e01-425b-be53-06d2a0da4cf8",
+    "node_type": "concept",
+    "slug": "self-awareness",
+    "name": "Self Awareness",
+    "description": ""
+  },
+  {
+    "id": "f0ecb6ce-34ee-49f4-823f-f5bf758b28b6",
+    "node_type": "entity",
+    "slug": "meditation-app",
+    "name": "Meditation App",
+    "description": ""
+  },
+  {
+    "id": "0ad4f9cf-3687-49c6-a908-c272d80ec724",
+    "node_type": "entity",
+    "slug": "quiet-space",
+    "name": "Quiet Space",
+    "description": ""
+  },
+  {
+    "id": "8d078900-56dc-4477-8483-285ccf1a9aed",
+    "node_type": "concept",
+    "slug": "learning",
+    "name": "Learning",
+    "description": ""
+  },
+  {
+    "id": "5944062a-fe5b-4c27-85d9-3fc1138bcd9a",
+    "node_type": "concept",
+    "slug": "cultural-appreciation",
+    "name": "Cultural Appreciation",
+    "description": ""
+  },
+  {
+    "id": "6e62136c-7220-48f8-b1bb-ca4ef2bb3061",
+    "node_type": "entity",
+    "slug": "language-app",
+    "name": "Language App",
+    "description": ""
+  },
+  {
+    "id": "0cc18714-3910-4960-bd14-0ac040c98bb7",
+    "node_type": "entity",
+    "slug": "textbook",
+    "name": "Textbook",
+    "description": ""
+  },
+  {
+    "id": "dc5d092e-d6a5-4cc5-afdf-f424f434d14c",
+    "node_type": "entity",
+    "slug": "conversation-partner",
+    "name": "Conversation Partner",
+    "description": ""
+  },
+  {
+    "id": "1c42e218-416e-4ba5-b8a7-b97f793ebd93",
+    "node_type": "entity",
+    "slug": "book",
+    "name": "Book",
+    "description": ""
+  },
+  {
+    "id": "9e9e0f7a-a98e-4bdf-bf9c-0a3216a071c9",
+    "node_type": "entity",
+    "slug": "library-card",
+    "name": "Library Card",
+    "description": ""
+  },
+  {
+    "id": "719d445d-0a74-4f62-bdfc-57c4d40a39ea",
+    "node_type": "entity",
+    "slug": "reading-light",
+    "name": "Reading Light",
+    "description": ""
+  },
+  {
+    "id": "22ca04d0-27cc-4f94-ae9a-83928e82eea4",
+    "node_type": "entity",
+    "slug": "brokerage-account",
+    "name": "Brokerage Account",
+    "description": ""
+  },
+  {
+    "id": "4646cdfa-b680-41a1-8bb4-16fdc412960e",
+    "node_type": "entity",
+    "slug": "budget-spreadsheet",
+    "name": "Budget Spreadsheet",
+    "description": ""
+  },
+  {
+    "id": "77dcba01-1b95-4207-b65d-0c9b134bd8fa",
+    "node_type": "entity",
+    "slug": "financial-data",
+    "name": "Financial Data",
+    "description": ""
+  },
+  {
+    "id": "ec3c1ffc-cdda-4d71-9f43-5d38f52f06e2",
+    "node_type": "concept",
+    "slug": "memory-technique",
+    "name": "Memory Technique",
+    "description": ""
+  },
+  {
+    "id": "2ce23b1a-566a-44c7-b376-32a59cf247b3",
+    "node_type": "entity",
+    "slug": "memory-palace",
+    "name": "Memory Palace",
+    "description": ""
+  },
+  {
+    "id": "2428f635-d6e8-4ba9-9e92-fcae44241e27",
+    "node_type": "entity",
+    "slug": "mnemonic-system",
+    "name": "Mnemonic System",
+    "description": ""
+  },
+  {
+    "id": "b1fce0b1-b14b-4bd3-9d6b-02a0c67fb825",
+    "node_type": "entity",
+    "slug": "training-deck",
+    "name": "Training Deck",
+    "description": ""
+  },
+  {
+    "id": "d2a4c6ad-49c9-4569-b9a0-c29926095982",
+    "node_type": "entity",
+    "slug": "philosophical-texts",
+    "name": "Philosophical Texts",
+    "description": ""
+  },
+  {
+    "id": "a1f2a78b-483e-498c-9573-d792c97e29f0",
+    "node_type": "entity",
+    "slug": "debate",
+    "name": "Debate",
+    "description": ""
+  },
+  {
+    "id": "33181611-2e3f-4c94-ade9-1e49b448689b",
+    "node_type": "entity",
+    "slug": "logic",
+    "name": "Logic",
+    "description": ""
+  },
+  {
+    "id": "52810e98-0bb4-4216-9714-f942b322d97e",
+    "node_type": "entity",
+    "slug": "puzzle-books",
+    "name": "Puzzle Books",
+    "description": ""
+  },
+  {
+    "id": "ff6d6476-6f43-4463-a735-0cff31d62a1d",
+    "node_type": "entity",
+    "slug": "pen-pencil",
+    "name": "Pen Pencil",
+    "description": ""
+  },
+  {
+    "id": "8d882f36-e583-4769-9176-21b70fdf35c6",
+    "node_type": "entity",
+    "slug": "crossword-grid",
+    "name": "Crossword Grid",
+    "description": ""
+  },
+  {
+    "id": "83ac4ae9-81b7-40a5-8646-892113e75d06",
+    "node_type": "entity",
+    "slug": "telescope",
+    "name": "Telescope",
+    "description": ""
+  },
+  {
+    "id": "0b57ddd3-697f-4701-b89d-9e6a55c00904",
+    "node_type": "entity",
+    "slug": "eyepiece",
+    "name": "Eyepiece",
+    "description": ""
+  },
+  {
+    "id": "d4531f1d-c2fd-49e2-a997-488c4b3e135a",
+    "node_type": "entity",
+    "slug": "star-chart",
+    "name": "Star Chart",
+    "description": ""
+  },
+  {
+    "id": "7feca731-037d-4305-b835-c90490d8ef55",
+    "node_type": "entity",
+    "slug": "starmap-app",
+    "name": "Starmap App",
+    "description": ""
+  },
+  {
+    "id": "e6ede2b5-fcc3-4e54-8c69-5cd067bd1407",
+    "node_type": "entity",
+    "slug": "constellation",
+    "name": "Constellation",
+    "description": ""
+  },
+  {
+    "id": "ea3dc164-bde2-49e0-b64b-403aadc5f40c",
+    "node_type": "entity",
+    "slug": "night-sky",
+    "name": "Night Sky",
+    "description": ""
+  },
+  {
+    "id": "a4c6883e-8719-4b39-bed3-81a57c5064fa",
+    "node_type": "entity",
+    "slug": "genealogy-database",
+    "name": "Genealogy Database",
+    "description": ""
+  },
+  {
+    "id": "5bf2b57f-d728-438c-a232-f0e9f26c2613",
+    "node_type": "entity",
+    "slug": "dna-test",
+    "name": "DNA Test",
+    "description": ""
+  },
+  {
+    "id": "fd794f05-fb8e-4164-98eb-efe9ee78fc14",
+    "node_type": "entity",
+    "slug": "family-tree",
+    "name": "Family Tree",
+    "description": ""
+  },
+  {
+    "id": "08ea79fc-7efc-4e28-8ab1-d83096ad447c",
+    "node_type": "entity",
+    "slug": "research-platform",
+    "name": "Research Platform",
+    "description": ""
+  },
+  {
+    "id": "a4e44b3b-6ae2-4399-9459-9dcfb25d3436",
+    "node_type": "entity",
+    "slug": "data-collection",
+    "name": "Data Collection",
+    "description": ""
+  },
+  {
+    "id": "72f587f8-be88-4d71-8ae3-01564f4967dd",
+    "node_type": "entity",
+    "slug": "classification-interface",
+    "name": "Classification Interface",
+    "description": ""
+  },
+  {
+    "id": "0adb7bbb-e363-4ea2-9b20-a8581cc0efdf",
+    "node_type": "entity",
+    "slug": "excavation-site",
+    "name": "Excavation Site",
+    "description": ""
+  },
+  {
+    "id": "8c71ee4d-2e7e-4d1d-8bc1-128c97849b17",
+    "node_type": "entity",
+    "slug": "artifact",
+    "name": "Artifact",
+    "description": ""
+  },
+  {
+    "id": "34593b55-5154-4b43-ab03-0364302b54f2",
+    "node_type": "entity",
+    "slug": "archaeological-tools",
+    "name": "Archaeological Tools",
+    "description": ""
+  },
+  {
+    "id": "86c1adf6-c025-4240-9864-e9c7f28a8170",
+    "node_type": "entity",
+    "slug": "mushroom-species",
+    "name": "Mushroom Species",
+    "description": ""
+  },
+  {
+    "id": "1379bf56-b156-4094-9f4e-c780192c3933",
+    "node_type": "entity",
+    "slug": "field-guide",
+    "name": "Field Guide",
+    "description": ""
+  },
+  {
+    "id": "cd37ca59-1fa3-43ca-a526-fc73046709f9",
+    "node_type": "entity",
+    "slug": "spore-print",
+    "name": "Spore Print",
+    "description": ""
+  },
+  {
+    "id": "77794360-c031-4c8c-9c67-36713830dc27",
+    "node_type": "concept",
+    "slug": "mathematical-thinking",
+    "name": "Mathematical Thinking",
+    "description": ""
+  },
+  {
+    "id": "35eee77b-364e-4c6f-9a3d-481259c2ecfe",
+    "node_type": "entity",
+    "slug": "cipher-text",
+    "name": "Cipher Text",
+    "description": ""
+  },
+  {
+    "id": "66f2edec-f1c6-4161-9610-62d32f135e04",
+    "node_type": "entity",
+    "slug": "cryptographic-algorithm",
+    "name": "Cryptographic Algorithm",
+    "description": ""
+  },
+  {
+    "id": "8e8ae431-485a-4665-a263-dc56a27b5c11",
+    "node_type": "entity",
+    "slug": "decryption-tool",
+    "name": "Decryption Tool",
+    "description": ""
+  },
+  {
+    "id": "f04da553-2644-4e22-941d-84630cc5e7d8",
+    "node_type": "concept",
+    "slug": "data-analysis",
+    "name": "Data Analysis",
+    "description": ""
+  },
+  {
+    "id": "444f877e-0637-4036-b547-0a9483cefac8",
+    "node_type": "entity",
+    "slug": "weather-station",
+    "name": "Weather Station",
+    "description": ""
+  },
+  {
+    "id": "34be7d29-e87b-485e-b0f5-88344c704e1f",
+    "node_type": "entity",
+    "slug": "barometer",
+    "name": "Barometer",
+    "description": ""
+  },
+  {
+    "id": "fc504915-03fa-4323-80cb-74cfd5a84e55",
+    "node_type": "entity",
+    "slug": "data-logger",
+    "name": "Data Logger",
+    "description": ""
+  },
+  {
+    "id": "0a26db62-5bd6-4137-80c8-cc00c18a37f0",
+    "node_type": "entity",
+    "slug": "script",
+    "name": "Script",
+    "description": ""
+  },
+  {
+    "id": "26f1cc0d-d23e-4ef5-8eca-a3b978d532b5",
+    "node_type": "entity",
+    "slug": "stage",
+    "name": "Stage",
+    "description": ""
+  },
+  {
+    "id": "1ea4006e-8e7d-4eb8-b3be-d7b47c116b6c",
+    "node_type": "entity",
+    "slug": "dramatic-character",
+    "name": "Dramatic Character",
+    "description": ""
+  },
+  {
+    "id": "0c89bf2e-aa15-42b8-bab8-8a2e92fa74d1",
+    "node_type": "entity",
+    "slug": "joke-material",
+    "name": "Joke Material",
+    "description": ""
+  },
+  {
+    "id": "b8e44b59-c34b-4cc6-857d-9556610aba51",
+    "node_type": "concept",
+    "slug": "costume-design",
+    "name": "Costume Design",
+    "description": ""
+  },
+  {
+    "id": "771028e4-1307-4c95-84c1-e16ecc4a3d1d",
+    "node_type": "entity",
+    "slug": "costume-props",
+    "name": "Costume Props",
+    "description": ""
+  },
+  {
+    "id": "8c2050e5-ffa8-4768-a214-e7bf8ac898b4",
+    "node_type": "entity",
+    "slug": "wig",
+    "name": "Wig",
+    "description": ""
+  },
+  {
+    "id": "c3deb9a1-1870-4f70-b9b6-fc785df29e6b",
+    "node_type": "concept",
+    "slug": "grace",
+    "name": "Grace",
+    "description": ""
+  },
+  {
+    "id": "61243c09-7017-460a-9f45-9cec9e194357",
+    "node_type": "entity",
+    "slug": "ballet-shoes",
+    "name": "Ballet Shoes",
+    "description": ""
+  },
+  {
+    "id": "3b0bbe80-a50c-4b4d-9e59-6f2ff9db5c70",
+    "node_type": "entity",
+    "slug": "leotard",
+    "name": "Leotard",
+    "description": ""
+  },
+  {
+    "id": "19d664e8-84e7-4950-933b-3af985f238fd",
+    "node_type": "entity",
+    "slug": "dance-floor",
+    "name": "Dance Floor",
+    "description": ""
+  },
+  {
+    "id": "aeca2a4f-0111-44c9-8a52-c89da0e440fb",
+    "node_type": "entity",
+    "slug": "barre",
+    "name": "Barre",
+    "description": ""
+  },
+  {
+    "id": "24349dd7-1010-46b3-8c3a-cacd9b5e6a0f",
+    "node_type": "concept",
+    "slug": "performance-art",
+    "name": "Performance Art",
+    "description": ""
+  },
+  {
+    "id": "50ca8cc2-1094-4f3f-be60-d409ee5b0d97",
+    "node_type": "entity",
+    "slug": "juggling-balls",
+    "name": "Juggling Balls",
+    "description": ""
+  },
+  {
+    "id": "ce3e8f68-7a0a-4985-a7ba-2f792c0eeebd",
+    "node_type": "entity",
+    "slug": "clubs",
+    "name": "Clubs",
+    "description": ""
+  },
+  {
+    "id": "bad44248-839d-4b89-aa08-a4292e4e8b0d",
+    "node_type": "entity",
+    "slug": "rings",
+    "name": "Rings",
+    "description": ""
+  },
+  {
+    "id": "a96cd59c-0d7e-49a1-9fdf-42af3ab4cb67",
+    "node_type": "entity",
+    "slug": "torches",
+    "name": "Torches",
+    "description": ""
+  },
+  {
+    "id": "d9e49b39-ac9d-4b10-9810-0b0589d08bef",
+    "node_type": "concept",
+    "slug": "character-creation",
+    "name": "Character Creation",
+    "description": ""
+  },
+  {
+    "id": "c83ca600-1be0-4850-946e-404b224dbf72",
+    "node_type": "concept",
+    "slug": "vocal-technique",
+    "name": "Vocal Technique",
+    "description": ""
+  },
+  {
+    "id": "aa152c42-f34c-463a-b043-6404f67130c8",
+    "node_type": "entity",
+    "slug": "recording-software",
+    "name": "Recording Software",
+    "description": ""
+  },
+  {
+    "id": "2a41b1d7-f107-42a5-9c8e-8511b0f40d7e",
+    "node_type": "entity",
+    "slug": "music",
+    "name": "Music",
+    "description": ""
+  },
+  {
+    "id": "85113333-acf5-4003-8426-f042deb4397c",
+    "node_type": "entity",
+    "slug": "dance-shoes",
+    "name": "Dance Shoes",
+    "description": ""
+  },
+  {
+    "id": "28dfb5c1-8edf-43cb-9432-2f73727e4f5c",
+    "node_type": "concept",
+    "slug": "sleight-of-hand",
+    "name": "Sleight Of Hand",
+    "description": ""
+  },
+  {
+    "id": "9e6345a0-0ada-4da2-af3a-166d091d261c",
+    "node_type": "concept",
+    "slug": "misdirection",
+    "name": "Misdirection",
+    "description": ""
+  },
+  {
+    "id": "a6e218ab-67b7-4451-bbf3-c770b97d53b8",
+    "node_type": "concept",
+    "slug": "showmanship",
+    "name": "Showmanship",
+    "description": ""
+  },
+  {
+    "id": "53ec3e9a-b0d4-4687-90fd-0fcb023eae73",
+    "node_type": "entity",
+    "slug": "magic-props",
+    "name": "Magic Props",
+    "description": ""
+  },
+  {
+    "id": "2ab7fd43-e776-481d-b21e-c8f46bf2bc42",
+    "node_type": "entity",
+    "slug": "illusion-apparatus",
+    "name": "Illusion Apparatus",
+    "description": ""
+  },
+  {
+    "id": "6361a01b-8a5d-4e84-be03-33ae337da2a4",
+    "node_type": "concept",
+    "slug": "voice-control",
+    "name": "Voice Control",
+    "description": ""
+  },
+  {
+    "id": "7619ea66-fda3-4aa7-8a4a-406a9e2714e4",
+    "node_type": "concept",
+    "slug": "character-development",
+    "name": "Character Development",
+    "description": ""
+  },
+  {
+    "id": "1a372a5c-1a9c-4071-8655-624ee66a0b06",
+    "node_type": "concept",
+    "slug": "puppetry",
+    "name": "Puppetry",
+    "description": ""
+  },
+  {
+    "id": "406a1f26-e0b5-4f66-bfbe-6c48b3e6eec5",
+    "node_type": "entity",
+    "slug": "ventriloquist-dummy",
+    "name": "Ventriloquist Dummy",
+    "description": ""
+  },
+  {
+    "id": "3ce76244-7b90-40d0-8a5c-43494060c008",
+    "node_type": "entity",
+    "slug": "puppet",
+    "name": "Puppet",
+    "description": ""
+  },
+  {
+    "id": "a3c1ff91-6cc2-4383-9e62-1b4bdd64c5ef",
+    "node_type": "concept",
+    "slug": "historical-accuracy",
+    "name": "Historical Accuracy",
+    "description": ""
+  },
+  {
+    "id": "0634fa1f-431d-488c-9bb9-841ea3d8eace",
+    "node_type": "entity",
+    "slug": "period-costume",
+    "name": "Period Costume",
+    "description": ""
+  },
+  {
+    "id": "44cdb7b8-ad48-4004-99db-22f8805caef5",
+    "node_type": "entity",
+    "slug": "historical-weapons",
+    "name": "Historical Weapons",
+    "description": ""
+  },
+  {
+    "id": "93d3786e-5067-473a-a154-c416fbdf5081",
+    "node_type": "entity",
+    "slug": "period-armor",
+    "name": "Period Armor",
+    "description": ""
+  },
+  {
+    "id": "daa42ef7-62c4-4b4d-8071-c3398090ec05",
+    "node_type": "entity",
+    "slug": "camp-equipment",
+    "name": "Camp Equipment",
+    "description": ""
+  },
+  {
+    "id": "e30deda3-9b84-4d3b-a4f3-888f43776344",
+    "node_type": "concept",
+    "slug": "wildlife-appreciation",
+    "name": "Wildlife Appreciation",
+    "description": ""
+  },
+  {
+    "id": "3db1396a-4492-4611-8e8b-66b1e01464fb",
+    "node_type": "entity",
+    "slug": "binoculars",
+    "name": "Binoculars",
+    "description": ""
+  },
+  {
+    "id": "73f95a3e-0889-4fb2-8328-46b908cb5052",
+    "node_type": "concept",
+    "slug": "animal-care",
+    "name": "Animal Care",
+    "description": ""
+  },
+  {
+    "id": "707d65cd-b446-4c52-be90-aee62429c5be",
+    "node_type": "concept",
+    "slug": "ecological-stewardship",
+    "name": "Ecological Stewardship",
+    "description": ""
+  },
+  {
+    "id": "5c0c27bb-fe04-432e-b121-af0519780907",
+    "node_type": "entity",
+    "slug": "beehive",
+    "name": "Beehive",
+    "description": ""
+  },
+  {
+    "id": "7440da8e-3925-4f32-8dc5-5e5cf45211a4",
+    "node_type": "entity",
+    "slug": "honeycomb",
+    "name": "Honeycomb",
+    "description": ""
+  },
+  {
+    "id": "a29222cf-d4ec-4a3f-93ec-f3deca86776a",
+    "node_type": "entity",
+    "slug": "bee-suit",
+    "name": "Bee Suit",
+    "description": ""
+  },
+  {
+    "id": "a4ffa5a6-75fa-4381-bc87-78404d4aa323",
+    "node_type": "entity",
+    "slug": "honey-extractor",
+    "name": "Honey Extractor",
+    "description": ""
+  },
+  {
+    "id": "8a405918-ff0b-44ef-8c65-e9615c248eaa",
+    "node_type": "entity",
+    "slug": "fishing-rod",
+    "name": "Fishing Rod",
+    "description": ""
+  },
+  {
+    "id": "8b498892-4d4a-43c1-a733-51bb02cda136",
+    "node_type": "entity",
+    "slug": "fishing-reel",
+    "name": "Fishing Reel",
+    "description": ""
+  },
+  {
+    "id": "c9907cdc-f0f1-44ba-bc18-5edbcc1229c1",
+    "node_type": "entity",
+    "slug": "fishing-line",
+    "name": "Fishing Line",
+    "description": ""
+  },
+  {
+    "id": "4fa776e0-5638-45e1-b7c3-bf0640d6981b",
+    "node_type": "entity",
+    "slug": "tackle-box",
+    "name": "Tackle Box",
+    "description": ""
+  },
+  {
+    "id": "7e9d7524-0177-4340-b366-ec5f64196333",
+    "node_type": "outcome",
+    "slug": "meditative-practice",
+    "name": "Meditative Practice",
+    "description": ""
+  },
+  {
+    "id": "ef077db2-201c-4d8a-a927-9275c0d3badb",
+    "node_type": "entity",
+    "slug": "mushrooms",
+    "name": "Mushrooms",
+    "description": ""
+  },
+  {
+    "id": "15ada71a-1b2b-43fd-816c-df97471c867f",
+    "node_type": "entity",
+    "slug": "edible-plants",
+    "name": "Edible Plants",
+    "description": ""
+  },
+  {
+    "id": "d6d1810e-3e7b-46b9-9e75-f594802ce090",
+    "node_type": "entity",
+    "slug": "aquarium-tank",
+    "name": "Aquarium Tank",
+    "description": ""
+  },
+  {
+    "id": "b8694a21-d257-4565-869b-6bda7804bbd5",
+    "node_type": "entity",
+    "slug": "filters",
+    "name": "Filters",
+    "description": ""
+  },
+  {
+    "id": "81b4e470-924e-4d9b-9a50-145807d86275",
+    "node_type": "entity",
+    "slug": "aquatic-plants",
+    "name": "Aquatic Plants",
+    "description": ""
+  },
+  {
+    "id": "be2fe1ff-cb7c-4ec6-b39b-991b76a20f2f",
+    "node_type": "barrier",
+    "slug": "equipment-maintenance",
+    "name": "Equipment Maintenance",
+    "description": ""
+  },
+  {
+    "id": "07783811-34bd-436d-aff5-794e01275cfd",
+    "node_type": "entity",
+    "slug": "seeds",
+    "name": "Seeds",
+    "description": ""
+  },
+  {
+    "id": "5fb4a2f7-d2f1-4970-a13c-a10d82d8af0d",
+    "node_type": "entity",
+    "slug": "soil",
+    "name": "Soil",
+    "description": ""
+  },
+  {
+    "id": "f7ab79e5-9f72-464b-90d0-352727673090",
+    "node_type": "entity",
+    "slug": "garden-tools",
+    "name": "Garden Tools",
+    "description": ""
+  },
+  {
+    "id": "20ec1aec-c56d-400b-bccb-166537394f55",
+    "node_type": "entity",
+    "slug": "horse",
+    "name": "Horse",
+    "description": ""
+  },
+  {
+    "id": "74328340-8b1f-4d8e-8b6a-3bf8e9d8fe1a",
+    "node_type": "entity",
+    "slug": "saddle",
+    "name": "Saddle",
+    "description": ""
+  },
+  {
+    "id": "b5759def-5f44-4ae4-8646-91d5a17990d7",
+    "node_type": "entity",
+    "slug": "bridle",
+    "name": "Bridle",
+    "description": ""
+  },
+  {
+    "id": "e6289479-e891-40c0-a992-7116ba178135",
+    "node_type": "entity",
+    "slug": "telephoto-lens",
+    "name": "Telephoto Lens",
+    "description": ""
+  },
+  {
+    "id": "eea11f89-ffda-4e3e-91bb-1dd32bd8dd35",
+    "node_type": "entity",
+    "slug": "camera-body",
+    "name": "Camera Body",
+    "description": ""
+  },
+  {
+    "id": "5134fc7d-fb23-4579-a91b-846b10b7a83e",
+    "node_type": "entity",
+    "slug": "tripod",
+    "name": "Tripod",
+    "description": ""
+  },
+  {
+    "id": "c050ce03-f28a-462f-bf9d-0b9f721048ad",
+    "node_type": "barrier",
+    "slug": "expensive-equipment",
+    "name": "Expensive Equipment",
+    "description": ""
+  },
+  {
+    "id": "f28b6845-4bf3-48fc-a349-ec0bad7abf52",
+    "node_type": "entity",
+    "slug": "treat-rewards",
+    "name": "Treat Rewards",
+    "description": ""
+  },
+  {
+    "id": "5a69e45d-4ec9-430f-9499-bfe9835eac95",
+    "node_type": "entity",
+    "slug": "training-clicker",
+    "name": "Training Clicker",
+    "description": ""
+  },
+  {
+    "id": "20c62e47-28f9-4281-9459-c956fd20475c",
+    "node_type": "entity",
+    "slug": "leash",
+    "name": "Leash",
+    "description": ""
+  },
+  {
+    "id": "ecbee350-5d30-42e7-944b-547f03f14cf7",
+    "node_type": "concept",
+    "slug": "plant-care",
+    "name": "Plant Care",
+    "description": ""
+  },
+  {
+    "id": "cdafa56b-db00-4759-885e-638c972d5279",
+    "node_type": "entity",
+    "slug": "growing-medium",
+    "name": "Growing Medium",
+    "description": ""
+  },
+  {
+    "id": "a03f05e6-694f-48a5-92f3-110d75e82389",
+    "node_type": "entity",
+    "slug": "nutrient-solution",
+    "name": "Nutrient Solution",
+    "description": ""
+  },
+  {
+    "id": "9c78ae3b-78cb-4e24-8941-c4df083e7e01",
+    "node_type": "entity",
+    "slug": "grow-lights",
+    "name": "Grow Lights",
+    "description": ""
+  },
+  {
+    "id": "a2c115ef-e476-4048-8f6f-1f4a2163a9d3",
+    "node_type": "outcome",
+    "slug": "sustainability",
+    "name": "Sustainability",
+    "description": ""
+  },
+  {
+    "id": "43558597-a16f-4d14-9f60-1fd9d210fb88",
+    "node_type": "concept",
+    "slug": "aesthetic-appreciation",
+    "name": "Aesthetic Appreciation",
+    "description": ""
+  },
+  {
+    "id": "c7782ae6-2ab8-44e8-856d-5de3161ce41e",
+    "node_type": "entity",
+    "slug": "camera-lens",
+    "name": "Camera Lens",
+    "description": ""
+  },
+  {
+    "id": "0143025a-d98a-4f03-8dc6-0ac6ab337cf3",
+    "node_type": "entity",
+    "slug": "editing-software",
+    "name": "Editing Software",
+    "description": ""
+  },
+  {
+    "id": "b5bb10e4-4091-4457-8b0c-f4d5671e2b1b",
+    "node_type": "entity",
+    "slug": "light-meters",
+    "name": "Light Meters",
+    "description": ""
+  },
+  {
+    "id": "9dc9d7b5-c465-4aa8-be59-4589dbe9e208",
+    "node_type": "entity",
+    "slug": "star-tracker",
+    "name": "Star Tracker",
+    "description": ""
+  },
+  {
+    "id": "b1cba922-ff12-4c96-a24f-386941f7e56e",
+    "node_type": "entity",
+    "slug": "video-camera",
+    "name": "Video Camera",
+    "description": ""
+  },
+  {
+    "id": "346d2fab-97d8-41f9-9ec4-f307439a4e6f",
+    "node_type": "entity",
+    "slug": "film-stock",
+    "name": "Film Stock",
+    "description": ""
+  },
+  {
+    "id": "7bdd3b1b-e079-44c9-b557-42bbe28967bc",
+    "node_type": "entity",
+    "slug": "enlarger",
+    "name": "Enlarger",
+    "description": ""
+  },
+  {
+    "id": "2ee3ca9e-66c0-4700-b86f-8971c8fb5ea5",
+    "node_type": "entity",
+    "slug": "clay-puppets",
+    "name": "Clay Puppets",
+    "description": ""
+  },
+  {
+    "id": "a82013a8-ec54-4baa-b997-c87607d75800",
+    "node_type": "entity",
+    "slug": "camera-rig",
+    "name": "Camera Rig",
+    "description": ""
+  },
+  {
+    "id": "03343bd4-8f63-4af1-a17e-14d3772d516d",
+    "node_type": "entity",
+    "slug": "set-design",
+    "name": "Set Design",
+    "description": ""
+  },
+  {
+    "id": "870d439b-cda6-4bf0-891f-3b23ed98ecfa",
+    "node_type": "entity",
+    "slug": "video-footage",
+    "name": "Video Footage",
+    "description": ""
+  },
+  {
+    "id": "cc659e97-991f-4efa-998a-0379d94f434d",
+    "node_type": "entity",
+    "slug": "effects-library",
+    "name": "Effects Library",
+    "description": ""
+  },
+  {
+    "id": "15ab881d-51bf-4b58-926b-205d01e9a5a3",
+    "node_type": "entity",
+    "slug": "macro-lens",
+    "name": "Macro Lens",
+    "description": ""
+  },
+  {
+    "id": "d1166bcf-32b9-43d8-86af-49634424f47c",
+    "node_type": "entity",
+    "slug": "extension-tubes",
+    "name": "Extension Tubes",
+    "description": ""
+  },
+  {
+    "id": "3b3d746d-7a8a-4262-a84c-9d65182bb267",
+    "node_type": "entity",
+    "slug": "diffuser",
+    "name": "Diffuser",
+    "description": ""
+  },
+  {
+    "id": "13e3ab0a-22da-4660-996b-3e6bdde3ed29",
+    "node_type": "entity",
+    "slug": "ring-light",
+    "name": "Ring Light",
+    "description": ""
+  },
+  {
+    "id": "ecf0f165-4970-426e-a1f1-c25a66ec612f",
+    "node_type": "entity",
+    "slug": "macro-rail",
+    "name": "Macro Rail",
+    "description": ""
+  },
+  {
+    "id": "ac487368-93c7-4351-9308-3e4438ea63aa",
+    "node_type": "entity",
+    "slug": "lens",
+    "name": "Lens",
+    "description": ""
+  },
+  {
+    "id": "160a4efb-ef92-4c44-919d-3bfd025a4f9b",
+    "node_type": "entity",
+    "slug": "filter-pack",
+    "name": "Filter Pack",
+    "description": ""
+  },
+  {
+    "id": "20f518a6-31ff-4059-87c4-b83918eb9fb4",
+    "node_type": "entity",
+    "slug": "bonsai-tree",
+    "name": "Bonsai Tree",
+    "description": ""
+  },
+  {
+    "id": "ddee842a-55f3-456b-a5b3-eed7705f622c",
+    "node_type": "entity",
+    "slug": "pruning-shears",
+    "name": "Pruning Shears",
+    "description": ""
+  },
+  {
+    "id": "4828313a-da61-49d8-aae6-181555fa1389",
+    "node_type": "entity",
+    "slug": "wiring-tools",
+    "name": "Wiring Tools",
+    "description": ""
+  },
+  {
+    "id": "7257c7c4-1881-494c-8279-ae355c5648c6",
+    "node_type": "entity",
+    "slug": "bonsai-pot",
+    "name": "Bonsai Pot",
+    "description": ""
+  },
+  {
+    "id": "d4387362-2913-4b39-a1a9-735fe218b5ff",
+    "node_type": "entity",
+    "slug": "glass-container",
+    "name": "Glass Container",
+    "description": ""
+  },
+  {
+    "id": "a6714dad-ab13-4264-8df1-7a8cf332968c",
+    "node_type": "entity",
+    "slug": "terrarium-soil",
+    "name": "Terrarium Soil",
+    "description": ""
+  },
+  {
+    "id": "2fe7cfb4-333c-4048-88e7-20188bb77d4f",
+    "node_type": "entity",
+    "slug": "moss",
+    "name": "Moss",
+    "description": ""
+  },
+  {
+    "id": "a53d5050-78b9-485b-9e86-09443a76b08a",
+    "node_type": "entity",
+    "slug": "small-plants",
+    "name": "Small Plants",
+    "description": ""
+  },
+  {
+    "id": "4a5784e7-ef2e-4dd1-a781-c51f9e69bcd4",
+    "node_type": "entity",
+    "slug": "decorative-stones",
+    "name": "Decorative Stones",
+    "description": ""
+  },
+  {
+    "id": "1c8eb0e7-4c8b-417e-b3e0-35c02dbd482b",
+    "node_type": "concept",
+    "slug": "environmental-stewardship",
+    "name": "Environmental Stewardship",
+    "description": ""
+  },
+  {
+    "id": "c21d36a1-1f86-4813-85be-7759a3a3399d",
+    "node_type": "entity",
+    "slug": "raised-beds",
+    "name": "Raised Beds",
+    "description": ""
+  },
+  {
+    "id": "bbbfbb8d-cbdc-409b-ab69-3382ce5f67b7",
+    "node_type": "entity",
+    "slug": "irrigation-system",
+    "name": "Irrigation System",
+    "description": ""
+  },
+  {
+    "id": "0324cfdf-d42a-4d6a-b43c-08cf27c6df04",
+    "node_type": "entity",
+    "slug": "furniture",
+    "name": "Furniture",
+    "description": ""
+  },
+  {
+    "id": "cbbe6c88-99f1-40b3-8ea4-f98befe119ad",
+    "node_type": "entity",
+    "slug": "lighting-fixtures",
+    "name": "Lighting Fixtures",
+    "description": ""
+  },
+  {
+    "id": "22ff139a-9dee-4f6f-808d-90d4a363edf5",
+    "node_type": "entity",
+    "slug": "textiles",
+    "name": "Textiles",
+    "description": ""
+  },
+  {
+    "id": "a1e770d0-303a-48b2-9444-ef945055e802",
+    "node_type": "entity",
+    "slug": "decorative-accessories",
+    "name": "Decorative Accessories",
+    "description": ""
+  },
+  {
+    "id": "01b3479e-a6b0-4e92-bc5e-760e35174e8f",
+    "node_type": "entity",
+    "slug": "compost-bin",
+    "name": "Compost Bin",
+    "description": ""
+  },
+  {
+    "id": "a3dd746c-bfe9-408f-a1b2-5f372590be2b",
+    "node_type": "entity",
+    "slug": "food-scraps",
+    "name": "Food Scraps",
+    "description": ""
+  },
+  {
+    "id": "d30297fd-5668-4fc5-a6f3-c380613039c3",
+    "node_type": "entity",
+    "slug": "yard-waste",
+    "name": "Yard Waste",
+    "description": ""
+  },
+  {
+    "id": "70b6f937-2543-4492-abf2-963f8fb655b3",
+    "node_type": "entity",
+    "slug": "brown-materials",
+    "name": "Brown Materials",
+    "description": ""
+  },
+  {
+    "id": "ea1b0b21-0d83-42c5-96ba-0af810dc79b5",
+    "node_type": "entity",
+    "slug": "finished-compost",
+    "name": "Finished Compost",
+    "description": ""
+  },
+  {
+    "id": "c311bfbb-93e1-4a04-9fd7-1ad39494c3e9",
+    "node_type": "outcome",
+    "slug": "environmental-contribution",
+    "name": "Environmental Contribution",
+    "description": ""
+  },
+  {
+    "id": "b188bae2-06cd-44e4-8ec3-cada9e3f51f7",
+    "node_type": "entity",
+    "slug": "houseplants",
+    "name": "Houseplants",
+    "description": ""
+  },
+  {
+    "id": "2339ca09-6955-462f-a007-a320fec7ffa4",
+    "node_type": "entity",
+    "slug": "pots",
+    "name": "Pots",
+    "description": ""
+  },
+  {
+    "id": "91fb7044-c294-4b23-b356-6a1fefa0a383",
+    "node_type": "entity",
+    "slug": "potting-soil",
+    "name": "Potting Soil",
+    "description": ""
+  },
+  {
+    "id": "8e2d22ed-bfa0-4e19-aa75-b26717fb6ee0",
+    "node_type": "entity",
+    "slug": "plant-stand",
+    "name": "Plant Stand",
+    "description": ""
+  },
+  {
+    "id": "3a74021f-65b3-49ef-9ac0-83d01fabcca3",
+    "node_type": "entity",
+    "slug": "watering-can",
+    "name": "Watering Can",
+    "description": ""
+  },
+  {
+    "id": "12abc695-6ec4-4b27-80a4-ba142becc8a7",
+    "node_type": "concept",
+    "slug": "compassion",
+    "name": "Compassion",
+    "description": ""
+  },
+  {
+    "id": "27f0dec5-e3d7-43a6-88b2-804f5b37857a",
+    "node_type": "concept",
+    "slug": "social-responsibility",
+    "name": "Social Responsibility",
+    "description": ""
+  },
+  {
+    "id": "1107dadd-58bd-46fb-bc71-2330a5a5337b",
+    "node_type": "entity",
+    "slug": "volunteer-organization",
+    "name": "Volunteer Organization",
+    "description": ""
+  },
+  {
+    "id": "092630b5-4271-454f-86f3-f640450b2c2b",
+    "node_type": "entity",
+    "slug": "community-members",
+    "name": "Community Members",
+    "description": ""
+  },
+  {
+    "id": "21a50e3d-b549-409c-b36b-acda47b90b8a",
+    "node_type": "entity",
+    "slug": "service-projects",
+    "name": "Service Projects",
+    "description": ""
+  },
+  {
+    "id": "e1ccd1b6-18fc-4fe6-9c26-eff1f5d666c7",
+    "node_type": "entity",
+    "slug": "training-materials",
+    "name": "Training Materials",
+    "description": ""
+  },
+  {
+    "id": "22a87f31-04a5-4ff7-addc-b9d682b52db7",
+    "node_type": "concept",
+    "slug": "literary-analysis",
+    "name": "Literary Analysis",
+    "description": ""
+  },
+  {
+    "id": "41a6a8ff-050e-481b-beab-d4065a7bdd5a",
+    "node_type": "entity",
+    "slug": "reading-guides",
+    "name": "Reading Guides",
+    "description": ""
+  },
+  {
+    "id": "944e45a7-0d78-4493-86d1-d5fb86234f21",
+    "node_type": "entity",
+    "slug": "meeting-space",
+    "name": "Meeting Space",
+    "description": ""
+  },
+  {
+    "id": "e34129f9-d5e6-4690-acfc-b747406c49fd",
+    "node_type": "entity",
+    "slug": "literary-analysis-tools",
+    "name": "Literary Analysis Tools",
+    "description": ""
+  },
+  {
+    "id": "6b785199-f115-4707-975a-dbe965c27576",
+    "node_type": "concept",
+    "slug": "persuasion",
+    "name": "Persuasion",
+    "description": ""
+  },
+  {
+    "id": "c3cbf2f1-40a6-4c95-bc93-2d731b987e10",
+    "node_type": "concept",
+    "slug": "public-speaking",
+    "name": "Public Speaking",
+    "description": ""
+  },
+  {
+    "id": "ad24c770-6614-413c-8839-4e4e20976c38",
+    "node_type": "concept",
+    "slug": "critical-thinking",
+    "name": "Critical Thinking",
+    "description": ""
+  },
+  {
+    "id": "fd54e20f-c715-4228-9922-61e5dfa30ce6",
+    "node_type": "entity",
+    "slug": "debate-resolutions",
+    "name": "Debate Resolutions",
+    "description": ""
+  },
+  {
+    "id": "2c6cb795-0d85-4025-973c-637c73b916e0",
+    "node_type": "entity",
+    "slug": "evidence-files",
+    "name": "Evidence Files",
+    "description": ""
+  },
+  {
+    "id": "ad881e4c-18b0-4296-a7f4-ceaa0168809d",
+    "node_type": "entity",
+    "slug": "briefs",
+    "name": "Briefs",
+    "description": ""
+  },
+  {
+    "id": "53b99950-9bb4-4682-8669-5fd78be91f5b",
+    "node_type": "entity",
+    "slug": "arguments",
+    "name": "Arguments",
+    "description": ""
+  },
+  {
+    "id": "d41ca829-77c6-4f4f-95f1-0738ba02d449",
+    "node_type": "entity",
+    "slug": "speaking-notes",
+    "name": "Speaking Notes",
+    "description": ""
+  },
+  {
+    "id": "35b9eda1-4551-46f1-8582-3ce63d6da7c7",
+    "node_type": "concept",
+    "slug": "language-learning",
+    "name": "Language Learning",
+    "description": ""
+  },
+  {
+    "id": "b6d50770-06c0-4dec-8411-a7fb33d5bab2",
+    "node_type": "entity",
+    "slug": "language-partner",
+    "name": "Language Partner",
+    "description": ""
+  },
+  {
+    "id": "5fac6269-1440-406b-8784-6c2e600ada9b",
+    "node_type": "entity",
+    "slug": "conversation-topics",
+    "name": "Conversation Topics",
+    "description": ""
+  },
+  {
+    "id": "c69e92cc-588c-4b73-bc45-42ac94dfce46",
+    "node_type": "entity",
+    "slug": "online-platform",
+    "name": "Online Platform",
+    "description": ""
+  },
+  {
+    "id": "8c144636-7dff-4ec5-8d41-1ac66ae7c13a",
+    "node_type": "entity",
+    "slug": "audio-video-tools",
+    "name": "Audio Video Tools",
+    "description": ""
+  },
+  {
+    "id": "a9e9293e-66af-4aa7-aaa7-09403f1114e4",
+    "node_type": "entity",
+    "slug": "trivia-questions",
+    "name": "Trivia Questions",
+    "description": ""
+  },
+  {
+    "id": "03c2c2fb-c987-4a27-abf4-fd50d526d628",
+    "node_type": "entity",
+    "slug": "scoresheet",
+    "name": "Scoresheet",
+    "description": ""
+  },
+  {
+    "id": "6497bd9d-0993-4442-a225-8b18229bb249",
+    "node_type": "entity",
+    "slug": "team-members",
+    "name": "Team Members",
+    "description": ""
+  },
+  {
+    "id": "4d5fdb53-2a5a-449a-ae7d-a2e7ec934e03",
+    "node_type": "entity",
+    "slug": "costume",
+    "name": "Costume",
+    "description": ""
+  },
+  {
+    "id": "daf12181-e881-4495-ab90-9b1b0094f5af",
+    "node_type": "concept",
+    "slug": "memory-preservation",
+    "name": "Memory Preservation",
+    "description": ""
+  },
+  {
+    "id": "2efd0587-d8b0-432c-93c8-99b2591ca0dd",
+    "node_type": "entity",
+    "slug": "journal",
+    "name": "Journal",
+    "description": ""
+  },
+  {
+    "id": "24138118-413e-4093-90a8-52182d1ce45f",
+    "node_type": "entity",
+    "slug": "sketches",
+    "name": "Sketches",
+    "description": ""
+  },
+  {
+    "id": "f3d18e00-e34f-4a1d-8a10-60803d743a20",
+    "node_type": "entity",
+    "slug": "spices",
+    "name": "Spices",
+    "description": ""
+  },
+  {
+    "id": "858b4998-50f1-419f-847e-6514556dd221",
+    "node_type": "entity",
+    "slug": "recipe-book",
+    "name": "Recipe Book",
+    "description": ""
+  },
+  {
+    "id": "4b1fd083-7abf-421b-92f2-460d4e31cf23",
+    "node_type": "entity",
+    "slug": "cooking-utensils",
+    "name": "Cooking Utensils",
+    "description": ""
+  },
+  {
+    "id": "e6158c94-20ff-4144-b256-56e6705bf529",
+    "node_type": "entity",
+    "slug": "artwork",
+    "name": "Artwork",
+    "description": ""
+  },
+  {
+    "id": "7d351f76-8ed8-4d66-ac13-51f479edff8b",
+    "node_type": "entity",
+    "slug": "exhibit-labels",
+    "name": "Exhibit Labels",
+    "description": ""
+  },
+  {
+    "id": "c55f6ac5-dcb6-4425-9f5a-688cb696dd35",
+    "node_type": "entity",
+    "slug": "museum-guide",
+    "name": "Museum Guide",
+    "description": ""
+  },
+  {
+    "id": "09f13cd9-ef2a-46aa-ba62-60b3a260a59c",
+    "node_type": "concept",
+    "slug": "observation",
+    "name": "Observation",
+    "description": ""
+  },
+  {
+    "id": "f97fb122-312b-4bf3-aea8-55a0261591a5",
+    "node_type": "entity",
+    "slug": "sketchbook",
+    "name": "Sketchbook",
+    "description": ""
+  },
+  {
+    "id": "0ee1c9cc-0f16-4c5e-907c-9291659206c4",
+    "node_type": "entity",
+    "slug": "pencils",
+    "name": "Pencils",
+    "description": ""
+  },
+  {
+    "id": "7d6d9f4a-1db8-494f-8896-8a973ad5151a",
+    "node_type": "entity",
+    "slug": "ink-pen",
+    "name": "Ink Pen",
+    "description": ""
+  },
+  {
+    "id": "72defe66-8c1b-49b4-a343-8d9b661d9c0a",
+    "node_type": "entity",
+    "slug": "locomotive",
+    "name": "Locomotive",
+    "description": ""
+  },
+  {
+    "id": "c1970695-87fd-48ef-bdac-ca81d7008b54",
+    "node_type": "entity",
+    "slug": "spotting-log",
+    "name": "Spotting Log",
+    "description": ""
+  },
+  {
+    "id": "9c157a3f-13a2-40ad-b478-c0abb3ee89de",
+    "node_type": "entity",
+    "slug": "pattern-paper",
+    "name": "Pattern Paper",
+    "description": ""
+  },
+  {
+    "id": "2a853394-1350-47c5-89f1-ad94df2e72c9",
+    "node_type": "concept",
+    "slug": "fashion-appreciation",
+    "name": "Fashion Appreciation",
+    "description": ""
+  },
+  {
+    "id": "55f87eff-9281-4b7b-a4dd-1dc83484e709",
+    "node_type": "entity",
+    "slug": "conservation-supplies",
+    "name": "Conservation Supplies",
+    "description": ""
+  },
+  {
+    "id": "0ad29ec4-0c6c-475b-a94a-5114fc8a01c1",
+    "node_type": "concept",
+    "slug": "personal-expression",
+    "name": "Personal Expression",
+    "description": ""
+  },
+  {
+    "id": "be7c23a8-b61e-4d1a-890d-5c146ef09f00",
+    "node_type": "entity",
+    "slug": "nail-polish",
+    "name": "Nail Polish",
+    "description": ""
+  },
+  {
+    "id": "759052f8-2cc0-425a-92e5-d2bd44fbd952",
+    "node_type": "entity",
+    "slug": "stamper",
+    "name": "Stamper",
+    "description": ""
+  },
+  {
+    "id": "ad4026e6-9bec-44ec-8d33-6de1e13e9481",
+    "node_type": "entity",
+    "slug": "dye",
+    "name": "Dye",
+    "description": ""
+  },
+  {
+    "id": "18a6748e-8d69-46e0-b7b5-91c45efce5f6",
+    "node_type": "entity",
+    "slug": "rubber-band",
+    "name": "Rubber Band",
+    "description": ""
+  },
+  {
+    "id": "208fdbbe-1843-4e5c-9360-81da43e77864",
+    "node_type": "entity",
+    "slug": "old-clothing",
+    "name": "Old Clothing",
+    "description": ""
+  },
+  {
+    "id": "3341133a-335b-4a1c-afee-c20bf688d354",
+    "node_type": "entity",
+    "slug": "shinai",
+    "name": "Shinai",
+    "description": ""
+  },
+  {
+    "id": "807fd098-e3d8-4fec-8de5-e6c3757025f8",
+    "node_type": "entity",
+    "slug": "bogu-armor",
+    "name": "Bogu Armor",
+    "description": ""
+  },
+  {
+    "id": "27ef38a1-e3fb-46af-81a4-d3044c51660a",
+    "node_type": "entity",
+    "slug": "katana",
+    "name": "Katana",
+    "description": ""
+  },
+  {
+    "id": "3b59da6e-5bc9-4f09-931f-3839971cc3ee",
+    "node_type": "concept",
+    "slug": "japanese-history",
+    "name": "Japanese History",
+    "description": ""
+  },
+  {
+    "id": "a5bff8f8-6dee-47b6-ab7c-29a8ed7e1724",
+    "node_type": "entity",
+    "slug": "bokken",
+    "name": "Bokken",
+    "description": ""
+  },
+  {
+    "id": "47d3a22b-6b2d-4641-b6a2-a19c74acf0ed",
+    "node_type": "entity",
+    "slug": "sword",
+    "name": "Sword",
+    "description": ""
+  },
+  {
+    "id": "e7a02276-9521-4d19-9b8d-0959eb0747e5",
+    "node_type": "entity",
+    "slug": "hakama",
+    "name": "Hakama",
+    "description": ""
+  },
+  {
+    "id": "fe5bfde3-cfb6-4ba9-9815-e9d50d15ffb7",
+    "node_type": "outcome",
+    "slug": "personal-growth",
+    "name": "Personal Growth",
+    "description": ""
+  },
+  {
+    "id": "884e4a33-735a-468f-be14-c7343724cbf6",
+    "node_type": "entity",
+    "slug": "yumi",
+    "name": "Yumi",
+    "description": ""
+  },
+  {
+    "id": "fb171637-6b8b-4b0b-874a-3f189d8c2620",
+    "node_type": "entity",
+    "slug": "archery-range",
+    "name": "Archery Range",
+    "description": ""
+  },
+  {
+    "id": "e4817c96-ae26-4ceb-b1ad-9af54757751c",
+    "node_type": "entity",
+    "slug": "flowers",
+    "name": "Flowers",
+    "description": ""
+  },
+  {
+    "id": "bb7488e5-4627-49a1-a7d0-37a5ab64840d",
+    "node_type": "entity",
+    "slug": "kenzan",
+    "name": "Kenzan",
+    "description": ""
+  },
+  {
+    "id": "97bd1914-c97d-43b8-9754-3c53aef9b5d1",
+    "node_type": "entity",
+    "slug": "ink-stone",
+    "name": "Ink Stone",
+    "description": ""
+  },
+  {
+    "id": "ad141c00-e20f-4c81-939b-dac3a643ab04",
+    "node_type": "entity",
+    "slug": "chasen-whisk",
+    "name": "Chasen Whisk",
+    "description": ""
+  },
+  {
+    "id": "2d446251-25b6-4dfd-a7ac-513dc485e126",
+    "node_type": "entity",
+    "slug": "chawan-bowl",
+    "name": "Chawan Bowl",
+    "description": ""
+  },
+  {
+    "id": "de347529-d68e-42b2-90e7-cc05ac806802",
+    "node_type": "entity",
+    "slug": "matcha-powder",
+    "name": "Matcha Powder",
+    "description": ""
+  }
+]

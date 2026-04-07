@@ -4,6 +4,7 @@ type Hobby struct {
 	ID                string
 	Slug              string
 	Name              string
+	NameZH            string
 	ShortDesc         string
 	LongDesc          string
 	DifficultySummary string

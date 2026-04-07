@@ -23,8 +23,8 @@ func (r *GraphRepo) DB() *sql.DB {
 func (r *GraphRepo) GetNode(ctx context.Context, id string) (*domain.Node, error) {
 	var n domain.Node
 	err := r.db.QueryRowContext(ctx,
-		"SELECT id, node_type, slug, name, description FROM nodes WHERE id = ?", id).
-		Scan(&n.ID, &n.Type, &n.Slug, &n.Name, &n.Description)
+		"SELECT id, node_type, slug, name, COALESCE(name_zh, ''), description FROM nodes WHERE id = ?", id).
+		Scan(&n.ID, &n.Type, &n.Slug, &n.Name, &n.NameZH, &n.Description)
 	if err != nil {
 		return nil, err
 	}

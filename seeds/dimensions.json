@@ -1,0 +1,122 @@
+[
+  {
+    "id": "d_startup_cost",
+    "key": "startup_cost",
+    "label": "Startup cost",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "One-time cost to begin the hobby"
+  },
+  {
+    "id": "d_ongoing_cost",
+    "key": "ongoing_cost",
+    "label": "Ongoing cost",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "Recurring monthly/annual expenses"
+  },
+  {
+    "id": "d_time_per_session",
+    "key": "time_per_session",
+    "label": "Time per session",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "Typical time investment per session"
+  },
+  {
+    "id": "d_consistency_required",
+    "key": "consistency_required",
+    "label": "Consistency required",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "How regularly you need to practice"
+  },
+  {
+    "id": "d_physical_demand",
+    "key": "physical_demand",
+    "label": "Physical demand",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "Level of physical exertion required"
+  },
+  {
+    "id": "d_space_required",
+    "key": "space_required",
+    "label": "Space required",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "Physical space needed to practice"
+  },
+  {
+    "id": "d_social_dependency",
+    "key": "social_dependency",
+    "label": "Social dependency",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "How much the hobby depends on other people"
+  },
+  {
+    "id": "d_learning_curve",
+    "key": "learning_curve",
+    "label": "Learning curve",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "Difficulty of reaching competence"
+  },
+  {
+    "id": "d_first_win_difficulty",
+    "key": "first_win_difficulty",
+    "label": "First win difficulty",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "How long until first satisfying result"
+  },
+  {
+    "id": "d_age_longevity",
+    "key": "age_longevity",
+    "label": "Age longevity",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "How long you can practice this into old age"
+  },
+  {
+    "id": "d_gear_dependency",
+    "key": "gear_dependency",
+    "label": "Gear dependency",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "Reliance on specialized equipment"
+  },
+  {
+    "id": "d_portability",
+    "key": "portability",
+    "label": "Portability",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "Ability to practice in different locations"
+  },
+  {
+    "id": "d_injury_risk",
+    "key": "injury_risk",
+    "label": "Injury risk",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "Risk of physical injury during practice"
+  },
+  {
+    "id": "d_creative_expression",
+    "key": "creative_expression",
+    "label": "Creative expression",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "Opportunity for personal creative output"
+  },
+  {
+    "id": "d_historical_cultural_depth",
+    "key": "historical_cultural_depth",
+    "label": "Historical/cultural depth",
+    "min_value": 0,
+    "max_value": 1,
+    "description": "Richness of history and cultural tradition"
+  }
+]

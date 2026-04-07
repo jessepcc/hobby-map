@@ -35,12 +35,12 @@ func NewHobbyRepo(db *sql.DB) *HobbyRepo {
 
 func (r *HobbyRepo) GetByID(ctx context.Context, id string) (*domain.Hobby, error) {
 	row := r.db.QueryRowContext(ctx, `
-		SELECT n.id, n.slug, n.name, h.short_desc, h.long_desc, h.difficulty_summary, h.starter_path, h.popularity
+		SELECT n.id, n.slug, n.name, COALESCE(n.name_zh, ''), h.short_desc, h.long_desc, h.difficulty_summary, h.starter_path, h.popularity
 		FROM nodes n JOIN hobbies h ON h.node_id = n.id
 		WHERE n.id = ?`, id)
 
 	var h domain.Hobby
-	err := row.Scan(&h.ID, &h.Slug, &h.Name, &h.ShortDesc, &h.LongDesc, &h.DifficultySummary, &h.StarterPath, &h.Popularity)
+	err := row.Scan(&h.ID, &h.Slug, &h.Name, &h.NameZH, &h.ShortDesc, &h.LongDesc, &h.DifficultySummary, &h.StarterPath, &h.Popularity)
 	if err != nil {
 		return nil, fmt.Errorf("hobby %s not found: %w", id, err)
 	}
@@ -83,7 +83,7 @@ func (r *HobbyRepo) List(ctx context.Context, f ListFilter) ([]domain.Hobby, err
 	addDimFilter("d_space_required", f.SpaceRequiredMax)
 	addDimFilter("d_social_dependency", f.SocialDependencyMax)
 
-	query := `SELECT n.id, n.slug, n.name, h.short_desc, h.long_desc, h.difficulty_summary, h.starter_path, h.popularity
+	query := `SELECT n.id, n.slug, n.name, COALESCE(n.name_zh, ''), h.short_desc, h.long_desc, h.difficulty_summary, h.starter_path, h.popularity
 		FROM nodes n JOIN hobbies h ON h.node_id = n.id WHERE n.node_type = 'hobby'`
 
 	if len(where) > 0 {
@@ -102,7 +102,7 @@ func (r *HobbyRepo) List(ctx context.Context, f ListFilter) ([]domain.Hobby, err
 	var hobbies []domain.Hobby
 	for rows.Next() {
 		var h domain.Hobby
-		if err := rows.Scan(&h.ID, &h.Slug, &h.Name, &h.ShortDesc, &h.LongDesc, &h.DifficultySummary, &h.StarterPath, &h.Popularity); err != nil {
+		if err := rows.Scan(&h.ID, &h.Slug, &h.Name, &h.NameZH, &h.ShortDesc, &h.LongDesc, &h.DifficultySummary, &h.StarterPath, &h.Popularity); err != nil {
 			rows.Close()
 			return nil, err
 		}
