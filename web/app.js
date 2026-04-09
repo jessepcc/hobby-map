@@ -4,32 +4,22 @@ const state = {
   compareIds: new Set(),
   charts: {},
   visibleCount: 15,
+  exploreSource: [],
+  exploreQuery: '',
   lastMemory: null,
   lastSignals: null,
   lastResults: null,
 };
 
-// ── Explore Dimension Definitions ──
-const EXPLORE_DIMS = [
-  { id: 'cost', label: 'Commitment', lowPole: 'Casual', highPole: 'Dedicated',
-    phrases: ['Drop-in anytime', 'Light routine', 'Steady practice', 'Serious habit', 'Full dedication'],
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>' },
-  { id: 'phys', label: 'Cost', lowPole: 'Free', highPole: 'Premium',
-    phrases: ['Nearly free', 'Budget-friendly', 'Moderate spend', 'Real investment', 'Premium gear'],
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>' },
-  { id: 'time', label: 'Body', lowPole: 'Gentle', highPole: 'Intense',
-    phrases: ['Minimal effort', 'Light activity', 'Moderate exertion', 'Demanding', 'Full-body intense'],
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>' },
-  { id: 'space', label: 'Environment', lowPole: 'Anywhere', highPole: 'Dedicated space',
-    phrases: ['Do it anywhere', 'Small footprint', 'Some room needed', 'Specific venue', 'Fixed facility'],
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z"/><circle cx="12" cy="10" r="3"/></svg>' },
-  { id: 'social', label: 'Social', lowPole: 'Solo', highPole: 'Group',
-    phrases: ['Fully solo', 'Mostly alone', 'Flexible', 'With others', 'Team required'],
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="7" r="4"/><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="19" cy="7" r="3"/><path d="M21 21v-2a3 3 0 00-2-2.8"/></svg>' },
-  { id: 'depth', label: 'Depth', lowPole: 'Quick start', highPole: 'Deep mastery',
-    phrases: ['Pick up in a day', 'Short learning curve', 'Moderate depth', 'Years of growth', 'Lifelong pursuit'],
-    icon: '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>' },
-];
+// ── Explore Ranking Module ──
+const APP_ASSET_VERSION = '20260409';
+let EXPLORE_DIMS = [];
+let rankExploreHobbies = (hobbies) => hobbies;
+let getHobbies = async () => [];
+let getHobby = async () => { throw new Error('hobby not found'); };
+let compareHobbies = async () => [];
+let extractMemory = async () => ({ signals: [] });
+let recommend = async () => ({ results: [] });
 
 function updateDimVisuals(dd, value) {
   const phraseEl = document.getElementById('dim-phrase-' + dd.id);
@@ -51,21 +41,6 @@ function updateDimVisuals(dd, value) {
   if (ctrlEl) ctrlEl.classList.toggle('active', value !== 0.5);
 }
 
-// ── API ──
-async function api(path, opts) {
-  const res = await fetch('/api' + path, opts);
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({ error: res.statusText }));
-    throw new Error(err.error || res.statusText);
-  }
-  return res.json();
-}
-const getHobbies = (params = '') => api('/hobbies' + (params ? '?' + params : ''));
-const getHobby = (id) => api('/hobbies/' + id);
-const compareHobbies = (ids) => api('/compare', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ids }) });
-const extractMemory = (text) => api('/memory/extract', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ text, source: 'manual_paste' }) });
-const recommend = (signals, filters, limit, vectorResults) => api('/recommend', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ signals, filters: filters || {}, limit: limit || 20, vectorResults: vectorResults || [] }) });
-
 // ── Router ──
 function route() {
   const hash = location.hash || '#/';
@@ -79,8 +54,33 @@ function route() {
   else if (path === '/compare') renderCompare();
   else renderLanding();
 }
-window.addEventListener('hashchange', route);
-window.addEventListener('load', route);
+
+async function initApp() {
+  const [exploreModule, staticApiModule] = await Promise.all([
+    import('./explore-ranking.js?v=' + APP_ASSET_VERSION),
+    import('./static-api.js?v=' + APP_ASSET_VERSION),
+  ]);
+  EXPLORE_DIMS = exploreModule.EXPLORE_DIMS;
+  rankExploreHobbies = exploreModule.rankExploreHobbies;
+  getHobbies = staticApiModule.getHobbies;
+  getHobby = staticApiModule.getHobby;
+  compareHobbies = staticApiModule.compareHobbies;
+  extractMemory = staticApiModule.extractMemory;
+  recommend = staticApiModule.recommend;
+  window.addEventListener('hashchange', route);
+  route();
+}
+
+initApp().catch((err) => {
+  console.error('Failed to initialize app', err);
+  const app = document.getElementById('app');
+  if (app) {
+    app.replaceChildren(el('div', { cls: 'empty' }, [
+      el('p', null, 'Couldn’t load the app.'),
+      el('p', null, 'Refresh and try again.'),
+    ]));
+  }
+});
 
 function destroyCharts() {
   Object.values(state.charts).forEach(c => c.destroy());
@@ -200,15 +200,6 @@ function renderLanding() {
   guideCard.appendChild(refLink);
   guide.appendChild(guideCard);
   landing.appendChild(guide);
-
-  // Footer
-  const footer = el('div', { cls: 'footer-bar' });
-  footer.appendChild(el('span', null, 'No surveys'));
-  footer.appendChild(el('span', { cls: 'footer-dot' }, '\u00b7'));
-  footer.appendChild(el('span', null, 'AI-powered matching'));
-  footer.appendChild(el('span', { cls: 'footer-dot' }, '\u00b7'));
-  footer.appendChild(el('span', null, 'Instant results'));
-  landing.appendChild(footer);
 
   app.appendChild(landing);
 }
@@ -361,36 +352,46 @@ function renderResults() {
   // Cards Grid
   const grid = el('div', { cls: 'cards-grid' });
   state.lastResults.forEach((r, i) => {
-    const card = el('div', { cls: 'result-card', style: 'animation-delay:' + (i * 0.04) + 's', onClick: () => {
+    const card = el('div', { cls: 'result-card', style: 'animation-delay:' + (i * 0.06) + 's', onClick: () => {
       location.hash = '#/hobby/' + (r.hobbyId || r.rank);
     }});
+
+    // Thumbnail
+    if (r.slug) {
+      const thumbWrap = el('div', { cls: 'result-card-thumb' });
+      const img = el('img', { src: '/thumbnails/' + r.slug + '.jpg', alt: r.hobbyName, decoding: 'async', loading: i > 3 ? 'lazy' : 'eager' });
+      img.onerror = () => { thumbWrap.remove(); };
+      thumbWrap.appendChild(img);
+      // Rank badge
+      thumbWrap.appendChild(el('span', { cls: 'result-rank' }, '#' + (i + 1)));
+      card.appendChild(thumbWrap);
+    }
+
+    const body = el('div', { cls: 'result-card-body' });
 
     const header = el('div', { cls: 'card-header' });
     const content = el('div', { cls: 'card-content' });
     content.appendChild(el('h3', null, r.hobbyName));
 
-    // Separate tagged reasons (match/experience/goal) from descriptive text
-    const taggedReasons = [];
-    const descParts = [];
-    (r.reasons || []).forEach(reason => {
-      if (reason.startsWith('Matches your interest') || reason.startsWith('Relates to') || reason.startsWith('Fits your goal') || reason === 'Discovered via knowledge graph') {
-        taggedReasons.push(reason);
-      } else {
-        descParts.push(reason);
-      }
-    });
-
-    // Show descriptive text (short desc, difficulty) as card body — truncate to ~150 chars
-    const descText = descParts.join(' ').slice(0, 160);
-    if (descText) content.appendChild(el('p', { cls: 'card-desc' }, descText + (descParts.join(' ').length > 160 ? '…' : '')));
+    // Short description from hobby data
+    if (r.shortDesc) {
+      const desc = r.shortDesc.length > 120 ? r.shortDesc.slice(0, 120) + '…' : r.shortDesc;
+      content.appendChild(el('p', { cls: 'card-desc' }, desc));
+    }
     header.appendChild(content);
 
     const radarWrap = el('div', { cls: 'card-radar' });
     radarWrap.appendChild(el('canvas', { id: 'result-radar-' + i }));
     header.appendChild(radarWrap);
-    card.appendChild(header);
+    body.appendChild(header);
 
-    // Chips — only show tagged match reasons
+    // Chips — tagged match reasons
+    const taggedReasons = [];
+    (r.reasons || []).forEach(reason => {
+      if (reason.startsWith('Matches your interest') || reason.startsWith('Relates to') || reason.startsWith('Fits your goal') || reason === 'Discovered via knowledge graph') {
+        taggedReasons.push(reason);
+      }
+    });
     const chips = el('div', { cls: 'card-chips' });
     taggedReasons.slice(0, 3).forEach(reason => {
       let chipCls = 'chip chip-info';
@@ -400,7 +401,7 @@ function renderResults() {
       chips.appendChild(el('span', { cls: chipCls }, reason));
     });
     if (r.caution) chips.appendChild(el('span', { cls: 'chip chip-muted' }, r.caution));
-    card.appendChild(chips);
+    body.appendChild(chips);
 
     // Footer
     const footer = el('div', { cls: 'card-footer' });
@@ -408,8 +409,9 @@ function renderResults() {
       e.stopPropagation();
       location.hash = '#/hobby/' + (r.hobbyId || r.rank);
     }}, 'Explore this hobby \u2192'));
-    card.appendChild(footer);
+    body.appendChild(footer);
 
+    card.appendChild(body);
     grid.appendChild(card);
   });
   page.appendChild(grid);
@@ -431,7 +433,7 @@ async function renderExplore() {
   const header = el('div', { cls: 'explore-header' });
   const headerLeft = el('div', { cls: 'explore-header-left' });
   headerLeft.appendChild(el('h1', null, 'Explore by dimension'));
-  headerLeft.appendChild(el('p', null, 'Drag the axes to discover your ideal hobby. The catalogue reacts.'));
+  headerLeft.appendChild(el('p', null, 'Keep sliders centered to browse everything. Pull an axis left or right to favor hobbies near that profile.'));
   header.appendChild(headerLeft);
 
   const headerRight = el('div', { cls: 'explore-header-right' });
@@ -501,19 +503,16 @@ async function loadHobbies(query) {
   list.replaceChildren(el('div', { cls: 'loading' }, [el('span', { cls: 'spinner' }), 'Loading\u2026']));
   try {
     const params = new URLSearchParams();
-    if (query) { params.set('q', query); }
-    else {
-      const sliders = { startup_cost_max: 'f-cost', physical_demand_max: 'f-phys', time_per_session_max: 'f-time', space_required_max: 'f-space', social_dependency_max: 'f-social' };
-      Object.entries(sliders).forEach(([param, id]) => {
-        const v = parseFloat(document.getElementById(id)?.value || '1');
-        if (v < 1) params.set(param, v);
-      });
+    const normalizedQuery = query?.trim() || '';
+    if (normalizedQuery) {
+      params.set('q', normalizedQuery);
     }
-    params.set('limit', '50');
+    params.set('limit', normalizedQuery ? '50' : '250');
     const hobbies = await getHobbies(params.toString());
-    state.hobbies = hobbies;
+    state.exploreSource = hobbies;
+    state.exploreQuery = normalizedQuery;
     state.visibleCount = 15;
-    renderHobbyList(hobbies);
+    applyFilters();
   } catch (err) {
     const isNetwork = err.message === 'Failed to fetch' || err.message.includes('NetworkError');
     list.replaceChildren(el('div', { cls: 'empty' }, [
@@ -528,10 +527,30 @@ function doSearch() {
   loadHobbies(q || undefined);
 }
 
+function getExploreTargets() {
+  return EXPLORE_DIMS.reduce((targets, dd) => {
+    targets[dd.id] = parseFloat(document.getElementById('f-' + dd.id)?.value || '0.5');
+    return targets;
+  }, {});
+}
+
 function applyFilters() {
+  const ranked = rankExploreHobbies(state.exploreSource || [], getExploreTargets(), {
+    query: state.exploreQuery,
+  });
+  state.hobbies = ranked;
+  renderHobbyList(ranked);
+}
+
+function resetExploreControls() {
   const si = document.getElementById('search-input');
   if (si) si.value = '';
-  loadHobbies();
+  state.exploreQuery = '';
+  EXPLORE_DIMS.forEach(dd => {
+    const slider = document.getElementById('f-' + dd.id);
+    if (slider) slider.value = '0.5';
+    updateDimVisuals(dd, 0.5);
+  });
 }
 
 function renderHobbyList(hobbies) {
@@ -542,85 +561,76 @@ function renderHobbyList(hobbies) {
 
   if (!hobbies.length) {
     list.appendChild(el('div', { cls: 'empty' }, [
-      el('p', null, 'No hobbies matched those filters.'),
-      el('p', null, 'Try widening the sliders or clearing your search.'),
+      el('p', null, state.exploreQuery ? 'No hobbies matched that search.' : 'No hobbies are available right now.'),
+      el('p', null, state.exploreQuery ? 'Try a broader query or reset back to the full catalogue.' : 'Refresh and try again.'),
       el('button', { cls: 'btn-secondary', onClick: () => {
-        const si = document.getElementById('search-input');
-        if (si) si.value = '';
-        EXPLORE_DIMS.forEach(dd => {
-          const slider = document.getElementById('f-' + dd.id);
-          if (slider) slider.value = '0.5';
-          updateDimVisuals(dd, 0.5);
-        });
+        resetExploreControls();
         loadHobbies();
-      }}, 'Reset filters'),
+      }}, 'Reset explore'),
     ]));
     return;
   }
 
-  const resultsWrap = el('div', { cls: 'results-list' });
+  const gridHeader = el('div', { cls: 'hobby-grid-header' });
+  gridHeader.appendChild(el('h2', null, 'Best matches for your criteria'));
+  list.appendChild(gridHeader);
 
-  const rHeader = el('div', { cls: 'results-list-header' });
-  rHeader.appendChild(el('h2', null, 'Best matches for your criteria'));
-  resultsWrap.appendChild(rHeader);
+  const grid = el('div', { cls: 'hobby-grid' });
 
   const visible = hobbies.slice(0, state.visibleCount);
   visible.forEach((h, i) => {
-    const row = el('div', { cls: 'hobby-row', style: 'animation-delay:' + (i * 0.02) + 's', onClick: () => {
+    const card = el('div', { cls: 'hobby-card', style: 'animation-delay:' + (i * 0.02) + 's', onClick: () => {
       location.hash = '#/hobby/' + h.id;
     }});
 
-    // Rank
-    const rank = el('div', { cls: 'hobby-rank' });
-    rank.appendChild(el('span', null, String(i + 1)));
-    row.appendChild(rank);
+    // Thumbnail
+    const thumb = el('div', { cls: 'hobby-card-thumb' });
+    const imgAttrs = { src: '/thumbnails/' + h.slug + '.jpg', alt: h.name, decoding: 'async' };
+    if (i >= 6) imgAttrs.loading = 'lazy';
+    const img = el('img', imgAttrs);
+    img.onerror = function() { this.style.display = 'none'; };
+    thumb.appendChild(img);
 
-    // Image placeholder
-    const img = el('div', { cls: 'hobby-img' });
-    row.appendChild(img);
+    // Compare checkbox
+    const cmp = el('div', {
+      cls: 'hobby-card-compare' + (state.compareIds.has(h.id) ? ' selected' : ''),
+      onClick: (e) => { e.stopPropagation(); toggleCompare(h.id); renderHobbyList(hobbies); },
+    }, '\u2713');
+    thumb.appendChild(cmp);
+    card.appendChild(thumb);
 
-    // Info
-    const info = el('div', { cls: 'hobby-info' });
-    info.appendChild(el('h3', null, h.name));
-    info.appendChild(el('div', { cls: 'hobby-desc' }, h.shortDesc));
-    const tags = el('div', { cls: 'hobby-tags' });
-    if (h.tags) {
-      h.tags.slice(0, 3).forEach(t => tags.appendChild(el('span', { cls: 'hobby-tag' }, t)));
-    }
-    info.appendChild(tags);
-    row.appendChild(info);
+    // Body
+    const body = el('div', { cls: 'hobby-card-body' });
+    body.appendChild(el('h3', null, h.name));
+    body.appendChild(el('div', { cls: 'hobby-desc' }, h.shortDesc));
 
-    // Dimension bars
-    const dimsEl = el('div', { cls: 'hobby-dims' });
+    // Compact dimension bars
+    const dimsEl = el('div', { cls: 'hobby-card-dims' });
     const dimLabels = ['Commit', 'Cost', 'Body', 'Social', 'Depth'];
     const dimKeys = ['commitment', 'cost', 'body', 'social', 'depth'];
     dimKeys.forEach((key, di) => {
-      const dimRow = el('div', { cls: 'hobby-dim-row' });
-      dimRow.appendChild(el('span', { cls: 'hobby-dim-label' }, dimLabels[di]));
-      const bar = el('div', { cls: 'hobby-dim-bar' });
+      const dim = el('div', { cls: 'hobby-card-dim' });
+      dim.appendChild(el('span', { cls: 'hobby-card-dim-label' }, dimLabels[di]));
+      const bar = el('div', { cls: 'hobby-card-dim-bar' });
       const v = h.radar ? (h.radar[key] || 0) : 0;
-      bar.appendChild(el('div', { cls: 'hobby-dim-fill', style: 'width:' + (v * 100) + '%' }));
-      dimRow.appendChild(bar);
-      dimsEl.appendChild(dimRow);
+      bar.appendChild(el('div', { cls: 'hobby-card-dim-fill', style: 'width:' + (v * 100) + '%' }));
+      dim.appendChild(bar);
+      dimsEl.appendChild(dim);
     });
-    row.appendChild(dimsEl);
+    body.appendChild(dimsEl);
+    card.appendChild(body);
 
-    // Arrow
-    const arrow = el('div', { cls: 'hobby-arrow' });
-    arrow.appendChild(el('span', null, '\u2192'));
-    row.appendChild(arrow);
-
-    resultsWrap.appendChild(row);
+    grid.appendChild(card);
   });
 
   if (hobbies.length > state.visibleCount) {
     const remaining = hobbies.length - state.visibleCount;
     const more = el('div', { cls: 'show-more' });
     more.appendChild(el('button', { cls: 'btn-text', onClick: () => { state.visibleCount += 15; renderHobbyList(hobbies); } }, 'Show ' + remaining + ' more hobbies \u2193'));
-    resultsWrap.appendChild(more);
+    grid.appendChild(more);
   }
 
-  list.appendChild(resultsWrap);
+  list.appendChild(grid);
   renderCompareBar();
 }
 
@@ -670,27 +680,32 @@ async function renderCompare() {
     const hobbies = await compareHobbies(ids);
 
     page.appendChild(el('h1', null, 'Comparing ' + hobbies.length + ' hobbies'));
-    page.appendChild(el('p', { cls: 'compare-subtitle' }, 'Side-by-side view of all dimensions'));
-
-    // Layout: radar + legend
-    const layout = el('div', { cls: 'compare-layout' });
-    const radarWrap = el('div', { cls: 'compare-radar-wrap' });
-    radarWrap.appendChild(el('canvas', { id: 'compare-overlay-radar' }));
-    layout.appendChild(radarWrap);
 
     const colors = ['#FFD600', '#2d7d32', '#b8860b', '#555555'];
-    const legend = el('div', { cls: 'compare-legend' });
+
+    // Hobby cards with thumbnails
+    const cards = el('div', { cls: 'compare-cards' });
     hobbies.forEach((h, i) => {
-      const item = el('div', { cls: 'compare-legend-item' });
-      item.appendChild(el('div', { cls: 'compare-legend-dot', style: 'background:' + colors[i] }));
-      const info = el('div');
-      info.appendChild(el('div', { cls: 'compare-legend-name' }, h.name));
-      info.appendChild(el('div', { cls: 'compare-legend-desc' }, h.shortDesc || ''));
-      item.appendChild(info);
-      legend.appendChild(item);
+      const card = el('div', { cls: 'compare-card', style: 'border-bottom: 4px solid ' + colors[i], onClick: () => {
+        location.hash = '#/hobby/' + h.id;
+      }});
+      const thumb = el('div', { cls: 'compare-card-thumb' });
+      const img = el('img', { src: '/thumbnails/' + h.slug + '.jpg', alt: h.name, decoding: 'async' });
+      img.onerror = function() { this.style.display = 'none'; };
+      thumb.appendChild(img);
+      card.appendChild(thumb);
+      const body = el('div', { cls: 'compare-card-body' });
+      body.appendChild(el('div', { cls: 'compare-card-name' }, h.name));
+      body.appendChild(el('div', { cls: 'compare-card-desc' }, h.shortDesc || ''));
+      card.appendChild(body);
+      cards.appendChild(card);
     });
-    layout.appendChild(legend);
-    page.appendChild(layout);
+    page.appendChild(cards);
+
+    // Radar chart
+    const radarWrap = el('div', { cls: 'compare-radar-wrap' });
+    radarWrap.appendChild(el('canvas', { id: 'compare-overlay-radar' }));
+    page.appendChild(radarWrap);
 
     // Dim table
     page.appendChild(buildDimTable(hobbies));
@@ -726,39 +741,19 @@ async function renderDetail(id) {
   try {
     const h = await getHobby(id);
 
-    page.appendChild(el('h1', null, h.name));
-    if (h.aliases?.length) page.appendChild(el('div', { cls: 'detail-aliases' }, h.aliases.join(', ')));
+    // Hero: portrait thumbnail left, title + radar right
+    const hero = el('div', { cls: 'detail-hero' });
+    const heroImg = el('img', { cls: 'detail-hero-img', src: '/thumbnails/' + h.slug + '.jpg', alt: h.name, decoding: 'async' });
+    heroImg.onerror = function() { this.parentElement.style.display = 'none'; };
+    hero.appendChild(heroImg);
 
-    const layout = el('div', { cls: 'detail-layout' });
+    const heroInfo = el('div', { cls: 'detail-hero-info' });
+    heroInfo.appendChild(el('h1', null, h.name));
+    if (h.aliases?.length) heroInfo.appendChild(el('div', { cls: 'detail-aliases' }, h.aliases.join(', ')));
 
-    // Left: text sections
-    const left = el('div', { cls: 'detail-left' });
-
-    if (h.longDesc || h.shortDesc) {
-      const section = el('div', { cls: 'detail-section' });
-      section.appendChild(el('h3', null, 'About'));
-      section.appendChild(el('p', null, h.longDesc || h.shortDesc));
-      left.appendChild(section);
-    }
-    if (h.difficultySummary) {
-      const section = el('div', { cls: 'detail-section' });
-      section.appendChild(el('h3', null, 'Difficulty'));
-      section.appendChild(el('p', null, h.difficultySummary));
-      left.appendChild(section);
-    }
-    if (h.starterPath) {
-      const section = el('div', { cls: 'detail-section' });
-      section.appendChild(el('h3', null, 'Getting started'));
-      section.appendChild(el('p', null, h.starterPath));
-      left.appendChild(section);
-    }
-    layout.appendChild(left);
-
-    // Right: radar + dims
-    const right = el('div', { cls: 'detail-right' });
     const radarWrap = el('div', { cls: 'detail-radar-wrap' });
     radarWrap.appendChild(el('canvas', { id: 'detail-radar' }));
-    right.appendChild(radarWrap);
+    heroInfo.appendChild(radarWrap);
 
     // Dimension bars
     if (h.dimensions) {
@@ -780,10 +775,32 @@ async function renderDetail(id) {
         row.appendChild(el('span', { cls: 'detail-dim-value' }, (v * 100).toFixed(0)));
         dimsEl.appendChild(row);
       });
-      right.appendChild(dimsEl);
+      heroInfo.appendChild(dimsEl);
     }
-    layout.appendChild(right);
-    page.appendChild(layout);
+    hero.appendChild(heroInfo);
+    page.appendChild(hero);
+
+    // Text sections below
+    const sections = el('div', { cls: 'detail-sections' });
+    if (h.longDesc || h.shortDesc) {
+      const section = el('div', { cls: 'detail-section' });
+      section.appendChild(el('h3', null, 'About'));
+      section.appendChild(el('p', null, h.longDesc || h.shortDesc));
+      sections.appendChild(section);
+    }
+    if (h.difficultySummary) {
+      const section = el('div', { cls: 'detail-section' });
+      section.appendChild(el('h3', null, 'Difficulty'));
+      section.appendChild(el('p', null, h.difficultySummary));
+      sections.appendChild(section);
+    }
+    if (h.starterPath) {
+      const section = el('div', { cls: 'detail-section' });
+      section.appendChild(el('h3', null, 'Getting started'));
+      section.appendChild(el('p', null, h.starterPath));
+      sections.appendChild(section);
+    }
+    page.appendChild(sections);
 
     app.appendChild(page);
     if (h.radar) renderRadar('detail-radar', h.radar, h.name);
