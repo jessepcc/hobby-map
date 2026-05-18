@@ -1,0 +1,38 @@
+# Hobby Map
+
+Discover 200+ hobbies matched to your personality, traits, and interests. Not a quiz — paste how an AI sees you and get embedding-based recommendations.
+
+## What it does
+- Paste text describing yourself (AI memory, interests, lifestyle)
+- Get ranked hobby recommendations with multi-factor scoring
+- Visualize matches across 6 radar axes: Commitment, Cost, Body, Environment, Social, Depth
+- Compare hobbies side-by-side
+- Explore the full hobby knowledge graph
+
+## How matching works
+- Vector similarity via Transformers.js (in-browser embeddings)
+- Full-text search across hobby descriptions
+- Knowledge graph traversal (concept → hobby edges)
+- Reciprocal Rank Fusion (RRF) merge
+- Multi-factor scoring: Vector (0.28), FTS (0.30), Graph (0.14), Dimension (0.12), Outcome (0.10), Novelty (0.06), Barrier (0.10)
+
+## Data Asset
+- 223 hobbies with detailed attributes
+- ~500 concepts (traits, interests, activities)
+- ~6,500 edges connecting concepts to hobbies
+- 15 raw dimensions normalized to 6 radar axes
+- Hobby-to-personality-trait mapping
+
+## Radar Axes
+- Commitment: time investment required
+- Cost: financial investment
+- Body: physical activity level
+- Environment: indoor/outdoor/social setting
+- Social: interaction with others
+- Depth: skill ceiling and mastery potential
+
+## Pages
+- Home: https://hobby-map.pages.dev
+- Explore: https://hobby-map.pages.dev/#/explore
+- Match: https://hobby-map.pages.dev/#/match
+- Compare: https://hobby-map.pages.dev/#/compare
