@@ -52,6 +52,7 @@ function route() {
   else if (path === '/results') renderResults();
   else if (path.startsWith('/hobby/')) renderDetail(path.split('/hobby/')[1]);
   else if (path === '/compare') renderCompare();
+  else if (path.startsWith('/share/')) renderShare(path.split('/share/')[1]);
   else renderLanding();
 }
 
@@ -415,6 +416,7 @@ function renderResults() {
     grid.appendChild(card);
   });
   page.appendChild(grid);
+  page.appendChild(buildShareBanner());
   app.appendChild(page);
 
   // Render radars
@@ -811,6 +813,123 @@ async function renderDetail(id) {
     ]));
     app.appendChild(page);
   }
+}
+
+// ════════════ SHARE ════════════
+
+function encodeShareData(results, signals) {
+  const hobbies = (results || []).slice(0, 5).map(r => ({ n: r.hobbyName, s: r.slug || '' }));
+  const traits = (signals || []).filter(s => s.type === 'interest').slice(0, 6).map(s => s.text);
+  const json = JSON.stringify({ v: 1, h: hobbies, t: traits });
+  const b64 = btoa(unescape(encodeURIComponent(json)));
+  return b64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+}
+
+function decodeShareData(encoded) {
+  try {
+    const pad = encoded.length % 4 ? encoded + '='.repeat(4 - encoded.length % 4) : encoded;
+    const json = decodeURIComponent(escape(atob(pad.replace(/-/g, '+').replace(/_/g, '/'))));
+    return JSON.parse(json);
+  } catch {
+    return null;
+  }
+}
+
+function buildShareBanner() {
+  const encoded = encodeShareData(state.lastResults, state.lastSignals);
+  const shareUrl = location.origin + location.pathname + '#/share/' + encoded;
+
+  const section = el('div', { cls: 'share-banner' });
+
+  const label = el('div', { cls: 'share-banner-label' });
+  label.appendChild(el('span', { cls: 'share-banner-icon' }, '↗'));
+  label.appendChild(el('span', null, 'Share your results'));
+  section.appendChild(label);
+
+  const row = el('div', { cls: 'share-url-row' });
+  row.appendChild(el('input', { cls: 'share-url-input', type: 'text', readonly: '', value: shareUrl }));
+  const copyBtn = el('button', { cls: 'share-copy-btn', onClick: () => {
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      copyBtn.textContent = '✓ Copied!';
+      setTimeout(() => { copyBtn.textContent = 'Copy link'; }, 2000);
+    });
+  }}, 'Copy link');
+  row.appendChild(copyBtn);
+  section.appendChild(row);
+
+  const previewLink = el('a', { cls: 'share-preview-link', href: '#/share/' + encoded }, 'Preview share card →');
+  section.appendChild(previewLink);
+
+  return section;
+}
+
+function renderShare(encoded) {
+  const app = document.getElementById('app');
+  app.replaceChildren();
+
+  const data = decodeShareData(encoded);
+  if (!data || !data.h?.length) {
+    const errPage = el('div', { cls: 'share-page' });
+    errPage.appendChild(el('div', { cls: 'empty' }, [
+      el('p', null, 'This share link looks broken.'),
+      el('a', { cls: 'btn-secondary', href: '#/' }, 'Try Hobby Map →'),
+    ]));
+    app.appendChild(errPage);
+    return;
+  }
+
+  const page = el('div', { cls: 'share-page' });
+
+  // Card
+  const card = el('div', { cls: 'share-card' });
+
+  const cardHeader = el('div', { cls: 'share-card-header' });
+  const wordmark = el('span', { cls: 'share-card-wordmark' }, [
+    'hobby', el('span', { cls: 'share-card-plus' }, '+'), 'map',
+  ]);
+  cardHeader.appendChild(wordmark);
+  card.appendChild(cardHeader);
+
+  card.appendChild(el('p', { cls: 'share-card-heading' }, 'My AI memory says I should try…'));
+
+  const hobbyList = el('div', { cls: 'share-hobby-list' });
+  data.h.forEach((h, i) => {
+    const item = el('div', { cls: 'share-hobby-item' });
+    item.appendChild(el('span', { cls: 'share-hobby-rank' }, '#' + (i + 1)));
+    if (h.s) {
+      const img = el('img', { cls: 'share-hobby-thumb', src: '/thumbnails/' + h.s + '.jpg', alt: h.n, loading: 'lazy', decoding: 'async' });
+      img.onerror = () => img.remove();
+      item.appendChild(img);
+    }
+    item.appendChild(el('span', { cls: 'share-hobby-name' }, h.n));
+    hobbyList.appendChild(item);
+  });
+  card.appendChild(hobbyList);
+
+  if (data.t?.length) {
+    const traitWrap = el('div', { cls: 'share-traits' });
+    traitWrap.appendChild(el('span', { cls: 'share-traits-label' }, "I'm:"));
+    const pills = el('div', { cls: 'share-trait-pills' });
+    data.t.forEach(t => pills.appendChild(el('span', { cls: 'share-trait-pill' }, t)));
+    traitWrap.appendChild(pills);
+    card.appendChild(traitWrap);
+  }
+
+  const footer = el('div', { cls: 'share-card-footer' });
+  footer.appendChild(el('span', { cls: 'share-card-url' }, 'hobby-map.pages.dev'));
+  card.appendChild(footer);
+
+  page.appendChild(card);
+
+  // CTA below card
+  const cta = el('div', { cls: 'share-cta' });
+  cta.appendChild(el('p', null, 'What does your AI memory say about you?'));
+  const ctaBtn = el('a', { cls: 'cta-btn', href: '#/' });
+  ctaBtn.textContent = 'Find your hobbies →';
+  cta.appendChild(ctaBtn);
+  page.appendChild(cta);
+
+  app.appendChild(page);
 }
 
 // ════════════ SHARED ════════════
